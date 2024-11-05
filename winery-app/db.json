@@ -1,0 +1,70 @@
+{
+  "country": [
+    {"id": 1, "country_name": "France"},
+    {"id": 2, "country_name": "Italy"}
+  ],
+  "region": [
+    {"id": 1, "region_name": "Bordeaux", "country_id": 1},
+    {"id": 2, "region_name": "Tuscany", "country_id": 2}
+  ],
+  "category": [
+    {"id": 1, "category_name": "Red Wine"},
+    {"id": 2, "category_name": "White Wine"}
+  ],
+  "producer": [
+    {"id": 1, "producer_name": "Chateau Margaux", "details": "Renowned French Winery", "region_id": 1},
+    {"id": 2, "producer_name": "Antinori", "details": "Historic Italian Winery", "region_id": 2}
+  ],
+  "bottle": [
+    {"id": 1, "full_name": "Chateau Margaux 2015", "category_id": 1, "label": "Premier Grand Cru", "volume": 750, "producer_id": 1, "year_produced": 2015, "picture": "path/img1.jpg", "alcohol_percentage": 13.5, "current_price": 500},
+    {"id": 2, "full_name": "Tignanello 2017", "category_id": 2, "label": "Super Tuscan", "producer_id": 2, "volume": 750, "year_produced": 2017, "picture": "path/img2.jpg", "alcohol_percentage": 14, "current_price": 150}
+  ],
+  "city": [
+    {"id": 1, "postal_code": 75001, "city_name": "Paris", "country_id": 1},
+    {"id": 2, "postal_code": 50122, "city_name": "Florence", "country_id": 2}
+  ],
+  "store": [
+    {"id": 1, "store_name": "Paris Wine House", "city_id": 1, "address": "123 Rue de Wine", "phone": "+33123456789", "mobile": "+33698765432", "email": "info@pariswine.com", "details": "Speciality wine store in Paris"},
+    {"id": 2, "store_name": "Florence Vintages", "city_id": 2, "address": "456 Viale dei Colli", "phone": "+390123456789", "mobile": "+390987654321", "email": "info@florencevintages.com", "details": "Fine wines from Tuscany and beyond"}
+  ],
+  "inventory": [
+    {"id": 1, "store_id": 1, "bottle_id": 1, "quantity": 10},
+    {"id": 2, "store_id": 2, "bottle_id": 2, "quantity": 5}
+  ],
+  "supplier": [
+    {"id": 1, "supplier_name": "French Wine Supplier", "address": "789 Supplier St, Paris", "phone": "+331223456789", "mobile": "+336753654321", "email": "sales@frenchwine.com", "details": "Supplier of French wines"},
+    {"id": 2, "supplier_name": "Italian Wine Supplier", "address": "133 Vino Way, Florence", "phone": "+390223456789", "mobile": "+390753654321", "email": "sales@italianwine.com", "details": "Supplier of Italian wines"}
+  ],
+  "order": [
+    {"id": 1, "order_number": "ORD001", "expected_delivery_date": "2024-12-01", "time_placed": "2024-11-01T10:00:00Z", "time_canceled": null, "time_delivered": null, "supplier_id": 1, "store_id": 1, "employee_id": 1, "order_price": 5000},
+    {"id": 2, "order_number": "ORD002", "expected_delivery_date": "2024-12-05", "time_placed": "2024-11-02T10:00:00Z", "time_canceled": null, "time_delivered": null, "supplier_id": 2, "store_id": 2, "employee_id": 2, "order_price": 3000}
+  ],
+  "orderItem": [
+    {"id": 1, "order_id": 1, "bottle_id": 1, "quantity": 10, "order_price": "4500"},
+    {"id": 2, "order_id": 2, "bottle_id": 2, "quantity": 5, "order_price": "3000"}
+  ],
+  "customer": [
+    {"id": 1, "username": "john_doe", "password": "password1", "customer_name": "John Doe", "address": "123 Main St, Paris", "phone": "+33123456789", "email": "johndoe@example.com"},
+    {"id": 2, "username": "jane_smith", "password": "password2", "customer_name": "Jane Smith", "address": "456 Park Ave, Florence", "phone": "+390123456789", "email": "janesmith@example.com"}
+  ],
+  "customerOrder": [
+    {"id": 1, "order_number": "CUSTORD001", "customer_id": 1, "store_id": 1, "expected_delivery_date": "2024-11-10", "time_placed": "2024-11-01T10:00:00Z", "order_price": 200},
+    {"id": 2, "order_number": "CUSTORD002", "customer_id": 2, "store_id": 2, "expected_delivery_date": "2024-11-12", "time_placed": "2024-11-02T10:00:00Z", "order_price": 150}
+  ],
+  "customerOrderItem": [
+    {"id": 1, "customer_order_id": 1, "bottle_id": 1, "quantity": 1, "order-price": 200},
+    {"id": 2, "customer_order_id": 2, "bottle_id": 2, "quantity": 1, "order-price": 150}
+  ],
+  "invoice": [
+    {"id": 1, "invoice_number": "INV001", "store_id": 1, "customer_order_id": 1, "customer_id": 1, "employee_id": 1, "invoice_total": 200, "time_created": "2024-11-01-T12:00:00Z"},
+    {"id": 2, "invoice_number": "INV002", "store_id": 2, "customer_order_id": 2, "customer_id": 2, "employee_id": 2, "invoice_total": 150, "time_created": "2024-11-01-T16:00:00Z"}
+  ],
+  "invoiceItem": [
+    {"id": 1, "invoice_id": 1, "bottle_id": 1, "quantity": 1, "item_price": 200},
+    { "id": 2, "invoice_id": 2, "bottle_id": 2, "quantity": 1, "item_price": 150}
+  ],
+  "employee": [
+    {"id": 1, "first_name": "Alice", "last_name": "Johnson", "username": "alice_j", "password": "hashedpassword3", "phone": "+33123456789", "email": "alice.johnson@example.com", "is_active": true},
+    {"id": 2, "first_name": "Bob", "last_name": "Williams", "username": "bob_w", "password": "hashedpassword4", "phone": "+390123456789", "email": "bob.williams@example.com", "is_active": true}
+  ]
+}
