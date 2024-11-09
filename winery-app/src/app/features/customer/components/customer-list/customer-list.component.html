@@ -17,8 +17,8 @@
 
   <ng-container matColumnDef="password">
     <th mat-header-cell *matHeaderCellDef> Password </th>
-    <td mat-cell *matCellDef="let bottle">
-      <input [type]="showPassword ? 'text' : 'password'" [value]="bottle.password" readonly class="password-input">
+    <td mat-cell *matCellDef="let customer">
+      <input [type]="showPassword ? 'text' : 'password'" [value]="customer.password" readonly class="password-input">
       <button mat-icon-button (click)="togglePassword()" class="password-toggle-button">
         <mat-icon class="password-icon">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
