@@ -15,4 +15,8 @@ export class CountryService {
   getAllCountries(): Observable<Country[]> {
     return this.http.get<Country[]>(this.apiUrl);
   }
+
+  getCountryById(id: number): Observable<Country> {
+    return this.http.get<Country>(`${this.apiUrl}/${id}`);
+  }
 }

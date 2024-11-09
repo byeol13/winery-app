@@ -15,6 +15,13 @@
     <td mat-cell *matCellDef="let country"> {{country.country_name}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let country">
+      <button mat-stroked-button (click)="viewDetails(country.id)">View More</button>
+    </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

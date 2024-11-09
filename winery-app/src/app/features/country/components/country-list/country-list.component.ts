@@ -4,6 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Country } from '../../../../shared/models/Country.model';
 import { CountryService } from '../../service/country.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-country-list',
@@ -15,9 +16,9 @@ import { CountryService } from '../../service/country.service';
 export class CountryListComponent implements OnInit{
 
   countries: Country[] = [];
-  displayedColumns: string[] = ['id', 'country_name'];
+  displayedColumns: string[] = ['id', 'country_name', 'actions'];
 
-  constructor(private countryService: CountryService){}
+  constructor(private countryService: CountryService, private router: Router){}
   
   ngOnInit(): void {
     this.loadAllCountries();
@@ -27,6 +28,10 @@ export class CountryListComponent implements OnInit{
     this.countryService.getAllCountries().subscribe((res) => {
       this.countries = res;
     })
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate([`/country`, id]);
   }
 
 }
