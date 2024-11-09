@@ -48,8 +48,8 @@
     {"id": 2, "username": "jane_smith", "password": "password2", "customer_name": "Jane Smith", "address": "456 Park Ave, Florence", "phone": "+390123456789", "email": "janesmith@example.com"}
   ],
   "customerOrder": [
-    {"id": 1, "order_number": "CUSTORD001", "customer_id": 1, "store_id": 1, "expected_delivery_date": "2024-11-10", "time_placed": "2024-11-01T10:00:00Z", "order_price": 200},
-    {"id": 2, "order_number": "CUSTORD002", "customer_id": 2, "store_id": 2, "expected_delivery_date": "2024-11-12", "time_placed": "2024-11-02T10:00:00Z", "order_price": 150}
+    {"id": 1, "order_number": "CUSTORD001", "customer_id": 1, "store_id": 1, "expected_delivery_date": "2024-11-10", "time_placed": "2024-11-01", "order_price": 200},
+    {"id": 2, "order_number": "CUSTORD002", "customer_id": 2, "store_id": 2, "expected_delivery_date": "2024-11-12", "time_placed": "2024-11-02", "order_price": 150}
   ],
   "customerOrderItem": [
     {"id": 1, "customer_order_id": 1, "bottle_id": 1, "quantity": 1, "order-price": 200},
