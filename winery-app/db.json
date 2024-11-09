@@ -16,8 +16,8 @@
     {"id": 2, "producer_name": "Antinori", "details": "Historic Italian Winery", "region_id": 2}
   ],
   "bottle": [
-    {"id": 1, "full_name": "Chateau Margaux 2015", "label": "Premier Grand Cru", "volume": 750, "year_produced": 2015, "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png", "alcohol_percentage": 13.5, "current_price": 500},
-    {"id": 2, "full_name": "Tignanello 2017", "label": "Super Tuscan", "volume": 750, "year_produced": 2017, "picture": "path/img2.jpg", "alcohol_percentage": 14, "current_price": 150}
+    {"id": 1, "full_name": "Chateau Margaux 2015", "category_id": 1, "label": "Premier Grand Cru", "volume": 750, "producer_id": 1, "year_produced": 2015, "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png", "alcohol_percentage": 13.5, "current_price": 500},
+    {"id": 2, "full_name": "Tignanello 2017", "category_id": 2, "label": "Super Tuscan", "producer_id": 2, "volume": 750, "year_produced": 2017, "picture": "path/img2.jpg", "alcohol_percentage": 14, "current_price": 150}
   ],
   "city": [
     {"id": 1, "postal_code": 75001, "city_name": "Paris", "country_id": 1},

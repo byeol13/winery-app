@@ -17,11 +17,13 @@ import { RegionListComponent } from './features/region/components/region-list/re
 import { StoreListComponent } from './features/store/components/store-list/store-list.component';
 import { SupplierListComponent } from './features/supplier/components/supplier-list/supplier-list.component';
 import { BottleDetailsComponent } from './features/bottle/components/bottle-details/bottle-details.component';
+import { CategoryDetailsComponent } from './features/category/components/category-details/category-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
   {path: 'bottle/:id', component: BottleDetailsComponent},
   {path: 'dashboard/category', component: CategoryListComponent},
+  {path: 'category/:id', component: CategoryDetailsComponent},
   {path: 'dashboard/city', component: CityListComponent},
   {path: 'dashboard/country', component: CountryListComponent},
   {path: 'dashboard/customer', component: CustomerListComponent},
