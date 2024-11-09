@@ -4,6 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { CustomerOrderItem } from '../../../../shared/models/CustomerOrderItem.model';
 import { CustomerOrderItemService } from '../../service/customer-order-item.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-order-item-list',
@@ -15,9 +16,9 @@ import { CustomerOrderItemService } from '../../service/customer-order-item.serv
 export class CustomerOrderItemListComponent implements OnInit{
 
   customerOrderItems: CustomerOrderItem[] = [];
-  displayedColumns: string[] = ['id', 'order_price'];
+  displayedColumns: string[] = ['id', 'order_price', 'actions'];
 
-  constructor(private customerOrderItemService: CustomerOrderItemService){}
+  constructor(private customerOrderItemService: CustomerOrderItemService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllCustomerOrderItems();
@@ -27,5 +28,9 @@ export class CustomerOrderItemListComponent implements OnInit{
     this.customerOrderItemService.getAllCustomerOrderItems().subscribe((res) => {
       this.customerOrderItems = res;
     })
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate([`/customerOrderItem`, id]);
   }
 }
