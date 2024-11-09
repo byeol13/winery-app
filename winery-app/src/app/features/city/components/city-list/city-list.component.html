@@ -20,12 +20,12 @@
     <td mat-cell *matCellDef="let city"> {{city.postal_code}} </td>
   </ng-container>
 
-  <!-- <ng-container matColumnDef="actions">
+  <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let bottle">
-      <button mat-stroked-button (click)="viewDetails(bottle.id)">View More</button>
+    <td mat-cell *matCellDef="let city">
+      <button mat-stroked-button (click)="viewDetails(city.id)">View More</button>
     </td>
-  </ng-container> -->
+  </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -15,4 +15,8 @@ export class CityService {
   getAllCities(): Observable<City[]> {
     return this.http.get<City[]>(this.apiUrl);
   }
+
+  getCityById(id: number): Observable<City> {
+    return this.http.get<City>(`${this.apiUrl}/${id}`);
+  }
 }
