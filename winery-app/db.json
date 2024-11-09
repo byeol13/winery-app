@@ -52,8 +52,8 @@
     {"id": 2, "order_number": "CUSTORD002", "customer_id": 2, "store_id": 2, "expected_delivery_date": "2024-11-12", "time_placed": "2024-11-02", "order_price": 150}
   ],
   "customerOrderItem": [
-    {"id": 1, "customer_order_id": 1, "bottle_id": 1, "quantity": 1, "order-price": 200},
-    {"id": 2, "customer_order_id": 2, "bottle_id": 2, "quantity": 1, "order-price": 150}
+    {"id": 1, "customer_order_id": 1, "bottle_id": 1, "quantity": 1, "order_price": 200},
+    {"id": 2, "customer_order_id": 2, "bottle_id": 2, "quantity": 1, "order_price": 150}
   ],
   "invoice": [
     {"id": 1, "invoice_number": "INV001", "store_id": 1, "customer_order_id": 1, "customer_id": 1, "employee_id": 1, "invoice_total": 200, "time_created": "2024-11-01-T12:00:00Z"},
