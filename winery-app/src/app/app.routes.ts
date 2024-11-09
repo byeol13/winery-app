@@ -16,9 +16,11 @@ import { ProducerListComponent } from './features/producer/components/producer-l
 import { RegionListComponent } from './features/region/components/region-list/region-list.component';
 import { StoreListComponent } from './features/store/components/store-list/store-list.component';
 import { SupplierListComponent } from './features/supplier/components/supplier-list/supplier-list.component';
+import { BottleDetailsComponent } from './features/bottle/components/bottle-details/bottle-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
+  {path: 'bottle/:id', component: BottleDetailsComponent},
   {path: 'dashboard/category', component: CategoryListComponent},
   {path: 'dashboard/city', component: CityListComponent},
   {path: 'dashboard/country', component: CountryListComponent},

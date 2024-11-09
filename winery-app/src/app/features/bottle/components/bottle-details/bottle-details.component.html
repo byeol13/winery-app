@@ -1,1 +1,56 @@
-<p>bottle-details works!</p>
+<mat-toolbar>
+  <span>Bottle Details</span>
+</mat-toolbar>
+
+
+<div class="table-container">
+  <mat-card-content *ngIf="bottles">
+    <table mat-table [dataSource]="[bottles]" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="full_name">
+        <th mat-header-cell *matHeaderCellDef> Full Name </th>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.full_name}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="label">
+        <th mat-header-cell *matHeaderCellDef> Label </th>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.label}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="volume">
+        <th mat-header-cell *matHeaderCellDef> Volume </th>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.volume}} ml</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="year_produced">
+        <th mat-header-cell *matHeaderCellDef> Year Produced </th>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.year_produced}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="picture">
+        <th mat-header-cell *matHeaderCellDef> Image </th>
+        <td mat-cell *matCellDef="let bottle">
+          <img [src]="bottle.picture" alt="{{bottle.full_name}}" width="100" height="auto">
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="alcohol_percentage">
+        <th mat-header-cell *matHeaderCellDef> Alcohol Percentage </th>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.alcohol_percentage}} %</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="current_price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let bottle">$ {{bottle.current_price}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</div>
