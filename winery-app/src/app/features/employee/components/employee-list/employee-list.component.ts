@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { Employee } from '../../../../shared/models/Employee.model';
 import { EmployeeService } from '../../service/employee.service';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -16,14 +17,14 @@ import { MatIconModule } from '@angular/material/icon';
 export class EmployeeListComponent {
 
   employees: Employee[] = [];
-  displayedColumns: string[] = ['id', 'first_name', 'last_name', 'username', 'password'];
+  displayedColumns: string[] = ['id', 'first_name', 'last_name', 'username', 'password', 'actions'];
   showPassword = false;
 
   togglePassword() {
     this.showPassword = !this.showPassword;
   }
 
-  constructor(private employeeService: EmployeeService){}
+  constructor(private employeeService: EmployeeService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllEmployees();
@@ -33,5 +34,9 @@ export class EmployeeListComponent {
     this.employeeService.getAllEmployees().subscribe((res) => {
       this.employees = res;
     })
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate([`/employee`, id]);
   }
 }
