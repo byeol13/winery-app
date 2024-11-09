@@ -15,4 +15,8 @@ export class CustomerOrderService {
   getAllCustomerOrders(): Observable<CustomerOrder[]> {
     return this.http.get<CustomerOrder[]>(this.apiUrl);
   }
+
+  getCustomerOrderById(id: number): Observable<CustomerOrder> {
+    return this.http.get<CustomerOrder>(`${this.apiUrl}/${id}`);
+  }
 }

@@ -21,6 +21,7 @@ import { CategoryDetailsComponent } from './features/category/components/categor
 import { CityDetailsComponent } from './features/city/components/city-details/city-details.component';
 import { CountryDetailsComponent } from './features/country/components/country-details/country-details.component';
 import { CustomerDetailsComponent } from './features/customer/components/customer-details/customer-details.component';
+import { CustomerOrderDetailsComponent } from './features/customerOrder/components/customer-order-details/customer-order-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -34,6 +35,7 @@ export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
   {path: 'customer/:id', component: CustomerDetailsComponent},
   {path: 'dashboard/customerOrder', component: CustomerOrderListComponent},
+  {path: 'customerOrder/:id', component: CustomerOrderDetailsComponent},
   {path: 'dashboard/customerOrderItem', component: CustomerOrderItemListComponent},
   {path: 'dashboard/employee', component: EmployeeListComponent},
   {path: 'dashboard/inventory', component: InventoryListComponent},

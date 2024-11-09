@@ -4,6 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { CustomerOrder } from '../../../../shared/models/CustomerOrder.model';
 import { CustomerOrderService } from '../../service/customer-order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-order-list',
@@ -15,9 +16,9 @@ import { CustomerOrderService } from '../../service/customer-order.service';
 export class CustomerOrderListComponent {
   
   customerOrders: CustomerOrder[] = [];
-  displayedColumns: string[] = ['id', 'order_number', 'order_price'];
+  displayedColumns: string[] = ['id', 'order_number', 'order_price', 'actions'];
 
-  constructor(private customerOrderService: CustomerOrderService){}
+  constructor(private customerOrderService: CustomerOrderService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllCustomerOrders();
@@ -27,5 +28,9 @@ export class CustomerOrderListComponent {
     this.customerOrderService.getAllCustomerOrders().subscribe((res) => {
       this.customerOrders = res;
     })
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate([`/customerOrder`, id]);
   }
 }
