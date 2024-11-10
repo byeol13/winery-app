@@ -28,6 +28,7 @@ import { InventoryDetailsComponent } from './features/inventory/components/inven
 import { InvoiceDetailsComponent } from './features/invoice/components/invoice-details/invoice-details.component';
 import { InvoiceItemDetailsComponent } from './features/invoiceItem/components/invoice-item-details/invoice-item-details.component';
 import { OrderDetailsComponent } from './features/order/components/order-details/order-details.component';
+import { OrderItemDetailsComponent } from './features/orderItem/components/order-item-details/order-item-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -55,6 +56,7 @@ export const routes: Routes = [
   {path: 'dashboard/order', component: OrderListComponent},
   {path: 'order/:id', component: OrderDetailsComponent},
   {path: 'dashboard/orderItem', component: OrderItemListComponent},
+  {path: 'orderItem/:id', component: OrderItemDetailsComponent},
   {path: 'dashboard/producer', component: ProducerListComponent},
   {path: 'dashboard/region', component: RegionListComponent},
   {path: 'dashboard/store', component: StoreListComponent},

@@ -4,6 +4,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { OrderItemService } from '../../service/order-item.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-item-list',
@@ -15,9 +16,9 @@ import { OrderItemService } from '../../service/order-item.service';
 export class OrderItemListComponent implements OnInit{
 
   orderItems: OrderItem[] = [];
-  displayedColumns: string[] = ['id', 'quantity', 'order_price'];
+  displayedColumns: string[] = ['id', 'quantity', 'order_price', 'actions'];
 
-  constructor(private orderItemService: OrderItemService){}
+  constructor(private orderItemService: OrderItemService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllOrderItems();
@@ -27,5 +28,9 @@ export class OrderItemListComponent implements OnInit{
     this.orderItemService.getAllOrdedrItems().subscribe((res) => {
       this.orderItems = res;
     })
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate([`/orderItem`, id]);
   }
 }
