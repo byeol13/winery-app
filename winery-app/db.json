@@ -56,8 +56,8 @@
     {"id": 2, "customer_order_id": 2, "bottle_id": 2, "quantity": 1, "order_price": 150}
   ],
   "invoice": [
-    {"id": 1, "invoice_number": "INV001", "store_id": 1, "customer_order_id": 1, "customer_id": 1, "employee_id": 1, "invoice_total": 200, "time_created": "2024-11-01-T12:00:00Z"},
-    {"id": 2, "invoice_number": "INV002", "store_id": 2, "customer_order_id": 2, "customer_id": 2, "employee_id": 2, "invoice_total": 150, "time_created": "2024-11-01-T16:00:00Z"}
+    {"id": 1, "invoice_number": "INV001", "store_id": 1, "customer_order_id": 1, "customer_id": 1, "employee_id": 1, "invoice_total": 200, "time_created": "2024-11-01"},
+    {"id": 2, "invoice_number": "INV002", "store_id": 2, "customer_order_id": 2, "customer_id": 2, "employee_id": 2, "invoice_total": 150, "time_created": "2024-11-01"}
   ],
   "invoiceItem": [
     {"id": 1, "invoice_id": 1, "bottle_id": 1, "quantity": 1, "item_price": 200},
