@@ -30,6 +30,7 @@ import { InvoiceItemDetailsComponent } from './features/invoiceItem/components/i
 import { OrderDetailsComponent } from './features/order/components/order-details/order-details.component';
 import { OrderItemDetailsComponent } from './features/orderItem/components/order-item-details/order-item-details.component';
 import { ProducerDetailsComponent } from './features/producer/components/producer-details/producer-details.component';
+import { RegionDetailsComponent } from './features/region/components/region-details/region-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -61,6 +62,7 @@ export const routes: Routes = [
   {path: 'dashboard/producer', component: ProducerListComponent},
   {path: 'producer/:id', component: ProducerDetailsComponent},
   {path: 'dashboard/region', component: RegionListComponent},
+  {path: 'region/:id', component: RegionDetailsComponent},
   {path: 'dashboard/store', component: StoreListComponent},
   {path: 'dashboard/supplier', component: SupplierListComponent}
 ];

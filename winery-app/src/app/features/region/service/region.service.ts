@@ -15,4 +15,8 @@ export class RegionService {
   getAllRegions(): Observable<Region[]> {
     return this.http.get<Region[]>(this.apiUrl);
   }
+
+  getRegionById(id: number): Observable<Region> {
+    return this.http.get<Region>(`${this.apiUrl}/${id}`);
+  }
 }

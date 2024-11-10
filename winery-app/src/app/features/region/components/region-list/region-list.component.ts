@@ -4,6 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Region } from '../../../../shared/models/Region.model';
 import { RegionService } from '../../service/region.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-region-list',
@@ -15,9 +16,9 @@ import { RegionService } from '../../service/region.service';
 export class RegionListComponent {
 
   regions: Region[] = [];
-  displayedColumns: string[] = ['id', 'region_name'];
+  displayedColumns: string[] = ['id', 'region_name', 'actions'];
 
-  constructor(private regionService: RegionService){}
+  constructor(private regionService: RegionService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllRegions();
@@ -27,6 +28,10 @@ export class RegionListComponent {
     this.regionService.getAllRegions().subscribe((res) => {
       this.regions = res;
     })
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate([`/region`, id]);
   }
 
 }
