@@ -36,8 +36,8 @@
     {"id": 2, "supplier_name": "Italian Wine Supplier", "address": "133 Vino Way, Florence", "phone": "+390223456789", "mobile": "+390753654321", "email": "sales@italianwine.com", "details": "Supplier of Italian wines"}
   ],
   "order": [
-    {"id": 1, "order_number": "ORD001", "expected_delivery_date": "2024-12-01", "time_placed": "2024-11-01T10:00:00Z", "time_canceled": null, "time_delivered": null, "supplier_id": 1, "store_id": 1, "employee_id": 1, "order_price": 5000},
-    {"id": 2, "order_number": "ORD002", "expected_delivery_date": "2024-12-05", "time_placed": "2024-11-02T10:00:00Z", "time_canceled": null, "time_delivered": null, "supplier_id": 2, "store_id": 2, "employee_id": 2, "order_price": 3000}
+    {"id": 1, "order_number": "ORD001", "expected_delivery_date": "2024-12-01", "time_placed": "2024-11-01", "time_canceled": null, "time_delivered": null, "supplier_id": 1, "store_id": 1, "employee_id": 1, "order_price": 5000},
+    {"id": 2, "order_number": "ORD002", "expected_delivery_date": "2024-12-05", "time_placed": "2024-11-02", "time_canceled": null, "time_delivered": null, "supplier_id": 2, "store_id": 2, "employee_id": 2, "order_price": 3000}
   ],
   "orderItem": [
     {"id": 1, "order_id": 1, "bottle_id": 1, "quantity": 10, "order_price": "4500"},
