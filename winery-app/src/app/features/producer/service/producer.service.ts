@@ -15,4 +15,8 @@ export class ProducerService {
   getAllProducers(): Observable<Producer[]> {
     return this.http.get<Producer[]>(this.apiUrl);
   }
+
+  getProducerById(id: number): Observable<Producer> {
+    return this.http.get<Producer>(`${this.apiUrl}/${id}`);
+  }
 }
