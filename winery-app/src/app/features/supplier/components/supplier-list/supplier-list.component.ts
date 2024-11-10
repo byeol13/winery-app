@@ -4,6 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Supplier } from '../../../../shared/models/Supplier.model';
 import { SupplierService } from '../../service/supplier.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-supplier-list',
@@ -15,9 +16,9 @@ import { SupplierService } from '../../service/supplier.service';
 export class SupplierListComponent implements OnInit{
 
   suppliers: Supplier[] = [];
-  displayedColumns: string[] = ['id', 'supplier_name', 'address'];
+  displayedColumns: string[] = ['id', 'supplier_name', 'address', 'actions'];
 
-  constructor(private supplierService: SupplierService){}
+  constructor(private supplierService: SupplierService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllSuppliers();
@@ -27,6 +28,10 @@ export class SupplierListComponent implements OnInit{
     this.supplierService.getAllSuppliers().subscribe((res) => {
       this.suppliers = res;
     })
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate([`supplier`, id]);
   }
 
 }

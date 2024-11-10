@@ -32,6 +32,7 @@ import { OrderItemDetailsComponent } from './features/orderItem/components/order
 import { ProducerDetailsComponent } from './features/producer/components/producer-details/producer-details.component';
 import { RegionDetailsComponent } from './features/region/components/region-details/region-details.component';
 import { StoreDetailsComponent } from './features/store/components/store-details/store-details.component';
+import { SupplierDetailsComponent } from './features/supplier/components/supplier-details/supplier-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -66,5 +67,6 @@ export const routes: Routes = [
   {path: 'region/:id', component: RegionDetailsComponent},
   {path: 'dashboard/store', component: StoreListComponent},
   {path: 'store/:id', component: StoreDetailsComponent},
-  {path: 'dashboard/supplier', component: SupplierListComponent}
+  {path: 'dashboard/supplier', component: SupplierListComponent},
+  {path: 'supplier/:id', component: SupplierDetailsComponent}
 ];
