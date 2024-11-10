@@ -4,6 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Order } from '../../../../shared/models/Order.model';
 import { OrderService } from '../../service/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-list',
@@ -15,9 +16,9 @@ import { OrderService } from '../../service/order.service';
 export class OrderListComponent {
 
   orders: Order[] = [];
-  displayedColumns: string[] = ['id', 'order_number', 'time_placed', 'order_price'];
+  displayedColumns: string[] = ['id', 'order_number', 'time_placed', 'order_price', 'actions'];
 
-  constructor(private orderService: OrderService){}
+  constructor(private orderService: OrderService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllOrders();
@@ -27,6 +28,10 @@ export class OrderListComponent {
     this.orderService.getAllOrders().subscribe((res) => {
       this.orders = res;
     })
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate([`/order`, id]);
   }
 
 }

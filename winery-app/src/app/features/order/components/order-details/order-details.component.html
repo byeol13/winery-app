@@ -1,1 +1,49 @@
-<p>order-details works!</p>
+<mat-toolbar>
+  <span>Order Details</span>
+</mat-toolbar>
+
+
+<div class="table-container">
+  <mat-card-content *ngIf="orders">
+    <table mat-table [dataSource]="[orders]" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let order"> {{order.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="order_number">
+        <th mat-header-cell *matHeaderCellDef> Order Number </th>
+        <td mat-cell *matCellDef="let order"> {{order.order_number}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="time_placed">
+        <th mat-header-cell *matHeaderCellDef> Time Placed </th>
+        <td mat-cell *matCellDef="let order"> {{order.time_placed}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="order_price">
+        <th mat-header-cell *matHeaderCellDef> Order Price </th>
+        <td mat-cell *matCellDef="let order">$ {{order.order_price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="expected_delivery_date">
+        <th mat-header-cell *matHeaderCellDef> Expected Delivery Date </th>
+        <td mat-cell *matCellDef="let order"> {{order.expected_delivery_date}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="time_delivered">
+        <th mat-header-cell *matHeaderCellDef> Time Delivered </th>
+        <td mat-cell *matCellDef="let order"> {{ order.time_delivered ? order.time_delivered : '-' }} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="time_canceled">
+        <th mat-header-cell *matHeaderCellDef> Time Canceled </th>
+        <td mat-cell *matCellDef="let order"> {{order.time_canceled ? order.time_canceled : '-'}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</div>
