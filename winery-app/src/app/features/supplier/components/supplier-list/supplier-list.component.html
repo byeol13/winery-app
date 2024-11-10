@@ -1,1 +1,26 @@
-<p>supplier-list works!</p>
+<mat-toolbar>
+  <span>Suppliers</span>
+</mat-toolbar>
+
+
+<table mat-table [dataSource]="suppliers" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let supplier"> {{supplier.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="supplier_name">
+    <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
+    <td mat-cell *matCellDef="let supplier">  {{supplier.supplier_name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let supplier">  {{supplier.address}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
