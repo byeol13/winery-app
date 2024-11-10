@@ -15,4 +15,8 @@ export class StoreService {
   getAllStores(): Observable<Store[]> {
     return this.http.get<Store[]>(this.apiUrl);
   }
+
+  getStoreById(id: number): Observable<Store> {
+    return this.http.get<Store>(`${this.apiUrl}/${id}`);
+  }
 }

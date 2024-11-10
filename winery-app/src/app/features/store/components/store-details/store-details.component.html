@@ -1,1 +1,49 @@
-<p>store-details works!</p>
+<mat-toolbar>
+  <span>Store Details</span>
+</mat-toolbar>
+
+
+<div class="table-container">
+  <mat-card-content *ngIf="stores">
+    <table mat-table [dataSource]="[stores]" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let store"> {{store.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="store_name">
+        <th mat-header-cell *matHeaderCellDef> Store Name </th>
+        <td mat-cell *matCellDef="let store">  {{store.store_name}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let store">  {{store.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let store"> {{store.phone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef> Mobile </th>
+        <td mat-cell *matCellDef="let store"> {{store.mobile}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let store">  {{store.email}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef> Details </th>
+        <td mat-cell *matCellDef="let store">  {{store.details}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</div>

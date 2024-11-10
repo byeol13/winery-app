@@ -4,6 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Store } from '../../../../shared/models/Store.model';
 import { StoreService } from '../../service/store.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store-list',
@@ -15,9 +16,9 @@ import { StoreService } from '../../service/store.service';
 export class StoreListComponent implements OnInit{
 
   stores: Store[] = [];
-  displayedColumns: string[] = ['id', 'store_name', 'address'];
+  displayedColumns: string[] = ['id', 'store_name', 'address', 'actions'];
 
-  constructor(private storeService: StoreService){}
+  constructor(private storeService: StoreService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllStores();
@@ -27,6 +28,10 @@ export class StoreListComponent implements OnInit{
     this.storeService.getAllStores().subscribe((res) => {
       this.stores = res;  
     })
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate([`/store`, id]);
   }
 
 }
