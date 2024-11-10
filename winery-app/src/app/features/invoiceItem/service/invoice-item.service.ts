@@ -15,4 +15,8 @@ export class InvoiceItemService {
   getAllInvoiceItems(): Observable<InvoiceItem[]> {
     return this.http.get<InvoiceItem[]>(`${this.apiUrl}`);
   }
+
+  getInvoiceItemById(id: number): Observable<InvoiceItem> {
+    return this.http.get<InvoiceItem>(`${this.apiUrl}/${id}`);
+  }
 }
