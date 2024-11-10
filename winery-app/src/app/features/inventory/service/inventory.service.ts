@@ -15,4 +15,9 @@ export class InventoryService {
   getAllInventories(): Observable<Inventory[]> {
     return this.http.get<Inventory[]>(this.apiUrl);
   }
+
+  getInventoryById(id: number): Observable<Inventory> {
+    return this.http.get<Inventory>(`${this.apiUrl}/${id}`);
+  }
 }
+
