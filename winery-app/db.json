@@ -196,12 +196,6 @@
       "postal_code": 4000,
       "city_name": "Porto",
       "country_id": 4
-    },
-    {
-      "id": "5",
-      "postal_code": 10115,
-      "city_name": "Berlin",
-      "country_id": 5
     }
   ],
   "store": [

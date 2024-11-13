@@ -27,7 +27,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<app-category-delete *ngIf="categoryIdToDelete"
+<app-category-delete *ngIf="showDeleteDialog"
                       [categoryId]="categoryIdToDelete"
                       (delete)="deleteCategoryById($event)"
                       (cancelDelete)="cancelDelete()">

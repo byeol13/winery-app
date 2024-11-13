@@ -21,6 +21,7 @@ export class CategoryListComponent implements OnInit{
   categoryIdToDelete: number | undefined;
   categories: Category[] = [];
   displayedColumns: string[] = ['id', 'category_name', 'actions'];
+  showDeleteDialog = false;
 
   constructor(private router: Router, private categoryService: CategoryService){}
 
@@ -41,17 +42,18 @@ export class CategoryListComponent implements OnInit{
 
   openDeleteDialog(id: number) {
     this.categoryIdToDelete = id;
+    this.showDeleteDialog = true;
   }
 
   deleteCategoryById(id: number) {
     this.categoryService.deleteCategoryById(id).subscribe(() => {
       this.loadAllCategories();
-      this.categoryIdToDelete = undefined;
+      this.showDeleteDialog = false;
     })
   }
 
   cancelDelete() {
-    this.categoryIdToDelete = undefined;
+    this.showDeleteDialog = false;
   }
 
 }

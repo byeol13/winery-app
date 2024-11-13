@@ -19,4 +19,8 @@ export class CityService {
   getCityById(id: number): Observable<City> {
     return this.http.get<City>(`${this.apiUrl}/${id}`);
   }
+
+  deleteCityById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
