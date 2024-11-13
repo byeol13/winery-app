@@ -19,4 +19,8 @@ export class BottleService {
   getBottleById(id: number): Observable<Bottle> {
     return this.http.get<Bottle>(`${this.apiUrl}/${id}`);
   }
+
+  deleteBottleById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  } 
 }

@@ -6,16 +6,18 @@ import {MatButtonModule} from '@angular/material/button';
 import { Bottle } from '../../../../shared/models/Bottle.model';
 import { BottleService } from '../../service/bottle.service';
 import { Router } from '@angular/router';
+import { BottleDeleteComponent } from '../bottle-delete/bottle-delete.component';
 
 @Component({
   selector: 'app-bottle-list',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatToolbarModule, MatTableModule],
+  imports: [CommonModule, MatButtonModule, MatToolbarModule, MatTableModule, BottleDeleteComponent],
   templateUrl: './bottle-list.component.html',
   styleUrl: './bottle-list.component.css'
 })
 export class BottleListComponent implements OnInit{
 
+  bottleIdToDelete: number | undefined;
   bottles: Bottle[] = [];
   displayedColumns: string[] = ['id', 'full_name', 'label', 'year_produced', 'actions'];
 
@@ -34,5 +36,21 @@ export class BottleListComponent implements OnInit{
   viewDetails(id: number) {
     this.router.navigate([`/bottle`, id]);
     console.log("This is the id === ", id);
+  }
+
+  openDeleteDialog(id: number) {
+    this.bottleIdToDelete = id;
+  }
+
+  deleteBottleById(id: number) {
+    this.bottleService.deleteBottleById(id).subscribe(() => {
+      console.log("deleteee", id);
+      this.loadAllBottles();
+      this.bottleIdToDelete = undefined;
+    })
+  }
+
+  cancelDelete() {
+    this.bottleIdToDelete = undefined;
   }
 }
