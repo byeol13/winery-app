@@ -19,4 +19,8 @@ export class CategoryService {
   getCategoryById(id: number): Observable<Category> {
     return this.http.get<Category>(`${this.apiUrl}/${id}`);
   }
+
+  deleteCategoryById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
