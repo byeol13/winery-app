@@ -6,30 +6,34 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CustomerService } from '../../service/customer.service';
 import { Router } from '@angular/router';
+import { CustomerDeleteComponent } from '../customer-delete/customer-delete.component';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, MatIconModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, MatIconModule, CustomerDeleteComponent, CommonModule],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'
 })
 export class CustomerListComponent {
 
+  customerIdToDelete: number | undefined;
   customers: Customer[] = [];
   displayedColumns: string[] = ['id', 'username', 'password', 'customer_name', 'actions'];
   showPassword = false;
-
-  togglePassword() {
-    this.showPassword = !this.showPassword;
-  }
+  showDeleteDialog = false;
 
   constructor(private customerService: CustomerService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllCustomers();
   } 
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
   loadAllCustomers() {
     this.customerService.getAllCustomers().subscribe((res) => {
@@ -39,5 +43,21 @@ export class CustomerListComponent {
 
   viewDetails(id: number) {
     this.router.navigate([`/customer`, id]);
+  }
+
+  openDeleteDialog(id: number) {
+    this.customerIdToDelete = id;
+    this.showDeleteDialog = true;
+  }
+
+  deleteCustomerById(id: number) {
+    this.customerService.deleteCustomerById(id).subscribe(() => {
+      this.loadAllCustomers();
+      this.showDeleteDialog = false;
+    })
+  }
+
+  cancelDelete() {
+    this.showDeleteDialog = false;
   }
 }

@@ -452,15 +452,6 @@
       "address": "10 Rua das Flores, Porto",
       "phone": "+351987654321",
       "email": "anasilva@example.com"
-    },
-    {
-      "id": "5",
-      "username": "maria_k",
-      "password": "password5",
-      "customer_name": "Maria Kaufmann",
-      "address": "15 Karlstrasse, Berlin",
-      "phone": "+493012345678",
-      "email": "mariak@example.com"
     }
   ],
   "customerOrder": [
