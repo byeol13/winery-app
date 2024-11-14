@@ -651,16 +651,6 @@
       "phone": "+351223456789",
       "email": "diana.lopez@example.com",
       "is_active": true
-    },
-    {
-      "id": "5",
-      "first_name": "Eva",
-      "last_name": "Chen",
-      "username": "eva_c",
-      "password": "hashedpassword5",
-      "phone": "+493012345678",
-      "email": "eva.chen@example.com",
-      "is_active": true
     }
   ]
 }

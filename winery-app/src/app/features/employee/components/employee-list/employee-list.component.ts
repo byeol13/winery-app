@@ -6,28 +6,32 @@ import { Employee } from '../../../../shared/models/Employee.model';
 import { EmployeeService } from '../../service/employee.service';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { EmployeeDeleteComponent } from '../employee-delete/employee-delete.component';
 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
-  imports: [MatButtonModule, MatTableModule, MatToolbarModule, MatIconModule],
+  imports: [MatButtonModule, MatTableModule, MatToolbarModule, MatIconModule, CommonModule, EmployeeDeleteComponent],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
 })
 export class EmployeeListComponent {
 
+  employeeIdToDelete: number | undefined;
   employees: Employee[] = [];
   displayedColumns: string[] = ['id', 'first_name', 'last_name', 'username', 'password', 'actions'];
   showPassword = false;
-
-  togglePassword() {
-    this.showPassword = !this.showPassword;
-  }
+  showDeleteDialog = false;
 
   constructor(private employeeService: EmployeeService, private router: Router){}
 
   ngOnInit(): void {
     this.loadAllEmployees();
+  }
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
   }
 
   loadAllEmployees() {
@@ -38,5 +42,21 @@ export class EmployeeListComponent {
 
   viewDetails(id: number) {
     this.router.navigate([`/employee`, id]);
+  }
+
+  openDeleteDialog(id: number) {
+    this.employeeIdToDelete = id;
+    this.showDeleteDialog = true;
+  }
+
+  deleteEmployeeById(id: number) {
+    this.employeeService.deleteEmployeeById(id).subscribe(() => {
+      this.loadAllEmployees();
+      this.showDeleteDialog = false;
+    })
+  }
+
+  cancelDelete() {
+    this.showDeleteDialog = false;
   }
 }
