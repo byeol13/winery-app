@@ -19,4 +19,8 @@ export class OrderItemService {
   getOrderItemById(id: number): Observable<OrderItem> {
     return this.http.get<OrderItem>(`${this.apiUrl}/${id}`);
   }
+
+  deleteOrderItemBbyId(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
