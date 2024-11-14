@@ -19,4 +19,8 @@ export class RegionService {
   getRegionById(id: number): Observable<Region> {
     return this.http.get<Region>(`${this.apiUrl}/${id}`);
   }
+
+  deleteRegionById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
