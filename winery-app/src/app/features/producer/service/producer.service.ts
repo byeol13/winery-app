@@ -19,4 +19,8 @@ export class ProducerService {
   getProducerById(id: number): Observable<Producer> {
     return this.http.get<Producer>(`${this.apiUrl}/${id}`);
   }
+
+  deleteProducerById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
