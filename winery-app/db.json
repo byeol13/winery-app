@@ -262,12 +262,6 @@
       "store_id": 4,
       "bottle_id": 4,
       "quantity": 8
-    },
-    {
-      "id": "5",
-      "store_id": 5,
-      "bottle_id": 5,
-      "quantity": 20
     }
   ],
   "supplier": [

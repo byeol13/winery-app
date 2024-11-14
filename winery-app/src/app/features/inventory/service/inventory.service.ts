@@ -19,5 +19,9 @@ export class InventoryService {
   getInventoryById(id: number): Observable<Inventory> {
     return this.http.get<Inventory>(`${this.apiUrl}/${id}`);
   }
+
+  deleteInventoryById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
 
