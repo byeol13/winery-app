@@ -5,18 +5,22 @@ import {MatButtonModule} from '@angular/material/button';
 import { Store } from '../../../../shared/models/Store.model';
 import { StoreService } from '../../service/store.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { StoreDeleteComponent } from '../store-delete/store-delete.component';
 
 @Component({
   selector: 'app-store-list',
   standalone: true,
-  imports: [MatButtonModule, MatTableModule, MatToolbarModule],
+  imports: [MatButtonModule, MatTableModule, MatToolbarModule, CommonModule, StoreDeleteComponent],
   templateUrl: './store-list.component.html',
   styleUrl: './store-list.component.css'
 })
 export class StoreListComponent implements OnInit{
 
+  storeIdToDelete: number | undefined;
   stores: Store[] = [];
   displayedColumns: string[] = ['id', 'store_name', 'address', 'actions'];
+  showDeleteDialog = false;
 
   constructor(private storeService: StoreService, private router: Router){}
 
@@ -32,6 +36,22 @@ export class StoreListComponent implements OnInit{
 
   viewDetails(id: number) {
     this.router.navigate([`/store`, id]);
+  }
+
+  openDeleteDialog(id: number) {
+    this.storeIdToDelete = id;
+    this.showDeleteDialog = true;
+  }
+
+  deleteStoreById(id: number) {
+    this.storeService.deleteStoreById(id).subscribe(() => {
+      this.loadAllStores();
+      this.showDeleteDialog = false;
+    })
+  }
+
+  cancel() {
+    this.showDeleteDialog = false;
   }
 
 }

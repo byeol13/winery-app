@@ -213,16 +213,6 @@
       "details": "Wine shop featuring Rioja wines"
     },
     {
-      "id": "4",
-      "store_name": "Porto Wine Boutique",
-      "city_id": 4,
-      "address": "10 Rua das Vinhas",
-      "phone": "+351223456789",
-      "mobile": "+351987654321",
-      "email": "contact@portowine.com",
-      "details": "Specialty in Port wines"
-    },
-    {
       "id": "5",
       "store_name": "Berlin Weinstore",
       "city_id": 5,

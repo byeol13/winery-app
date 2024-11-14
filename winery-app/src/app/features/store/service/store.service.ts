@@ -19,4 +19,8 @@ export class StoreService {
   getStoreById(id: number): Observable<Store> {
     return this.http.get<Store>(`${this.apiUrl}/${id}`);
   }
+
+  deleteStoreById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
