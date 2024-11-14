@@ -278,15 +278,6 @@
       "details": "Spanish wines supplier"
     },
     {
-      "id": "4",
-      "supplier_name": "Portuguese Wine Supplier",
-      "address": "12 Douro St, Porto",
-      "phone": "+351222333444",
-      "mobile": "+351999888777",
-      "email": "sales@portuguesewine.com",
-      "details": "Specializes in Port wines"
-    },
-    {
       "id": "5",
       "supplier_name": "German Wine Supplier",
       "address": "30 Weinberg St, Berlin",
