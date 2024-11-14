@@ -586,13 +586,6 @@
       "bottle_id": 4,
       "quantity": 1,
       "item_price": 300
-    },
-    {
-      "id": "5",
-      "invoice_id": 5,
-      "bottle_id": 5,
-      "quantity": 1,
-      "item_price": 180
     }
   ],
   "employee": [
