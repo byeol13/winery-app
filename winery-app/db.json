@@ -520,13 +520,6 @@
       "bottle_id": 4,
       "quantity": 1,
       "order_price": 300
-    },
-    {
-      "id": "5",
-      "customer_order_id": 5,
-      "bottle_id": 5,
-      "quantity": 1,
-      "order_price": 180
     }
   ],
   "invoice": [

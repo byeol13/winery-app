@@ -5,18 +5,22 @@ import {MatButtonModule} from '@angular/material/button';
 import { CustomerOrderItem } from '../../../../shared/models/CustomerOrderItem.model';
 import { CustomerOrderItemService } from '../../service/customer-order-item.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { CustomerOrderItemDeleteComponent } from '../customer-order-item-delete/customer-order-item-delete.component';
 
 @Component({
   selector: 'app-customer-order-item-list',
   standalone: true,
-  imports: [MatButtonModule, MatTableModule, MatToolbarModule],
+  imports: [MatButtonModule, MatTableModule, MatToolbarModule, CommonModule, CustomerOrderItemDeleteComponent],
   templateUrl: './customer-order-item-list.component.html',
   styleUrl: './customer-order-item-list.component.css'
 })
 export class CustomerOrderItemListComponent implements OnInit{
 
+  customerOrderItemIdToDelete: number | undefined;
   customerOrderItems: CustomerOrderItem[] = [];
   displayedColumns: string[] = ['id', 'order_price', 'actions'];
+  showDeleteDialog = false;
 
   constructor(private customerOrderItemService: CustomerOrderItemService, private router: Router){}
 
@@ -32,5 +36,21 @@ export class CustomerOrderItemListComponent implements OnInit{
 
   viewDetails(id: number) {
     this.router.navigate([`/customerOrderItem`, id]);
+  }
+
+  openDeleteDialog(id: number) {
+    this.customerOrderItemIdToDelete = id;
+    this.showDeleteDialog = true;
+  }
+
+  deleteCustomerOrderItemById(id: number) {
+    this.customerOrderItemService.deleteCustomerOrderItemById(id).subscribe(() => {
+      this.loadAllCustomerOrderItems();
+      this.showDeleteDialog = false;
+    })
+  }
+
+  cancelDelete() {
+    this.showDeleteDialog = false;
   }
 }
