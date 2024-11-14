@@ -556,16 +556,6 @@
       "employee_id": 2,
       "invoice_total": 300,
       "time_created": "2024-11-02"
-    },
-    {
-      "id": "5",
-      "invoice_number": "INV005",
-      "store_id": 5,
-      "customer_order_id": 5,
-      "customer_id": 5,
-      "employee_id": 1,
-      "invoice_total": 180,
-      "time_created": "2024-11-03"
     }
   ],
   "invoiceItem": [

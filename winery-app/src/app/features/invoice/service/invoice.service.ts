@@ -19,4 +19,8 @@ export class InvoiceService {
   getInvoiceById(id: number): Observable<Invoice> {
     return this.http.get<Invoice>(`${this.apiUrl}/${id}`);
   }
+
+  deleteInvoiceById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
