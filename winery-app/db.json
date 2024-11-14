@@ -359,18 +359,6 @@
       "store_id": 4,
       "employee_id": 2,
       "order_price": 6000
-    },
-    {
-      "id": "5",
-      "order_number": "ORD005",
-      "expected_delivery_date": "2024-12-20",
-      "time_placed": "2024-11-05",
-      "time_canceled": null,
-      "time_delivered": null,
-      "supplier_id": 5,
-      "store_id": 5,
-      "employee_id": 1,
-      "order_price": 2500
     }
   ],
   "orderItem": [
