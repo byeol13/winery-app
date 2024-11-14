@@ -158,18 +158,6 @@
       "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
       "alcohol_percentage": 8.5,
       "current_price": 25
-    },
-    {
-      "id": "6",
-      "full_name": "Dr. Loosen Riesling Kabinett 2019",
-      "category_id": 2,
-      "label": "Kabinett",
-      "volume": 750,
-      "producer_id": 5,
-      "year_produced": 2019,
-      "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
-      "alcohol_percentage": 8.5,
-      "current_price": 25
     }
   ],
   "city": [

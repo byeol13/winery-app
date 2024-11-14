@@ -19,4 +19,8 @@ export class CountryService {
   getCountryById(id: number): Observable<Country> {
     return this.http.get<Country>(`${this.apiUrl}/${id}`);
   }
+
+  deleteCountryById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
