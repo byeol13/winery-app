@@ -19,7 +19,7 @@ export class BottleDetailsComponent implements OnInit{
 
   bottleId: any;
   bottles: Bottle | undefined;
-  displayedColumns: string[] = ['id', 'full_name', 'label', 'volume', 'year_produced', 'picture', 'alcohol_percentage', 'current_price'];
+  displayedColumns: string[] = ['id', 'full_name', 'label', 'category_id', 'volume', 'year_produced', 'producer_id', 'picture', 'alcohol_percentage', 'current_price'];
 
   constructor(private bottleService: BottleService, private activatedRoute: ActivatedRoute, private router: Router){
     this.bottleId = activatedRoute.snapshot.paramMap.get('id');

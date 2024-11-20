@@ -27,6 +27,21 @@
         <td mat-cell *matCellDef="let order">$ {{order.order_price}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="supplier_id">
+        <th mat-header-cell *matHeaderCellDef> Supplier </th>
+        <td mat-cell *matCellDef="let order"> {{order.supplier_id.supplier_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="store_id">
+        <th mat-header-cell *matHeaderCellDef> Store </th>
+        <td mat-cell *matCellDef="let order"> {{order.store_id.store_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="employee_id">
+        <th mat-header-cell *matHeaderCellDef> Employee Username </th>
+        <td mat-cell *matCellDef="let order"> {{order.employee_id.username}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="expected_delivery_date">
         <th mat-header-cell *matHeaderCellDef> Expected Delivery Date </th>
         <td mat-cell *matCellDef="let order"> {{order.expected_delivery_date}} </td>

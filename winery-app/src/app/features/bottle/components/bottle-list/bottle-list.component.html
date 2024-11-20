@@ -20,6 +20,11 @@
     <td mat-cell *matCellDef="let bottle"> {{bottle.label}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="category_id">
+    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <td mat-cell *matCellDef="let bottle"> {{bottle.category_id.category_name}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="year_produced">
     <th mat-header-cell *matHeaderCellDef> Year Produced </th>
     <td mat-cell *matCellDef="let bottle"> {{bottle.year_produced}} </td>

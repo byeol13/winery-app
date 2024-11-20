@@ -19,7 +19,7 @@ export class ProducerDetailsComponent implements OnInit{
 
   producerId: any;
   producers: Producer | undefined;
-  displayedColumns: string[] = ['id', 'producer_name', 'details'];
+  displayedColumns: string[] = ['id', 'producer_name', 'region_id', 'details'];
 
   constructor(private producerService: ProducerService, private activatedRoute: ActivatedRoute){
     this.producerId = activatedRoute.snapshot.paramMap.get('id');

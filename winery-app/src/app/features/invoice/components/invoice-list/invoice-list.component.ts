@@ -19,7 +19,7 @@ export class InvoiceListComponent implements OnInit{
 
   invoiceIdToDelete: number | undefined;
   invoices: Invoice[] = [];
-  displayedColumns: string[] = ['id', 'invoice_number', 'invoice_total', 'time_created', 'actions'];
+  displayedColumns: string[] = ['id', 'invoice_number', 'customer_order_id', 'invoice_total', 'time_created', 'store_id', 'actions'];
   showDeleteDialog = false;
 
   constructor(private invoiceService: InvoiceService, private router: Router){}

@@ -19,7 +19,7 @@ export class ProducerListComponent implements OnInit{
 
   producerIdToDelete: number | undefined;
   producers: Producer[] = [];
-  displayedColumns: string[] = ['id', 'producer_name', 'actions'];
+  displayedColumns: string[] = ['id', 'producer_name', 'region_id', 'actions'];
   showDeleteDialog = false;
 
   constructor(private producerService: ProducerService, private router: Router){}

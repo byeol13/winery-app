@@ -19,7 +19,7 @@ export class InvoiceDetailsComponent implements OnInit{
 
   invoiceId: any;
   invoices: Invoice | undefined;
-  displayedColumns: string[] = ['id', 'invoice_number', 'invoice_total', 'time_created'];
+  displayedColumns: string[] = ['id', 'invoice_number', 'customer_order_id', 'customer_id', 'invoice_total', 'time_created', 'employee_id', 'store_id'];
 
   constructor(private invoiceService: InvoiceService, private activatedRoute: ActivatedRoute){
     this.invoiceId = activatedRoute.snapshot.paramMap.get('id');

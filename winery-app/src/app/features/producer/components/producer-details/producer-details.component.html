@@ -16,6 +16,11 @@
         <td mat-cell *matCellDef="let producer"> {{producer.producer_name}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="region_id">
+        <th mat-header-cell *matHeaderCellDef> Region </th>
+        <td mat-cell *matCellDef="let producer"> {{producer.region_id.region_name}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="details">
         <th mat-header-cell *matHeaderCellDef> Details </th>
         <td mat-cell *matCellDef="let producer"> {{producer.details}} </td>

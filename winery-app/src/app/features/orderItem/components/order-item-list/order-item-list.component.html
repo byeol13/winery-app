@@ -10,9 +10,9 @@
     <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.id}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="quantity">
-    <th mat-header-cell *matHeaderCellDef> Quantity </th>
-    <td mat-cell *matCellDef="let orderItem">{{orderItem.quantity}} </td>
+  <ng-container matColumnDef="order_id">
+    <th mat-header-cell *matHeaderCellDef> Order Number </th>
+    <td mat-cell *matCellDef="let orderItem">{{orderItem.order_id.order_number}} </td>
   </ng-container>
 
   <ng-container matColumnDef="order_price">

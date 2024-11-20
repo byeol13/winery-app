@@ -19,7 +19,7 @@ export class InventoryDetailsComponent implements OnInit{
 
   inventoryId: any;
   inventories: Inventory | undefined;
-  displayedColumns: string[] = ['id'];
+  displayedColumns: string[] = ['id', 'store_id', 'bottle_id', 'quantity'];
 
   constructor(private inventoryService: InventoryService, private activatedRoute: ActivatedRoute){
     this.inventoryId = activatedRoute.snapshot.paramMap.get('id');

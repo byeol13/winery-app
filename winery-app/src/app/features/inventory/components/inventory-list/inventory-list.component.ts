@@ -19,7 +19,7 @@ export class InventoryListComponent implements OnInit{
 
   inventoryIdToDelete: number | undefined;
   inventories: Inventory[] = [];
-  displayedColumns: string[] = ['id', 'actions'];
+  displayedColumns: string[] = ['id', 'store_id', 'bottle_id', 'actions'];
   showDeleteDialog = false;
 
   constructor(private inventoryService: InventoryService, private router: Router){}

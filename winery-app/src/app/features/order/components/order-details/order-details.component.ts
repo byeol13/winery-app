@@ -18,7 +18,7 @@ export class OrderDetailsComponent {
 
   orderId: any;
   orders: Order | undefined;
-  displayedColumns: string[] = ['id', 'order_number', 'time_placed', 'order_price', 'expected_delivery_date', 'time_delivered', 'time_canceled'];
+  displayedColumns: string[] = ['id', 'order_number', 'time_placed', 'order_price', 'supplier_id', 'store_id', 'employee_id', 'expected_delivery_date', 'time_delivered', 'time_canceled'];
 
   constructor(private orderService: OrderService, private activatedRoute: ActivatedRoute){
     this.orderId = activatedRoute.snapshot.paramMap.get('id');

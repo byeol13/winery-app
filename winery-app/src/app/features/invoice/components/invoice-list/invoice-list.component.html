@@ -15,14 +15,24 @@
     <td mat-cell *matCellDef="let invoice">{{invoice.invoice_number}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="customer_order_id">
+    <th mat-header-cell *matHeaderCellDef> Order Number </th>
+    <td mat-cell *matCellDef="let invoice">{{invoice.customer_order_id.order_number}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="invoice_total">
     <th mat-header-cell *matHeaderCellDef> Invoice Price </th>
-    <td mat-cell *matCellDef="let invoice">{{invoice.invoice_total}} </td>
+    <td mat-cell *matCellDef="let invoice">$ {{invoice.invoice_total}} </td>
   </ng-container>
 
   <ng-container matColumnDef="time_created">
     <th mat-header-cell *matHeaderCellDef> Time Created </th>
     <td mat-cell *matCellDef="let invoice">{{invoice.time_created}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="store_id">
+    <th mat-header-cell *matHeaderCellDef> Store </th>
+    <td mat-cell *matCellDef="let invoice">{{invoice.store_id.store_name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">

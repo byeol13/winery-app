@@ -19,7 +19,7 @@ export class CityDetailsComponent implements OnInit{
 
   cityId: any;
   cities: City | undefined;
-  displayedColumns: string[] = ['id', 'city_name', 'postal_code'];
+  displayedColumns: string[] = ['id', 'city_name', 'country_id', 'postal_code'];
 
   constructor(private cityService: CityService, private activatedRoute: ActivatedRoute){
     this.cityId = activatedRoute.snapshot.paramMap.get('id');

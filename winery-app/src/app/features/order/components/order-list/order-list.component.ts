@@ -19,7 +19,7 @@ export class OrderListComponent {
 
   orderIdToDelete: number | undefined;
   orders: Order[] = [];
-  displayedColumns: string[] = ['id', 'order_number', 'time_placed', 'order_price', 'actions'];
+  displayedColumns: string[] = ['id', 'order_number', 'time_placed', 'order_price', 'store_id', 'actions'];
   showDeleteDialog = false;
 
   constructor(private orderService: OrderService, private router: Router){}

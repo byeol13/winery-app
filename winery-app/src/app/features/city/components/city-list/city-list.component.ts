@@ -19,7 +19,7 @@ export class CityListComponent implements OnInit{
 
   cityToDeleteId: number | undefined;
   cities: City[] = [];
-  displayedColumns: string[] = ['id', 'city_name', 'postal_code', 'actions'];
+  displayedColumns: string[] = ['id', 'city_name', 'country_id', 'actions'];
   showDeleteDialog = false;
 
   constructor(private cityService: CityService, private router: Router){}

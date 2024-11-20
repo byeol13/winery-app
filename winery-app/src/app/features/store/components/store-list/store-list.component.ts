@@ -19,7 +19,7 @@ export class StoreListComponent implements OnInit{
 
   storeIdToDelete: number | undefined;
   stores: Store[] = [];
-  displayedColumns: string[] = ['id', 'store_name', 'address', 'actions'];
+  displayedColumns: string[] = ['id', 'store_name', 'address', 'city_id', 'actions'];
   showDeleteDialog = false;
 
   constructor(private storeService: StoreService, private router: Router){}

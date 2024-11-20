@@ -25,22 +25,34 @@
     {
       "id": "1",
       "region_name": "Bordeaux",
-      "country_id": 1
+      "country_id": {
+        "id": "1",
+        "country_name": "France"
+      }
     },
     {
       "id": "2",
       "region_name": "Tuscany",
-      "country_id": 2
+      "country_id": {
+        "id": "2",
+        "country_name": "Italy"
+      }
     },
     {
       "id": "3",
       "region_name": "Rioja",
-      "country_id": 3
+      "country_id": {
+        "id": "3",
+        "country_name": "Spain"
+      }
     },
     {
       "id": "4",
       "region_name": "Douro",
-      "country_id": 4
+      "country_id": {
+        "id": "4",
+        "country_name": "Portugal"
+      }
     }
   ],
   "category": [
@@ -66,52 +78,104 @@
       "id": "1",
       "producer_name": "Chateau Margaux",
       "details": "Renowned French Winery",
-      "region_id": 1
+      "region_id": {
+        "id": "1",
+        "region_name": "Bordeaux",
+        "country_id": {
+          "id": "1",
+          "country_name": "France"
+        }
+      }
     },
     {
       "id": "2",
       "producer_name": "Antinori",
       "details": "Historic Italian Winery",
-      "region_id": 2
+      "region_id": {
+        "id": "2",
+        "region_name": "Tuscany",
+        "country_id": {
+          "id": "2",
+          "country_name": "Italy"
+        }
+      }
     },
     {
       "id": "3",
       "producer_name": "Marques de Riscal",
       "details": "Famous Spanish Bodega",
-      "region_id": 3
+      "region_id": {
+        "id": "3",
+        "region_name": "Rioja",
+        "country_id": {
+          "id": "3",
+          "country_name": "Spain"
+        }
+      }
     },
     {
       "id": "4",
       "producer_name": "Quinta do Noval",
       "details": "Prestigious Portuguese Winery",
-      "region_id": 4
-    },
-    {
-      "id": "5",
-      "producer_name": "Dr. Loosen",
-      "details": "Notable German Riesling Producer",
-      "region_id": 5
+      "region_id": {
+        "id": "4",
+        "region_name": "Douro",
+        "country_id": {
+          "id": "4",
+          "country_name": "Portugal"
+        }
+      }
     }
   ],
   "bottle": [
     {
       "id": "1",
       "full_name": "Chateau Margaux 2015",
-      "category_id": 1,
+      "category_id": {
+        "id": "1",
+        "category_name": "Red Wine"
+      },
       "label": "Premier Grand Cru",
       "volume": 750,
-      "producer_id": 1,
       "year_produced": 2015,
       "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
       "alcohol_percentage": 13.5,
-      "current_price": 500
+      "current_price": 500,
+      "producer_id": {
+        "id": "1",
+        "producer_name": "Chateau Margaux",
+        "details": "Renowned French Winery",
+        "region_id": {
+          "id": "1",
+          "region_name": "Bordeaux",
+          "country_id": {
+            "id": "1",
+            "country_name": "France"
+          }
+        }
+      }
     },
     {
       "id": "2",
       "full_name": "Tignanello 2017",
-      "category_id": 2,
+      "category_id": {
+        "id": "2",
+        "category_name": "White Wine"
+      },
       "label": "Super Tuscan",
-      "producer_id": 2,
+      "producer_id": {
+        "id": "2",
+        "producer_name": "Antinori",
+        "details": "Historic Italian Winery",
+        "region_id": {
+          "id": "2",
+          "region_name": "Tuscany",
+          "country_id": {
+            "id": "2",
+            "country_name": "Italy"
+          }
+        }
+      },
       "volume": 750,
       "year_produced": 2017,
       "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
@@ -121,38 +185,29 @@
     {
       "id": "3",
       "full_name": "Marques de Riscal Reserva 2018",
-      "category_id": 1,
+      "category_id": {
+        "id": "1",
+        "category_name": "Red Wine"
+      },
       "label": "Reserva",
       "volume": 750,
-      "producer_id": 3,
+      "producer_id": {
+        "id": "3",
+        "producer_name": "Marques de Riscal",
+        "details": "Famous Spanish Bodega",
+        "region_id": {
+          "id": "3",
+          "region_name": "Rioja",
+          "country_id": {
+            "id": "3",
+            "country_name": "Spain"
+          }
+        }
+      },
       "year_produced": 2018,
       "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
       "alcohol_percentage": 14.5,
       "current_price": 40
-    },
-    {
-      "id": "4",
-      "full_name": "Quinta do Noval Vintage Port 2016",
-      "category_id": 5,
-      "label": "Vintage Port",
-      "volume": 750,
-      "producer_id": 4,
-      "year_produced": 2016,
-      "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
-      "alcohol_percentage": 19.5,
-      "current_price": 80
-    },
-    {
-      "id": "5",
-      "full_name": "Dr. Loosen Riesling Kabinett 2019",
-      "category_id": 2,
-      "label": "Kabinett",
-      "volume": 750,
-      "producer_id": 5,
-      "year_produced": 2019,
-      "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
-      "alcohol_percentage": 8.5,
-      "current_price": 25
     }
   ],
   "city": [
@@ -160,32 +215,52 @@
       "id": "1",
       "postal_code": 75001,
       "city_name": "Paris",
-      "country_id": 1
+      "country_id": {
+        "id": "1",
+        "country_name": "France"
+      }
     },
     {
       "id": "2",
       "postal_code": 50122,
       "city_name": "Florence",
-      "country_id": 2
+      "country_id": {
+        "id": "2",
+        "country_name": "Italy"
+      }
     },
     {
       "id": "3",
       "postal_code": 26001,
       "city_name": "Logroño",
-      "country_id": 3
+      "country_id": {
+        "id": "3",
+        "country_name": "Spain"
+      }
     },
     {
       "id": "4",
       "postal_code": 4000,
       "city_name": "Porto",
-      "country_id": 4
+      "country_id": {
+        "id": "4",
+        "country_name": "Portugal"
+      }
     }
   ],
   "store": [
     {
       "id": "1",
       "store_name": "Paris Wine House",
-      "city_id": 1,
+      "city_id": {
+        "id": "1",
+        "postal_code": 75001,
+        "city_name": "Paris",
+        "country_id": {
+          "id": "1",
+          "country_name": "France"
+        }
+      },
       "address": "123 Rue de Wine",
       "phone": "+33123456789",
       "mobile": "+33698765432",
@@ -195,7 +270,15 @@
     {
       "id": "2",
       "store_name": "Florence Vintages",
-      "city_id": 2,
+      "city_id": {
+        "id": "2",
+        "postal_code": 50122,
+        "city_name": "Florence",
+        "country_id": {
+          "id": "2",
+          "country_name": "Italy"
+        }
+      },
       "address": "456 Viale dei Colli",
       "phone": "+390123456789",
       "mobile": "+390987654321",
@@ -205,48 +288,169 @@
     {
       "id": "3",
       "store_name": "Rioja Cellar",
-      "city_id": 3,
+      "city_id": {
+        "id": "3",
+        "postal_code": 26001,
+        "city_name": "Logroño",
+        "country_id": {
+          "id": "3",
+          "country_name": "Spain"
+        }
+      },
       "address": "789 Calle de Vino",
       "phone": "+34914123456",
       "mobile": "+34919876543",
       "email": "contact@riojacellar.com",
       "details": "Wine shop featuring Rioja wines"
-    },
-    {
-      "id": "5",
-      "store_name": "Berlin Weinstore",
-      "city_id": 5,
-      "address": "15 Weinstrasse",
-      "phone": "+493012345678",
-      "mobile": "+493098765432",
-      "email": "info@berlinweinstore.com",
-      "details": "Diverse collection of German wines"
     }
   ],
   "inventory": [
     {
       "id": "1",
-      "store_id": 1,
-      "bottle_id": 1,
+      "store_id": {
+        "id": "1",
+        "store_name": "Paris Wine House",
+        "city_id": {
+          "id": "1",
+          "postal_code": 75001,
+          "city_name": "Paris",
+          "country_id": {
+            "id": "1",
+            "country_name": "France"
+          }
+        },
+        "address": "123 Rue de Wine",
+        "phone": "+33123456789",
+        "mobile": "+33698765432",
+        "email": "info@pariswine.com",
+        "details": "Specialty wine store in Paris"
+      },
+      "bottle_id": {
+        "id": "1",
+        "full_name": "Chateau Margaux 2015",
+        "category_id": {
+          "id": "1",
+          "category_name": "Red Wine"
+        },
+        "label": "Premier Grand Cru",
+        "volume": 750,
+        "year_produced": 2015,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 13.5,
+        "current_price": 500,
+        "producer_id": {
+          "id": "1",
+          "producer_name": "Chateau Margaux",
+          "details": "Renowned French Winery",
+          "region_id": {
+            "id": "1",
+            "region_name": "Bordeaux",
+            "country_id": {
+              "id": "1",
+              "country_name": "France"
+            }
+          }
+        }
+      },
       "quantity": 10
     },
     {
       "id": "2",
-      "store_id": 2,
-      "bottle_id": 2,
+      "store_id": {
+        "id": "2",
+        "store_name": "Florence Vintages",
+        "city_id": {
+          "id": "2",
+          "postal_code": 50122,
+          "city_name": "Florence",
+          "country_id": {
+            "id": "2",
+            "country_name": "Italy"
+          }
+        },
+        "address": "456 Viale dei Colli",
+        "phone": "+390123456789",
+        "mobile": "+390987654321",
+        "email": "info@florencevintages.com",
+        "details": "Fine wines from Tuscany and beyond"
+      },
+      "bottle_id": {
+        "id": "2",
+        "full_name": "Tignanello 2017",
+        "category_id": {
+          "id": "2",
+          "category_name": "White Wine"
+        },
+        "label": "Super Tuscan",
+        "producer_id": {
+          "id": "2",
+          "producer_name": "Antinori",
+          "details": "Historic Italian Winery",
+          "region_id": {
+            "id": "2",
+            "region_name": "Tuscany",
+            "country_id": {
+              "id": "2",
+              "country_name": "Italy"
+            }
+          }
+        },
+        "volume": 750,
+        "year_produced": 2017,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 14,
+        "current_price": 150
+      },
       "quantity": 5
     },
     {
       "id": "3",
-      "store_id": 3,
-      "bottle_id": 3,
+      "store_id": {
+        "id": "3",
+        "store_name": "Rioja Cellar",
+        "city_id": {
+          "id": "3",
+          "postal_code": 26001,
+          "city_name": "Logroño",
+          "country_id": {
+            "id": "3",
+            "country_name": "Spain"
+          }
+        },
+        "address": "789 Calle de Vino",
+        "phone": "+34914123456",
+        "mobile": "+34919876543",
+        "email": "contact@riojacellar.com",
+        "details": "Wine shop featuring Rioja wines"
+      },
+      "bottle_id": {
+        "id": "3",
+        "full_name": "Marques de Riscal Reserva 2018",
+        "category_id": {
+          "id": "1",
+          "category_name": "Red Wine"
+        },
+        "label": "Reserva",
+        "volume": 750,
+        "producer_id": {
+          "id": "3",
+          "producer_name": "Marques de Riscal",
+          "details": "Famous Spanish Bodega",
+          "region_id": {
+            "id": "3",
+            "region_name": "Rioja",
+            "country_id": {
+              "id": "3",
+              "country_name": "Spain"
+            }
+          }
+        },
+        "year_produced": 2018,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 14.5,
+        "current_price": 40
+      },
       "quantity": 15
-    },
-    {
-      "id": "4",
-      "store_id": 4,
-      "bottle_id": 4,
-      "quantity": 8
     }
   ],
   "supplier": [
@@ -295,10 +499,44 @@
       "time_placed": "2024-11-01",
       "time_canceled": null,
       "time_delivered": null,
-      "supplier_id": 1,
-      "store_id": 1,
-      "employee_id": 1,
-      "order_price": 5000
+      "supplier_id": {
+        "id": "1",
+        "supplier_name": "French Wine Supplier",
+        "address": "789 Supplier St, Paris",
+        "phone": "+331223456789",
+        "mobile": "+336753654321",
+        "email": "sales@frenchwine.com",
+        "details": "Supplier of French wines"
+      },
+      "store_id": {
+        "id": "1",
+        "store_name": "Paris Wine House",
+        "city_id": {
+          "id": "1",
+          "postal_code": 75001,
+          "city_name": "Paris",
+          "country_id": {
+            "id": "1",
+            "country_name": "France"
+          }
+        },
+        "address": "123 Rue de Wine",
+        "phone": "+33123456789",
+        "mobile": "+33698765432",
+        "email": "info@pariswine.com",
+        "details": "Specialty wine store in Paris"
+      },
+      "employee_id": {
+        "id": "1",
+        "first_name": "Alice",
+        "last_name": "Johnson",
+        "username": "alice_j",
+        "password": "hashedpassword1",
+        "phone": "+33123456789",
+        "email": "alice.johnson@example.com",
+        "is_active": true
+      },
+      "order_price": 4500
     },
     {
       "id": "2",
@@ -307,9 +545,43 @@
       "time_placed": "2024-11-02",
       "time_canceled": null,
       "time_delivered": null,
-      "supplier_id": 2,
-      "store_id": 2,
-      "employee_id": 2,
+      "supplier_id": {
+        "id": "2",
+        "supplier_name": "Italian Wine Supplier",
+        "address": "133 Vino Way, Florence",
+        "phone": "+390223456789",
+        "mobile": "+390753654321",
+        "email": "sales@italianwine.com",
+        "details": "Supplier of Italian wines"
+      },
+      "store_id": {
+        "id": "2",
+        "store_name": "Florence Vintages",
+        "city_id": {
+          "id": "2",
+          "postal_code": 50122,
+          "city_name": "Florence",
+          "country_id": {
+            "id": "2",
+            "country_name": "Italy"
+          }
+        },
+        "address": "456 Viale dei Colli",
+        "phone": "+390123456789",
+        "mobile": "+390987654321",
+        "email": "info@florencevintages.com",
+        "details": "Fine wines from Tuscany and beyond"
+      },
+      "employee_id": {
+        "id": "2",
+        "first_name": "Bob",
+        "last_name": "Williams",
+        "username": "bob_w",
+        "password": "hashedpassword2",
+        "phone": "+390123456789",
+        "email": "bob.williams@example.com",
+        "is_active": true
+      },
       "order_price": 3000
     },
     {
@@ -319,52 +591,280 @@
       "time_placed": "2024-11-03",
       "time_canceled": null,
       "time_delivered": null,
-      "supplier_id": 3,
-      "store_id": 3,
-      "employee_id": 1,
+      "supplier_id": {
+        "id": "3",
+        "supplier_name": "Spanish Wine Supplier",
+        "address": "55 Vinedo St, Logroño",
+        "phone": "+34914325678",
+        "mobile": "+34976543210",
+        "email": "sales@spanishwine.com",
+        "details": "Spanish wines supplier"
+      },
+      "store_id": {
+        "id": "3",
+        "store_name": "Rioja Cellar",
+        "city_id": {
+          "id": "3",
+          "postal_code": 26001,
+          "city_name": "Logroño",
+          "country_id": {
+            "id": "3",
+            "country_name": "Spain"
+          }
+        },
+        "address": "789 Calle de Vino",
+        "phone": "+34914123456",
+        "mobile": "+34919876543",
+        "email": "contact@riojacellar.com",
+        "details": "Wine shop featuring Rioja wines"
+      },
+      "employee_id": {
+        "id": "1",
+        "first_name": "Alice",
+        "last_name": "Johnson",
+        "username": "alice_j",
+        "password": "hashedpassword1",
+        "phone": "+33123456789",
+        "email": "alice.johnson@example.com",
+        "is_active": true
+      },
       "order_price": 4000
-    },
-    {
-      "id": "4",
-      "order_number": "ORD004",
-      "expected_delivery_date": "2024-12-15",
-      "time_placed": "2024-11-04",
-      "time_canceled": null,
-      "time_delivered": null,
-      "supplier_id": 4,
-      "store_id": 4,
-      "employee_id": 2,
-      "order_price": 6000
     }
   ],
   "orderItem": [
     {
       "id": "1",
-      "order_id": 1,
-      "bottle_id": 1,
+      "order_id": {
+        "id": "1",
+        "order_number": "ORD001",
+        "expected_delivery_date": "2024-12-01",
+        "time_placed": "2024-11-01",
+        "time_canceled": null,
+        "time_delivered": null,
+        "supplier_id": {
+          "id": "1",
+          "supplier_name": "French Wine Supplier",
+          "address": "789 Supplier St, Paris",
+          "phone": "+331223456789",
+          "mobile": "+336753654321",
+          "email": "sales@frenchwine.com",
+          "details": "Supplier of French wines"
+        },
+        "store_id": {
+          "id": "1",
+          "store_name": "Paris Wine House",
+          "city_id": {
+            "id": "1",
+            "postal_code": 75001,
+            "city_name": "Paris",
+            "country_id": {
+              "id": "1",
+              "country_name": "France"
+            }
+          },
+          "address": "123 Rue de Wine",
+          "phone": "+33123456789",
+          "mobile": "+33698765432",
+          "email": "info@pariswine.com",
+          "details": "Specialty wine store in Paris"
+        },
+        "employee_id": {
+          "id": "1",
+          "first_name": "Alice",
+          "last_name": "Johnson",
+          "username": "alice_j",
+          "password": "hashedpassword1",
+          "phone": "+33123456789",
+          "email": "alice.johnson@example.com",
+          "is_active": true
+        },
+        "order_price": 5000
+      },
+      "bottle_id": {
+        "id": "1",
+        "full_name": "Chateau Margaux 2015",
+        "category_id": {
+          "id": "1",
+          "category_name": "Red Wine"
+        },
+        "label": "Premier Grand Cru",
+        "volume": 750,
+        "year_produced": 2015,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 13.5,
+        "current_price": 500,
+        "producer_id": {
+          "id": "1",
+          "producer_name": "Chateau Margaux",
+          "details": "Renowned French Winery",
+          "region_id": {
+            "id": "1",
+            "region_name": "Bordeaux",
+            "country_id": {
+              "id": "1",
+              "country_name": "France"
+            }
+          }
+        }
+      },
       "quantity": 10,
       "order_price": "4500"
     },
     {
       "id": "2",
-      "order_id": 2,
-      "bottle_id": 2,
+      "order_id": {
+        "id": "2",
+        "order_number": "ORD002",
+        "expected_delivery_date": "2024-12-05",
+        "time_placed": "2024-11-02",
+        "time_canceled": null,
+        "time_delivered": null,
+        "supplier_id": {
+          "id": "2",
+          "supplier_name": "Italian Wine Supplier",
+          "address": "133 Vino Way, Florence",
+          "phone": "+390223456789",
+          "mobile": "+390753654321",
+          "email": "sales@italianwine.com",
+          "details": "Supplier of Italian wines"
+        },
+        "store_id": {
+          "id": "2",
+          "store_name": "Florence Vintages",
+          "city_id": {
+            "id": "2",
+            "postal_code": 50122,
+            "city_name": "Florence",
+            "country_id": {
+              "id": "2",
+              "country_name": "Italy"
+            }
+          },
+          "address": "456 Viale dei Colli",
+          "phone": "+390123456789",
+          "mobile": "+390987654321",
+          "email": "info@florencevintages.com",
+          "details": "Fine wines from Tuscany and beyond"
+        },
+        "employee_id": {
+          "id": "2",
+          "first_name": "Bob",
+          "last_name": "Williams",
+          "username": "bob_w",
+          "password": "hashedpassword2",
+          "phone": "+390123456789",
+          "email": "bob.williams@example.com",
+          "is_active": true
+        },
+        "order_price": 3000
+      },
+      "bottle_id": {
+        "id": "2",
+        "full_name": "Tignanello 2017",
+        "category_id": {
+          "id": "2",
+          "category_name": "White Wine"
+        },
+        "label": "Super Tuscan",
+        "producer_id": {
+          "id": "2",
+          "producer_name": "Antinori",
+          "details": "Historic Italian Winery",
+          "region_id": {
+            "id": "2",
+            "region_name": "Tuscany",
+            "country_id": {
+              "id": "2",
+              "country_name": "Italy"
+            }
+          }
+        },
+        "volume": 750,
+        "year_produced": 2017,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 14,
+        "current_price": 150
+      },
       "quantity": 5,
       "order_price": "3000"
     },
     {
       "id": "3",
-      "order_id": 3,
-      "bottle_id": 3,
+      "order_id": {
+        "id": "3",
+        "order_number": "ORD003",
+        "expected_delivery_date": "2024-12-10",
+        "time_placed": "2024-11-03",
+        "time_canceled": null,
+        "time_delivered": null,
+        "supplier_id": {
+          "id": "3",
+          "supplier_name": "Spanish Wine Supplier",
+          "address": "55 Vinedo St, Logroño",
+          "phone": "+34914325678",
+          "mobile": "+34976543210",
+          "email": "sales@spanishwine.com",
+          "details": "Spanish wines supplier"
+        },
+        "store_id": {
+          "id": "3",
+          "store_name": "Rioja Cellar",
+          "city_id": {
+            "id": "3",
+            "postal_code": 26001,
+            "city_name": "Logroño",
+            "country_id": {
+              "id": "3",
+              "country_name": "Spain"
+            }
+          },
+          "address": "789 Calle de Vino",
+          "phone": "+34914123456",
+          "mobile": "+34919876543",
+          "email": "contact@riojacellar.com",
+          "details": "Wine shop featuring Rioja wines"
+        },
+        "employee_id": {
+          "id": "1",
+          "first_name": "Alice",
+          "last_name": "Johnson",
+          "username": "alice_j",
+          "password": "hashedpassword1",
+          "phone": "+33123456789",
+          "email": "alice.johnson@example.com",
+          "is_active": true
+        },
+        "order_price": 4000
+      },
+      "bottle_id": {
+        "id": "3",
+        "full_name": "Marques de Riscal Reserva 2018",
+        "category_id": {
+          "id": "1",
+          "category_name": "Red Wine"
+        },
+        "label": "Reserva",
+        "volume": 750,
+        "producer_id": {
+          "id": "3",
+          "producer_name": "Marques de Riscal",
+          "details": "Famous Spanish Bodega",
+          "region_id": {
+            "id": "3",
+            "region_name": "Rioja",
+            "country_id": {
+              "id": "3",
+              "country_name": "Spain"
+            }
+          }
+        },
+        "year_produced": 2018,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 14.5,
+        "current_price": 40
+      },
       "quantity": 15,
       "order_price": "4000"
-    },
-    {
-      "id": "4",
-      "order_id": 4,
-      "bottle_id": 4,
-      "quantity": 8,
-      "order_price": "6000"
     }
   ],
   "customer": [
@@ -394,23 +894,39 @@
       "address": "789 Calle Mayor, Logroño",
       "phone": "+34914123456",
       "email": "carlosg@example.com"
-    },
-    {
-      "id": "4",
-      "username": "ana_silva",
-      "password": "password4",
-      "customer_name": "Ana Silva",
-      "address": "10 Rua das Flores, Porto",
-      "phone": "+351987654321",
-      "email": "anasilva@example.com"
     }
   ],
   "customerOrder": [
     {
       "id": "1",
       "order_number": "CUSTORD001",
-      "customer_id": 1,
-      "store_id": 1,
+      "customer_id": {
+        "id": "1",
+        "username": "john_doe",
+        "password": "password1",
+        "customer_name": "John Doe",
+        "address": "123 Main St, Paris",
+        "phone": "+33123456789",
+        "email": "johndoe@example.com"
+      },
+      "store_id": {
+        "id": "1",
+        "store_name": "Paris Wine House",
+        "city_id": {
+          "id": "1",
+          "postal_code": 75001,
+          "city_name": "Paris",
+          "country_id": {
+            "id": "1",
+            "country_name": "France"
+          }
+        },
+        "address": "123 Rue de Wine",
+        "phone": "+33123456789",
+        "mobile": "+33698765432",
+        "email": "info@pariswine.com",
+        "details": "Specialty wine store in Paris"
+      },
       "expected_delivery_date": "2024-11-10",
       "time_placed": "2024-11-01",
       "order_price": 200
@@ -418,8 +934,33 @@
     {
       "id": "2",
       "order_number": "CUSTORD002",
-      "customer_id": 2,
-      "store_id": 2,
+      "customer_id": {
+        "id": "2",
+        "username": "jane_smith",
+        "password": "password2",
+        "customer_name": "Jane Smith",
+        "address": "456 Park Ave, Florence",
+        "phone": "+390123456789",
+        "email": "janesmith@example.com"
+      },
+      "store_id": {
+        "id": "2",
+        "store_name": "Florence Vintages",
+        "city_id": {
+          "id": "2",
+          "postal_code": 50122,
+          "city_name": "Florence",
+          "country_id": {
+            "id": "2",
+            "country_name": "Italy"
+          }
+        },
+        "address": "456 Viale dei Colli",
+        "phone": "+390123456789",
+        "mobile": "+390987654321",
+        "email": "info@florencevintages.com",
+        "details": "Fine wines from Tuscany and beyond"
+      },
       "expected_delivery_date": "2024-11-12",
       "time_placed": "2024-11-02",
       "order_price": 150
@@ -427,122 +968,798 @@
     {
       "id": "3",
       "order_number": "CUSTORD003",
-      "customer_id": 3,
-      "store_id": 3,
+      "customer_id": {
+        "id": "3",
+        "username": "carlos_garcia",
+        "password": "password3",
+        "customer_name": "Carlos Garcia",
+        "address": "789 Calle Mayor, Logroño",
+        "phone": "+34914123456",
+        "email": "carlosg@example.com"
+      },
+      "store_id": {
+        "id": "3",
+        "store_name": "Rioja Cellar",
+        "city_id": {
+          "id": "3",
+          "postal_code": 26001,
+          "city_name": "Logroño",
+          "country_id": {
+            "id": "3",
+            "country_name": "Spain"
+          }
+        },
+        "address": "789 Calle de Vino",
+        "phone": "+34914123456",
+        "mobile": "+34919876543",
+        "email": "contact@riojacellar.com",
+        "details": "Wine shop featuring Rioja wines"
+      },
       "expected_delivery_date": "2024-11-15",
       "time_placed": "2024-11-03",
       "order_price": 250
-    },
-    {
-      "id": "4",
-      "order_number": "CUSTORD004",
-      "customer_id": 4,
-      "store_id": 4,
-      "expected_delivery_date": "2024-11-20",
-      "time_placed": "2024-11-04",
-      "order_price": 300
     }
   ],
   "customerOrderItem": [
     {
       "id": "1",
-      "customer_order_id": 1,
-      "bottle_id": 1,
+      "customer_order_id": {
+        "id": "1",
+        "order_number": "CUSTORD001",
+        "customer_id": {
+          "id": "1",
+          "username": "john_doe",
+          "password": "password1",
+          "customer_name": "John Doe",
+          "address": "123 Main St, Paris",
+          "phone": "+33123456789",
+          "email": "johndoe@example.com"
+        },
+        "store_id": {
+          "id": "1",
+          "store_name": "Paris Wine House",
+          "city_id": {
+            "id": "1",
+            "postal_code": 75001,
+            "city_name": "Paris",
+            "country_id": {
+              "id": "1",
+              "country_name": "France"
+            }
+          },
+          "address": "123 Rue de Wine",
+          "phone": "+33123456789",
+          "mobile": "+33698765432",
+          "email": "info@pariswine.com",
+          "details": "Specialty wine store in Paris"
+        },
+        "expected_delivery_date": "2024-11-10",
+        "time_placed": "2024-11-01",
+        "order_price": 200
+      },
+      "bottle_id": {
+        "id": "1",
+        "full_name": "Chateau Margaux 2015",
+        "category_id": {
+          "id": "1",
+          "category_name": "Red Wine"
+        },
+        "label": "Premier Grand Cru",
+        "volume": 750,
+        "year_produced": 2015,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 13.5,
+        "current_price": 500,
+        "producer_id": {
+          "id": "1",
+          "producer_name": "Chateau Margaux",
+          "details": "Renowned French Winery",
+          "region_id": {
+            "id": "1",
+            "region_name": "Bordeaux",
+            "country_id": {
+              "id": "1",
+              "country_name": "France"
+            }
+          }
+        }
+      },
       "quantity": 1,
       "order_price": 200
     },
     {
       "id": "2",
-      "customer_order_id": 2,
-      "bottle_id": 2,
+      "customer_order_id": {
+        "id": "2",
+        "order_number": "CUSTORD002",
+        "customer_id": {
+          "id": "2",
+          "username": "jane_smith",
+          "password": "password2",
+          "customer_name": "Jane Smith",
+          "address": "456 Park Ave, Florence",
+          "phone": "+390123456789",
+          "email": "janesmith@example.com"
+        },
+        "store_id": {
+          "id": "2",
+          "store_name": "Florence Vintages",
+          "city_id": {
+            "id": "2",
+            "postal_code": 50122,
+            "city_name": "Florence",
+            "country_id": {
+              "id": "2",
+              "country_name": "Italy"
+            }
+          },
+          "address": "456 Viale dei Colli",
+          "phone": "+390123456789",
+          "mobile": "+390987654321",
+          "email": "info@florencevintages.com",
+          "details": "Fine wines from Tuscany and beyond"
+        },
+        "expected_delivery_date": "2024-11-12",
+        "time_placed": "2024-11-02",
+        "order_price": 150
+      },
+      "bottle_id": {
+        "id": "2",
+        "full_name": "Tignanello 2017",
+        "category_id": {
+          "id": "2",
+          "category_name": "White Wine"
+        },
+        "label": "Super Tuscan",
+        "producer_id": {
+          "id": "2",
+          "producer_name": "Antinori",
+          "details": "Historic Italian Winery",
+          "region_id": {
+            "id": "2",
+            "region_name": "Tuscany",
+            "country_id": {
+              "id": "2",
+              "country_name": "Italy"
+            }
+          }
+        },
+        "volume": 750,
+        "year_produced": 2017,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 14,
+        "current_price": 150
+      },
       "quantity": 1,
       "order_price": 150
     },
     {
       "id": "3",
-      "customer_order_id": 3,
-      "bottle_id": 3,
+      "customer_order_id": {
+        "id": "3",
+        "order_number": "CUSTORD003",
+        "customer_id": {
+          "id": "3",
+          "username": "carlos_garcia",
+          "password": "password3",
+          "customer_name": "Carlos Garcia",
+          "address": "789 Calle Mayor, Logroño",
+          "phone": "+34914123456",
+          "email": "carlosg@example.com"
+        },
+        "store_id": {
+          "id": "3",
+          "store_name": "Rioja Cellar",
+          "city_id": {
+            "id": "3",
+            "postal_code": 26001,
+            "city_name": "Logroño",
+            "country_id": {
+              "id": "3",
+              "country_name": "Spain"
+            }
+          },
+          "address": "789 Calle de Vino",
+          "phone": "+34914123456",
+          "mobile": "+34919876543",
+          "email": "contact@riojacellar.com",
+          "details": "Wine shop featuring Rioja wines"
+        },
+        "expected_delivery_date": "2024-11-15",
+        "time_placed": "2024-11-03",
+        "order_price": 250
+      },
+      "bottle_id": {
+        "id": "3",
+        "full_name": "Marques de Riscal Reserva 2018",
+        "category_id": {
+          "id": "1",
+          "category_name": "Red Wine"
+        },
+        "label": "Reserva",
+        "volume": 750,
+        "producer_id": {
+          "id": "3",
+          "producer_name": "Marques de Riscal",
+          "details": "Famous Spanish Bodega",
+          "region_id": {
+            "id": "3",
+            "region_name": "Rioja",
+            "country_id": {
+              "id": "3",
+              "country_name": "Spain"
+            }
+          }
+        },
+        "year_produced": 2018,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 14.5,
+        "current_price": 40
+      },
       "quantity": 1,
       "order_price": 250
-    },
-    {
-      "id": "4",
-      "customer_order_id": 4,
-      "bottle_id": 4,
-      "quantity": 1,
-      "order_price": 300
     }
   ],
   "invoice": [
     {
       "id": "1",
       "invoice_number": "INV001",
-      "store_id": 1,
-      "customer_order_id": 1,
-      "customer_id": 1,
-      "employee_id": 1,
+      "store_id": {
+        "id": "1",
+        "store_name": "Paris Wine House",
+        "city_id": {
+          "id": "1",
+          "postal_code": 75001,
+          "city_name": "Paris",
+          "country_id": {
+            "id": "1",
+            "country_name": "France"
+          }
+        },
+        "address": "123 Rue de Wine",
+        "phone": "+33123456789",
+        "mobile": "+33698765432",
+        "email": "info@pariswine.com",
+        "details": "Specialty wine store in Paris"
+      },
+      "customer_order_id": {
+        "id": "1",
+        "order_number": "CUSTORD001",
+        "customer_id": {
+          "id": "1",
+          "username": "john_doe",
+          "password": "password1",
+          "customer_name": "John Doe",
+          "address": "123 Main St, Paris",
+          "phone": "+33123456789",
+          "email": "johndoe@example.com"
+        },
+        "store_id": {
+          "id": "1",
+          "store_name": "Paris Wine House",
+          "city_id": {
+            "id": "1",
+            "postal_code": 75001,
+            "city_name": "Paris",
+            "country_id": {
+              "id": "1",
+              "country_name": "France"
+            }
+          },
+          "address": "123 Rue de Wine",
+          "phone": "+33123456789",
+          "mobile": "+33698765432",
+          "email": "info@pariswine.com",
+          "details": "Specialty wine store in Paris"
+        },
+        "expected_delivery_date": "2024-11-10",
+        "time_placed": "2024-11-01",
+        "order_price": 200
+      },
+      "customer_id": {
+        "id": "1",
+        "username": "john_doe",
+        "password": "password1",
+        "customer_name": "John Doe",
+        "address": "123 Main St, Paris",
+        "phone": "+33123456789",
+        "email": "johndoe@example.com"
+      },
+      "employee_id": {
+        "id": "1",
+        "first_name": "Alice",
+        "last_name": "Johnson",
+        "username": "alice_j",
+        "password": "hashedpassword1",
+        "phone": "+33123456789",
+        "email": "alice.johnson@example.com",
+        "is_active": true
+      },
       "invoice_total": 200,
       "time_created": "2024-11-01"
     },
     {
       "id": "2",
       "invoice_number": "INV002",
-      "store_id": 2,
-      "customer_order_id": 2,
-      "customer_id": 2,
-      "employee_id": 2,
+      "store_id": {
+        "id": "2",
+        "store_name": "Florence Vintages",
+        "city_id": {
+          "id": "2",
+          "postal_code": 50122,
+          "city_name": "Florence",
+          "country_id": {
+            "id": "2",
+            "country_name": "Italy"
+          }
+        },
+        "address": "456 Viale dei Colli",
+        "phone": "+390123456789",
+        "mobile": "+390987654321",
+        "email": "info@florencevintages.com",
+        "details": "Fine wines from Tuscany and beyond"
+      },
+      "customer_order_id":     {
+        "id": "2",
+        "order_number": "CUSTORD002",
+        "customer_id": {
+          "id": "2",
+          "username": "jane_smith",
+          "password": "password2",
+          "customer_name": "Jane Smith",
+          "address": "456 Park Ave, Florence",
+          "phone": "+390123456789",
+          "email": "janesmith@example.com"
+        },
+        "store_id": {
+          "id": "2",
+          "store_name": "Florence Vintages",
+          "city_id": {
+            "id": "2",
+            "postal_code": 50122,
+            "city_name": "Florence",
+            "country_id": {
+              "id": "2",
+              "country_name": "Italy"
+            }
+          },
+          "address": "456 Viale dei Colli",
+          "phone": "+390123456789",
+          "mobile": "+390987654321",
+          "email": "info@florencevintages.com",
+          "details": "Fine wines from Tuscany and beyond"
+        },
+        "expected_delivery_date": "2024-11-12",
+        "time_placed": "2024-11-02",
+        "order_price": 150
+      },
+      "customer_id": {
+        "id": "2",
+        "username": "jane_smith",
+        "password": "password2",
+        "customer_name": "Jane Smith",
+        "address": "456 Park Ave, Florence",
+        "phone": "+390123456789",
+        "email": "janesmith@example.com"
+      },
+      "employee_id": {
+        "id": "2",
+        "first_name": "Bob",
+        "last_name": "Williams",
+        "username": "bob_w",
+        "password": "hashedpassword2",
+        "phone": "+390123456789",
+        "email": "bob.williams@example.com",
+        "is_active": true
+      },
       "invoice_total": 150,
       "time_created": "2024-11-01"
     },
     {
       "id": "3",
       "invoice_number": "INV003",
-      "store_id": 3,
-      "customer_order_id": 3,
-      "customer_id": 3,
-      "employee_id": 1,
+      "store_id": {
+        "id": "3",
+        "store_name": "Rioja Cellar",
+        "city_id": {
+          "id": "3",
+          "postal_code": 26001,
+          "city_name": "Logroño",
+          "country_id": {
+            "id": "3",
+            "country_name": "Spain"
+          }
+        },
+        "address": "789 Calle de Vino",
+        "phone": "+34914123456",
+        "mobile": "+34919876543",
+        "email": "contact@riojacellar.com",
+        "details": "Wine shop featuring Rioja wines"
+      },
+      "customer_order_id":     {
+        "id": "3",
+        "order_number": "CUSTORD003",
+        "customer_id": {
+          "id": "3",
+          "username": "carlos_garcia",
+          "password": "password3",
+          "customer_name": "Carlos Garcia",
+          "address": "789 Calle Mayor, Logroño",
+          "phone": "+34914123456",
+          "email": "carlosg@example.com"
+        },
+        "store_id": {
+          "id": "3",
+          "store_name": "Rioja Cellar",
+          "city_id": {
+            "id": "3",
+            "postal_code": 26001,
+            "city_name": "Logroño",
+            "country_id": {
+              "id": "3",
+              "country_name": "Spain"
+            }
+          },
+          "address": "789 Calle de Vino",
+          "phone": "+34914123456",
+          "mobile": "+34919876543",
+          "email": "contact@riojacellar.com",
+          "details": "Wine shop featuring Rioja wines"
+        },
+        "expected_delivery_date": "2024-11-15",
+        "time_placed": "2024-11-03",
+        "order_price": 250
+      },
+      "customer_id": {
+        "id": "3",
+        "username": "carlos_garcia",
+        "password": "password3",
+        "customer_name": "Carlos Garcia",
+        "address": "789 Calle Mayor, Logroño",
+        "phone": "+34914123456",
+        "email": "carlosg@example.com"
+      },
+      "employee_id": {
+        "id": "1",
+        "first_name": "Alice",
+        "last_name": "Johnson",
+        "username": "alice_j",
+        "password": "hashedpassword1",
+        "phone": "+33123456789",
+        "email": "alice.johnson@example.com",
+        "is_active": true
+      },
       "invoice_total": 250,
-      "time_created": "2024-11-02"
-    },
-    {
-      "id": "4",
-      "invoice_number": "INV004",
-      "store_id": 4,
-      "customer_order_id": 4,
-      "customer_id": 4,
-      "employee_id": 2,
-      "invoice_total": 300,
       "time_created": "2024-11-02"
     }
   ],
   "invoiceItem": [
     {
       "id": "1",
-      "invoice_id": 1,
-      "bottle_id": 1,
+      "invoice_id": {
+        "id": "1",
+        "invoice_number": "INV001",
+        "store_id": {
+          "id": "1",
+          "store_name": "Paris Wine House",
+          "city_id": {
+            "id": "1",
+            "postal_code": 75001,
+            "city_name": "Paris",
+            "country_id": {
+              "id": "1",
+              "country_name": "France"
+            }
+          },
+          "address": "123 Rue de Wine",
+          "phone": "+33123456789",
+          "mobile": "+33698765432",
+          "email": "info@pariswine.com",
+          "details": "Specialty wine store in Paris"
+        },
+        "customer_order_id": {
+          "id": "1",
+          "order_number": "CUSTORD001",
+          "customer_id": {
+            "id": "1",
+            "username": "john_doe",
+            "password": "password1",
+            "customer_name": "John Doe",
+            "address": "123 Main St, Paris",
+            "phone": "+33123456789",
+            "email": "johndoe@example.com"
+          },
+          "store_id": {
+            "id": "1",
+            "store_name": "Paris Wine House",
+            "city_id": {
+              "id": "1",
+              "postal_code": 75001,
+              "city_name": "Paris",
+              "country_id": {
+                "id": "1",
+                "country_name": "France"
+              }
+            },
+            "address": "123 Rue de Wine",
+            "phone": "+33123456789",
+            "mobile": "+33698765432",
+            "email": "info@pariswine.com",
+            "details": "Specialty wine store in Paris"
+          },
+          "expected_delivery_date": "2024-11-10",
+          "time_placed": "2024-11-01",
+          "order_price": 200
+        },
+        "customer_id": {
+          "id": "1",
+          "username": "john_doe",
+          "password": "password1",
+          "customer_name": "John Doe",
+          "address": "123 Main St, Paris",
+          "phone": "+33123456789",
+          "email": "johndoe@example.com"
+        },
+        "employee_id": {
+          "id": "1",
+          "first_name": "Alice",
+          "last_name": "Johnson",
+          "username": "alice_j",
+          "password": "hashedpassword1",
+          "phone": "+33123456789",
+          "email": "alice.johnson@example.com",
+          "is_active": true
+        },
+        "invoice_total": 200,
+        "time_created": "2024-11-01"
+      },
+      "bottle_id": {
+        "id": "1",
+        "full_name": "Chateau Margaux 2015",
+        "category_id": {
+          "id": "1",
+          "category_name": "Red Wine"
+        },
+        "label": "Premier Grand Cru",
+        "volume": 750,
+        "year_produced": 2015,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 13.5,
+        "current_price": 500,
+        "producer_id": {
+          "id": "1",
+          "producer_name": "Chateau Margaux",
+          "details": "Renowned French Winery",
+          "region_id": {
+            "id": "1",
+            "region_name": "Bordeaux",
+            "country_id": {
+              "id": "1",
+              "country_name": "France"
+            }
+          }
+        }
+      },
       "quantity": 1,
       "item_price": 200
     },
     {
       "id": "2",
-      "invoice_id": 2,
-      "bottle_id": 2,
+      "invoice_id": {
+        "id": "2",
+        "invoice_number": "INV002",
+        "store_id": {
+          "id": "2",
+          "store_name": "Florence Vintages",
+          "city_id": {
+            "id": "2",
+            "postal_code": 50122,
+            "city_name": "Florence",
+            "country_id": {
+              "id": "2",
+              "country_name": "Italy"
+            }
+          },
+          "address": "456 Viale dei Colli",
+          "phone": "+390123456789",
+          "mobile": "+390987654321",
+          "email": "info@florencevintages.com",
+          "details": "Fine wines from Tuscany and beyond"
+        },
+        "customer_order_id":     {
+          "id": "2",
+          "order_number": "CUSTORD002",
+          "customer_id": {
+            "id": "2",
+            "username": "jane_smith",
+            "password": "password2",
+            "customer_name": "Jane Smith",
+            "address": "456 Park Ave, Florence",
+            "phone": "+390123456789",
+            "email": "janesmith@example.com"
+          },
+          "store_id": {
+            "id": "2",
+            "store_name": "Florence Vintages",
+            "city_id": {
+              "id": "2",
+              "postal_code": 50122,
+              "city_name": "Florence",
+              "country_id": {
+                "id": "2",
+                "country_name": "Italy"
+              }
+            },
+            "address": "456 Viale dei Colli",
+            "phone": "+390123456789",
+            "mobile": "+390987654321",
+            "email": "info@florencevintages.com",
+            "details": "Fine wines from Tuscany and beyond"
+          },
+          "expected_delivery_date": "2024-11-12",
+          "time_placed": "2024-11-02",
+          "order_price": 150
+        },
+        "customer_id": {
+          "id": "2",
+          "username": "jane_smith",
+          "password": "password2",
+          "customer_name": "Jane Smith",
+          "address": "456 Park Ave, Florence",
+          "phone": "+390123456789",
+          "email": "janesmith@example.com"
+        },
+        "employee_id": {
+          "id": "2",
+          "first_name": "Bob",
+          "last_name": "Williams",
+          "username": "bob_w",
+          "password": "hashedpassword2",
+          "phone": "+390123456789",
+          "email": "bob.williams@example.com",
+          "is_active": true
+        },
+        "invoice_total": 150,
+        "time_created": "2024-11-01"
+      },
+      "bottle_id": {
+        "id": "2",
+        "full_name": "Tignanello 2017",
+        "category_id": {
+          "id": "2",
+          "category_name": "White Wine"
+        },
+        "label": "Super Tuscan",
+        "producer_id": {
+          "id": "2",
+          "producer_name": "Antinori",
+          "details": "Historic Italian Winery",
+          "region_id": {
+            "id": "2",
+            "region_name": "Tuscany",
+            "country_id": {
+              "id": "2",
+              "country_name": "Italy"
+            }
+          }
+        },
+        "volume": 750,
+        "year_produced": 2017,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 14,
+        "current_price": 150
+      },
       "quantity": 1,
       "item_price": 150
     },
     {
       "id": "3",
-      "invoice_id": 3,
-      "bottle_id": 3,
+      "invoice_id": {
+        "id": "3",
+        "invoice_number": "INV003",
+        "store_id": {
+          "id": "3",
+          "store_name": "Rioja Cellar",
+          "city_id": {
+            "id": "3",
+            "postal_code": 26001,
+            "city_name": "Logroño",
+            "country_id": {
+              "id": "3",
+              "country_name": "Spain"
+            }
+          },
+          "address": "789 Calle de Vino",
+          "phone": "+34914123456",
+          "mobile": "+34919876543",
+          "email": "contact@riojacellar.com",
+          "details": "Wine shop featuring Rioja wines"
+        },
+        "customer_order_id":     {
+          "id": "3",
+          "order_number": "CUSTORD003",
+          "customer_id": {
+            "id": "3",
+            "username": "carlos_garcia",
+            "password": "password3",
+            "customer_name": "Carlos Garcia",
+            "address": "789 Calle Mayor, Logroño",
+            "phone": "+34914123456",
+            "email": "carlosg@example.com"
+          },
+          "store_id": {
+            "id": "3",
+            "store_name": "Rioja Cellar",
+            "city_id": {
+              "id": "3",
+              "postal_code": 26001,
+              "city_name": "Logroño",
+              "country_id": {
+                "id": "3",
+                "country_name": "Spain"
+              }
+            },
+            "address": "789 Calle de Vino",
+            "phone": "+34914123456",
+            "mobile": "+34919876543",
+            "email": "contact@riojacellar.com",
+            "details": "Wine shop featuring Rioja wines"
+          },
+          "expected_delivery_date": "2024-11-15",
+          "time_placed": "2024-11-03",
+          "order_price": 250
+        },
+        "customer_id": {
+          "id": "3",
+          "username": "carlos_garcia",
+          "password": "password3",
+          "customer_name": "Carlos Garcia",
+          "address": "789 Calle Mayor, Logroño",
+          "phone": "+34914123456",
+          "email": "carlosg@example.com"
+        },
+        "employee_id": {
+          "id": "1",
+          "first_name": "Alice",
+          "last_name": "Johnson",
+          "username": "alice_j",
+          "password": "hashedpassword1",
+          "phone": "+33123456789",
+          "email": "alice.johnson@example.com",
+          "is_active": true
+        },
+        "invoice_total": 250,
+        "time_created": "2024-11-02"
+      },
+      "bottle_id": {
+        "id": "3",
+        "full_name": "Marques de Riscal Reserva 2018",
+        "category_id": {
+          "id": "1",
+          "category_name": "Red Wine"
+        },
+        "label": "Reserva",
+        "volume": 750,
+        "producer_id": {
+          "id": "3",
+          "producer_name": "Marques de Riscal",
+          "details": "Famous Spanish Bodega",
+          "region_id": {
+            "id": "3",
+            "region_name": "Rioja",
+            "country_id": {
+              "id": "3",
+              "country_name": "Spain"
+            }
+          }
+        },
+        "year_produced": 2018,
+        "picture": "https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png",
+        "alcohol_percentage": 14.5,
+        "current_price": 40
+      },
       "quantity": 1,
       "item_price": 250
-    },
-    {
-      "id": "4",
-      "invoice_id": 4,
-      "bottle_id": 4,
-      "quantity": 1,
-      "item_price": 300
     }
   ],
   "employee": [

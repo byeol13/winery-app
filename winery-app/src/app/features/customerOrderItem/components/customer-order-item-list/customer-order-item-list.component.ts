@@ -19,7 +19,7 @@ export class CustomerOrderItemListComponent implements OnInit{
 
   customerOrderItemIdToDelete: number | undefined;
   customerOrderItems: CustomerOrderItem[] = [];
-  displayedColumns: string[] = ['id', 'order_price', 'actions'];
+  displayedColumns: string[] = ['id', 'customer_order_id', 'order_price', 'actions'];
   showDeleteDialog = false;
 
   constructor(private customerOrderItemService: CustomerOrderItemService, private router: Router){}

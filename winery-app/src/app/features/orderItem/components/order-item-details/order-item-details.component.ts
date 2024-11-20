@@ -19,7 +19,7 @@ export class OrderItemDetailsComponent {
 
   orderItemId: any;
   orderItems: OrderItem | undefined;
-  displayedColumns: string[] = ['id', 'quantity', 'order_price'];
+  displayedColumns: string[] = ['id', 'order_id', 'bottle_id', 'quantity', 'order_price'];
 
   constructor(private orderItemService: OrderItemService, private activatedROute: ActivatedRoute){
     this.orderItemId = activatedROute.snapshot.paramMap.get('id');

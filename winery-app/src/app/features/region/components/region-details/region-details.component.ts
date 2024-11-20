@@ -19,7 +19,7 @@ export class RegionDetailsComponent implements OnInit{
 
   regionId: any;
   regions: Region | undefined;
-  displayedColumns: string[] = ['id', 'region_name'];
+  displayedColumns: string[] = ['id', 'region_name', 'country_id'];
 
   constructor(private regionService: RegionService, private activatedRoute: ActivatedRoute){
     this.regionId = activatedRoute.snapshot.paramMap.get('id');

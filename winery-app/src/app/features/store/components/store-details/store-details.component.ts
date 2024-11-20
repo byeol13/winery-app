@@ -19,7 +19,7 @@ export class StoreDetailsComponent implements OnInit{
 
   storeId: any;
   stores: Store | undefined;
-  displayedColumns: string[] = ['id', 'store_name', 'address', 'phone', 'mobile', 'email', 'details'];
+  displayedColumns: string[] = ['id', 'store_name', 'address', 'city_id', 'phone', 'mobile', 'email', 'details'];
 
   constructor(private storeService: StoreService, private activatedRoute: ActivatedRoute){
     this.storeId = activatedRoute.snapshot.paramMap.get('id');
