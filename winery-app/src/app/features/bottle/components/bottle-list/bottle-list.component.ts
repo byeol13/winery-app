@@ -7,7 +7,6 @@ import { Bottle } from '../../../../shared/models/Bottle.model';
 import { BottleService } from '../../service/bottle.service';
 import { Router } from '@angular/router';
 import { BottleDeleteComponent } from '../bottle-delete/bottle-delete.component';
-import { Category } from '../../../../shared/models/Category.model';
 
 @Component({
   selector: 'app-bottle-list',

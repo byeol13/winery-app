@@ -11,5 +11,5 @@ export interface Invoice {
   customer_id: Customer,
   employee_id: Employee,
   invoice_total: number,
-  time_created: string
+  time_created: Date
 }
