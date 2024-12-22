@@ -9,17 +9,17 @@
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
+        <td mat-cell *matCellDef="let employee"> {{employee.employeeId}} </td>
       </ng-container>
     
       <ng-container matColumnDef="first_name">
         <th mat-header-cell *matHeaderCellDef> First Name</th>
-        <td mat-cell *matCellDef="let employee">{{employee.first_name}} </td>
+        <td mat-cell *matCellDef="let employee">{{employee.firstName}} </td>
       </ng-container>
     
       <ng-container matColumnDef="last_name">
         <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let employee">{{employee.last_name}} </td>
+        <td mat-cell *matCellDef="let employee">{{employee.lastName}} </td>
       </ng-container>
     
       <ng-container matColumnDef="username">
@@ -49,7 +49,7 @@
 
       <ng-container matColumnDef="is_active">
         <th mat-header-cell *matHeaderCellDef> Is Active </th>
-        <td mat-cell *matCellDef="let employee">{{employee.is_active}} </td>
+        <td mat-cell *matCellDef="let employee">{{employee.isActive}} </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

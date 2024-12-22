@@ -8,17 +8,17 @@
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let producer"> {{producer.id}} </td>
+        <td mat-cell *matCellDef="let producer"> {{producer.producerId}} </td>
       </ng-container>
     
       <ng-container matColumnDef="producer_name">
         <th mat-header-cell *matHeaderCellDef> Producer Name </th>
-        <td mat-cell *matCellDef="let producer"> {{producer.producer_name}} </td>
+        <td mat-cell *matCellDef="let producer"> {{producer.producerName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="region_id">
         <th mat-header-cell *matHeaderCellDef> Region </th>
-        <td mat-cell *matCellDef="let producer"> {{producer.region_id.region_name}} </td>
+        <td mat-cell *matCellDef="let producer"> {{producer.regionDTO.regionName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="details">

@@ -35,7 +35,7 @@ export class InventoryListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/inventory`, id]);
+    this.router.navigate([`/inventory`], {queryParams: {inventoryId: id}});
   }
 
   openDeleteDialog(id: number) {

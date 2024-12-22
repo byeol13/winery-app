@@ -8,19 +8,19 @@ import { Bottle } from '../../../shared/models/Bottle.model';
 })
 export class BottleService {
 
-  private apiUrl = `http://localhost:3000/bottle`;
+  private apiUrl = `http://localhost:8080/bottles`;
 
   constructor(private http: HttpClient) { }
 
   getAllBottles(): Observable<Bottle[]> {
-    return this.http.get<Bottle[]>(this.apiUrl);
+    return this.http.get<Bottle[]>(`${this.apiUrl}/getAllBottles`);
   }
 
   getBottleById(id: number): Observable<Bottle> {
-    return this.http.get<Bottle>(`${this.apiUrl}/${id}`);
+    return this.http.get<Bottle>(`${this.apiUrl}/getBottleById?bottleId=${id}`);
   }
 
   deleteBottleById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteBottle/${id}`);
   } 
 }

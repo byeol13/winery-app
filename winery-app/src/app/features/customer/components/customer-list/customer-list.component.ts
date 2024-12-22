@@ -42,7 +42,9 @@ export class CustomerListComponent {
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/customer`, id]);
+    this.router.navigate([`/customer`], {queryParams: {
+      customerId: id
+    }});
   }
 
   openDeleteDialog(id: number) {

@@ -35,7 +35,7 @@ export class RegionListComponent {
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/region`, id]);
+    this.router.navigate([`/region`], {queryParams: { regionId: id}});
   }
 
   openDeleteDialog(id: number) {

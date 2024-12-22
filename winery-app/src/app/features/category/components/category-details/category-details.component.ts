@@ -22,7 +22,7 @@ export class CategoryDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'category_name'];
 
   constructor(private categoryService: CategoryService, private activatedRoute: ActivatedRoute){
-    this.categoryId = activatedRoute.snapshot.paramMap.get('id');
+    this.categoryId = activatedRoute.snapshot.queryParamMap.get('categoryId');
   }
 
   ngOnInit(): void {

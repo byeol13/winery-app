@@ -1,6 +1,6 @@
 export interface Supplier {
-  id: number,
-  supplier_name: string,
+  supplierId: number,
+  supplierName: string,
   address: string,
   phone: string,
   mobile: string,

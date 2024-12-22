@@ -7,29 +7,29 @@
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let invoiceItem"> {{invoiceItem.id}} </td>
+    <td mat-cell *matCellDef="let invoiceItem"> {{invoiceItem.invoiceItemId}} </td>
   </ng-container>
 
   <ng-container matColumnDef="invoice_id">
     <th mat-header-cell *matHeaderCellDef> Invoice Number </th>
-    <td mat-cell *matCellDef="let invoiceItem"> {{invoiceItem.invoice_id.invoice_number}} </td>
+    <td mat-cell *matCellDef="let invoiceItem"> {{invoiceItem.invoiceDTO.invoiceNumber}} </td>
   </ng-container>
 
   <ng-container matColumnDef="bottle_id">
     <th mat-header-cell *matHeaderCellDef> Bottle </th>
-    <td mat-cell *matCellDef="let invoiceItem"> {{invoiceItem.bottle_id.full_name}} </td>
+    <td mat-cell *matCellDef="let invoiceItem"> {{invoiceItem.bottleDTO.fullName}} </td>
   </ng-container>
 
   <ng-container matColumnDef="item_price">
     <th mat-header-cell *matHeaderCellDef> Item Price </th>
-    <td mat-cell *matCellDef="let invoiceItem">$ {{invoiceItem.item_price}} </td>
+    <td mat-cell *matCellDef="let invoiceItem">$ {{invoiceItem.itemPrice}} </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let invoiceItem">
-      <button mat-stroked-button (click)="viewDetails(invoiceItem.id)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(invoiceItem.id)">Delete</button>
+      <button mat-stroked-button (click)="viewDetails(invoiceItem.invoiceItemId)">View More</button>
+      <button mat-stroked-button (click)="openDeleteDialog(invoiceItem.invoiceItemId)">Delete</button>
     </td>
   </ng-container>
 

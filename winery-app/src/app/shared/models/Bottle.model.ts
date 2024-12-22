@@ -3,13 +3,13 @@ import { Producer } from "./Producer.model";
 
 export interface Bottle {
   id: number,
-  full_name: string,
+  fullName: string,
   label: string,
   volume: number,
-  year_produced: number,
+  yearProduced: number,
   picture: string,
-  alcohol_percentage: number,
-  current_price: number,
-  category_id: Category,
-  producer_id: Producer
+  alcoholPercentage: number,
+  currentPrice: number,
+  categoryDTO: Category,
+  producerDTO: Producer
 }

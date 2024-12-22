@@ -22,8 +22,7 @@ export class BottleDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'full_name', 'label', 'category_id', 'volume', 'year_produced', 'producer_id', 'picture', 'alcohol_percentage', 'current_price'];
 
   constructor(private bottleService: BottleService, private activatedRoute: ActivatedRoute, private router: Router){
-    this.bottleId = activatedRoute.snapshot.paramMap.get('id');
-    console.log("got the id", this.bottleId);
+    this.bottleId = activatedRoute.snapshot.queryParamMap.get('bottleId');
   }
 
   ngOnInit(): void {

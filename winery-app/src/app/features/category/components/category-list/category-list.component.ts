@@ -36,8 +36,7 @@ export class CategoryListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/category`, id]);
-    console.log("This id is === ", id);
+    this.router.navigate([`/category`], { queryParams: { categoryId: id}});
   }
 
   openDeleteDialog(id: number) {

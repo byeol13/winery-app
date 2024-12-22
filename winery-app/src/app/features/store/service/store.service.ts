@@ -8,19 +8,19 @@ import { Store } from '../../../shared/models/Store.model';
 })
 export class StoreService {
 
-  private apiUrl = `http://localhost:3000/store`;
+  private apiUrl = `http://localhost:8080/stores`;
 
   constructor(private http: HttpClient) { }
 
   getAllStores(): Observable<Store[]> {
-    return this.http.get<Store[]>(this.apiUrl);
+    return this.http.get<Store[]>(`${this.apiUrl}/getAllStores`);
   }
 
   getStoreById(id: number): Observable<Store> {
-    return this.http.get<Store>(`${this.apiUrl}/${id}`);
+    return this.http.get<Store>(`${this.apiUrl}/getStoreById?storeId=${id}`);
   }
 
   deleteStoreById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteStore/${id}`);
   }
 }

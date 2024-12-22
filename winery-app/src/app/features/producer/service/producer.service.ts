@@ -8,19 +8,19 @@ import { Producer } from '../../../shared/models/Producer.model';
 })
 export class ProducerService {
 
-  private apiUrl = `http://localhost:3000/producer`;
+  private apiUrl = `http://localhost:8080/producers`;
 
   constructor(private http: HttpClient) { }
 
   getAllProducers(): Observable<Producer[]> {
-    return this.http.get<Producer[]>(this.apiUrl);
+    return this.http.get<Producer[]>(`${this.apiUrl}/getAllProducers`);
   }
 
   getProducerById(id: number): Observable<Producer> {
-    return this.http.get<Producer>(`${this.apiUrl}/${id}`);
+    return this.http.get<Producer>(`${this.apiUrl}/getProducerById?producerId=${id}`);
   }
 
   deleteProducerById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteProducer/${id}`);
   }
 }

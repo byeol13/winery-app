@@ -22,7 +22,7 @@ export class InvoiceDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'invoice_number', 'customer_order_id', 'customer_id', 'invoice_total', 'time_created', 'employee_id', 'store_id'];
 
   constructor(private invoiceService: InvoiceService, private activatedRoute: ActivatedRoute){
-    this.invoiceId = activatedRoute.snapshot.paramMap.get('id');
+    this.invoiceId = activatedRoute.snapshot.queryParamMap.get('invoiceId');
   }
 
   ngOnInit(): void {

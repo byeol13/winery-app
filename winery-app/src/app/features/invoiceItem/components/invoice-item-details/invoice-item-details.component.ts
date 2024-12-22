@@ -22,7 +22,7 @@ export class InvoiceItemDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'invoice_id', 'bottle_id', 'quantity', 'item_price'];
 
   constructor(private invoiceItemService: InvoiceItemService, private activatedRoute: ActivatedRoute){
-    this.invoiceItemId = activatedRoute.snapshot.paramMap.get('id');
+    this.invoiceItemId = activatedRoute.snapshot.queryParamMap.get('invoiceItemId');
   }
 
   ngOnInit(): void {

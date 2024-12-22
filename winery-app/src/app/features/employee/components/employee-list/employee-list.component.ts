@@ -41,7 +41,7 @@ export class EmployeeListComponent {
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/employee`, id]);
+    this.router.navigate([`/employee`], {queryParams: {employeeId: id}});
   }
 
   openDeleteDialog(id: number) {

@@ -21,7 +21,7 @@ export class OrderDetailsComponent {
   displayedColumns: string[] = ['id', 'order_number', 'time_placed', 'order_price', 'supplier_id', 'store_id', 'employee_id', 'expected_delivery_date', 'time_delivered', 'time_canceled'];
 
   constructor(private orderService: OrderService, private activatedRoute: ActivatedRoute){
-    this.orderId = activatedRoute.snapshot.paramMap.get('id');
+    this.orderId = activatedRoute.snapshot.queryParamMap.get('orderId');
   }
 
   ngOnInit(): void {

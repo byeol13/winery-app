@@ -36,8 +36,7 @@ export class BottleListComponent implements OnInit{
 
 
   viewDetails(id: number) {
-    this.router.navigate([`/bottle`, id]);
-    console.log("This is the id === ", id);
+    this.router.navigate([`/bottle`], { queryParams: { bottleId: id}});
   }
 
   openDeleteDialog(id: number) {

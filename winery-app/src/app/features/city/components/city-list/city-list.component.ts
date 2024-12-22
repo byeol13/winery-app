@@ -35,7 +35,7 @@ export class CityListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/city`, id]);
+    this.router.navigate([`/city`], {queryParams: { cityId: id}});
   }
 
   openDeleteDialog(id: number) {

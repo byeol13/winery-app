@@ -35,7 +35,7 @@ export class SupplierListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`supplier`, id]);
+    this.router.navigate([`supplier`], {queryParams: {supplierId: id}});
   }
 
   openDeleteDialog(id: number) {

@@ -7,12 +7,12 @@
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let supplier"> {{supplier.id}} </td>
+    <td mat-cell *matCellDef="let supplier"> {{supplier.supplierId}} </td>
   </ng-container>
 
   <ng-container matColumnDef="supplier_name">
     <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
-    <td mat-cell *matCellDef="let supplier">  {{supplier.supplier_name}} </td>
+    <td mat-cell *matCellDef="let supplier">  {{supplier.supplierName}} </td>
   </ng-container>
 
   <ng-container matColumnDef="address">
@@ -23,8 +23,8 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let supplier">
-      <button mat-stroked-button (click)="viewDetails(supplier.id)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(supplier.id)">Delete</button>
+      <button mat-stroked-button (click)="viewDetails(supplier.supplierId)">View More</button>
+      <button mat-stroked-button (click)="openDeleteDialog(supplier.supplierId)">Delete</button>
     </td>
   </ng-container>
 

@@ -8,19 +8,19 @@ import { Order } from '../../../shared/models/Order.model';
 })
 export class OrderService {
 
-  private apiUrl = `http://localhost:3000/order`;
+  private apiUrl = `http://localhost:8080/orders`;
 
   constructor(private http: HttpClient) { }
 
   getAllOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.apiUrl);
+    return this.http.get<Order[]>(`${this.apiUrl}/getAllOrders`);
   }
 
   getOrderById(id: number): Observable<Order> {
-    return this.http.get<Order>(`${this.apiUrl}/${id}`);
+    return this.http.get<Order>(`${this.apiUrl}/getOrderById?orderId=${id}`);
   }
 
   deleteOrderById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteOrder/${id}`);
   }
 }

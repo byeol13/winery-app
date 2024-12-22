@@ -22,7 +22,7 @@ export class CountryDetailsComponent {
   displayedColumns: string[] = ['id', 'country_name'];
 
   constructor(private countryService: CountryService, private activatedRoute: ActivatedRoute){
-    this.countryId = activatedRoute.snapshot.paramMap.get('id');
+    this.countryId = activatedRoute.snapshot.queryParamMap.get('countryId');
   }
 
   ngOnInit(): void {

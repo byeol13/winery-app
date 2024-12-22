@@ -22,7 +22,7 @@ export class SupplierDetailsComponent {
   displayedColumns: string[] = ['id', 'supplier_name', 'address', 'phone', 'mobile', 'email', 'details'];
 
   constructor(private supplierService: SupplierService, private activatedRoute: ActivatedRoute){
-    this.supplierId = activatedRoute.snapshot.paramMap.get('id');
+    this.supplierId = activatedRoute.snapshot.queryParamMap.get('supplierId');
   }
 
   ngOnInit(): void {

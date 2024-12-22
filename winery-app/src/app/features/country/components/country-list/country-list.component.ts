@@ -35,7 +35,9 @@ export class CountryListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/country`, id]);
+    this.router.navigate([`/country`], {queryParams: {
+      countryId: id
+    }});
   }
 
   openDeleteDialog(id: number) {

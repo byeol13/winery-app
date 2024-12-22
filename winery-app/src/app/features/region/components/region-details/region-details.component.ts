@@ -22,7 +22,7 @@ export class RegionDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'region_name', 'country_id'];
 
   constructor(private regionService: RegionService, private activatedRoute: ActivatedRoute){
-    this.regionId = activatedRoute.snapshot.paramMap.get('id');
+    this.regionId = activatedRoute.snapshot.queryParamMap.get('regionId');
   }
 
   ngOnInit(): void {

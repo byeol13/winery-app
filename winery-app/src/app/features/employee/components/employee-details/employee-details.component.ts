@@ -28,7 +28,7 @@ export class EmployeeDetailsComponent implements OnInit{
   }
 
   constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute){
-    this.employeeId = activatedRoute.snapshot.paramMap.get('id');
+    this.employeeId = activatedRoute.snapshot.queryParamMap.get('employeeId');
   }
 
   ngOnInit(): void {

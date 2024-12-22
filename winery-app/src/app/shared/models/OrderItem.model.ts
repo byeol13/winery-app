@@ -2,9 +2,9 @@ import { Bottle } from "./Bottle.model"
 import { Order } from "./Order.model"
 
 export interface OrderItem {
-  id: number,
-  order_id: Order,
-  bottle_id: Bottle,
+  orderItemId: number,
+  orderDTO: Order,
+  bottleDTO: Bottle,
   quantity: number,
-  order_price: number
+  orderPrice: number
 }

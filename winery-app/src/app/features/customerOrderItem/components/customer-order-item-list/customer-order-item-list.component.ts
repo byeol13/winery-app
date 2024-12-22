@@ -35,7 +35,7 @@ export class CustomerOrderItemListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/customerOrderItem`, id]);
+    this.router.navigate([`/customerOrderItem`], {queryParams: {customerOrderItemId: id}});
   }
 
   openDeleteDialog(id: number) {

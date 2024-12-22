@@ -22,7 +22,7 @@ export class CustomerOrderItemDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'customer_order_id', 'bottle_id', 'quantity', 'order_price'];
 
   constructor(private customerOrderItemService: CustomerOrderItemService, private activatedRoute: ActivatedRoute){
-    this.customerOrderItemId = activatedRoute.snapshot.paramMap.get('id');
+    this.customerOrderItemId = activatedRoute.snapshot.queryParamMap.get('customerOrderItemId');
   }
 
   ngOnInit(): void {

@@ -8,19 +8,19 @@ import { City } from '../../../shared/models/City.model';
 })
 export class CityService {
 
-  private apiUrl = `http://localhost:3000/city`
+  private apiUrl = `http://localhost:8080/cities`
 
   constructor(private http: HttpClient) { }
 
   getAllCities(): Observable<City[]> {
-    return this.http.get<City[]>(this.apiUrl);
+    return this.http.get<City[]>(`${this.apiUrl}/getAllCities`);
   }
 
   getCityById(id: number): Observable<City> {
-    return this.http.get<City>(`${this.apiUrl}/${id}`);
+    return this.http.get<City>(`${this.apiUrl}/getCityById?cityId=${id}`);
   }
 
   deleteCityById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteCity/${id}`);
   }
 }

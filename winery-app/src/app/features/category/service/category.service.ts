@@ -8,19 +8,19 @@ import { Category } from '../../../shared/models/Category.model';
 })
 export class CategoryService {
 
-  private apiUrl = `http://localhost:3000/category`
+  private apiUrl = `http://localhost:8080/categories`
 
   constructor(private http: HttpClient) { }
 
   getAllCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.apiUrl);
+    return this.http.get<Category[]>(`${this.apiUrl}/getAllCategories`);
   }
 
   getCategoryById(id: number): Observable<Category> {
-    return this.http.get<Category>(`${this.apiUrl}/${id}`);
+    return this.http.get<Category>(`${this.apiUrl}/getCategoryById?categoryId=${id}`);
   }
 
   deleteCategoryById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteCategory/${id}`);
   }
 }

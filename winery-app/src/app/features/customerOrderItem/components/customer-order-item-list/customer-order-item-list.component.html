@@ -7,24 +7,24 @@
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.id}} </td>
+    <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.customerOrderItemId}} </td>
   </ng-container>
 
   <ng-container matColumnDef="customer_order_id">
     <th mat-header-cell *matHeaderCellDef> Customer Order Number </th>
-    <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.customer_order_id.order_number}} </td>
+    <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.customerOrderDTO.orderNumber}} </td>
   </ng-container>
 
   <ng-container matColumnDef="order_price">
     <th mat-header-cell *matHeaderCellDef> Order Price </th>
-    <td mat-cell *matCellDef="let customerOrderItem">$  {{customerOrderItem.order_price}} </td>
+    <td mat-cell *matCellDef="let customerOrderItem">$  {{customerOrderItem.orderPrice}} </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let customerOrderItem">
-      <button mat-stroked-button (click)="viewDetails(customerOrderItem.id)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(customerOrderItem.id)">Delete</button>
+      <button mat-stroked-button (click)="viewDetails(customerOrderItem.customerOrderItemId)">View More</button>
+      <button mat-stroked-button (click)="openDeleteDialog(customerOrderItem.customerOrderItemId)">Delete</button>
     </td>
   </ng-container>
 

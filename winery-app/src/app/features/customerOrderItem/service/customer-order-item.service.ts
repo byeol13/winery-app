@@ -8,19 +8,19 @@ import { CustomerOrderItem } from '../../../shared/models/CustomerOrderItem.mode
 })
 export class CustomerOrderItemService {
 
-  private apiUrl = `http://localhost:3000/customerOrderItem`;
+  private apiUrl = `http://localhost:8080/customerOrderItems`;
 
   constructor(private http: HttpClient) { }
 
   getAllCustomerOrderItems(): Observable<CustomerOrderItem[]> {
-    return this.http.get<CustomerOrderItem[]>(this.apiUrl);
+    return this.http.get<CustomerOrderItem[]>(`${this.apiUrl}/getAllCustomerOrderItems`);
   }
 
   getCustomerOrderItemById(id: number): Observable<CustomerOrderItem> {
-    return this.http.get<CustomerOrderItem>(`${this.apiUrl}/${id}`);
+    return this.http.get<CustomerOrderItem>(`${this.apiUrl}/getCustomerOrderItemById?customerOrderItemId=${id}`);
   }
 
   deleteCustomerOrderItemById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteCustomerOrderItem/${id}`);
   }
 }

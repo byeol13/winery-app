@@ -8,19 +8,19 @@ import { Region } from '../../../shared/models/Region.model';
 })
 export class RegionService {
 
-  private apiUrl = `http://localhost:3000/region`;
+  private apiUrl = `http://localhost:8080/regions`;
 
   constructor(private http: HttpClient) { }
 
   getAllRegions(): Observable<Region[]> {
-    return this.http.get<Region[]>(this.apiUrl);
+    return this.http.get<Region[]>(`${this.apiUrl}/getAllRegions`);
   }
 
   getRegionById(id: number): Observable<Region> {
-    return this.http.get<Region>(`${this.apiUrl}/${id}`);
+    return this.http.get<Region>(`${this.apiUrl}/getRegionById?regionId=${id}`);
   }
 
   deleteRegionById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteRegion/${id}`);
   }
 }

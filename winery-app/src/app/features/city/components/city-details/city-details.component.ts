@@ -22,7 +22,7 @@ export class CityDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'city_name', 'country_id', 'postal_code'];
 
   constructor(private cityService: CityService, private activatedRoute: ActivatedRoute){
-    this.cityId = activatedRoute.snapshot.paramMap.get('id');
+    this.cityId = activatedRoute.snapshot.queryParamMap.get('cityId');
   }
 
   ngOnInit(): void {

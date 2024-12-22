@@ -35,7 +35,7 @@ export class StoreListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/store`, id]);
+    this.router.navigate([`/store`], {queryParams: {storeId: id}});
   }
 
   openDeleteDialog(id: number) {

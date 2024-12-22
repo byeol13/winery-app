@@ -8,19 +8,19 @@ import { Country } from '../../../shared/models/Country.model';
 })
 export class CountryService {
 
-  private apiUrl = `http://localhost:3000/country`;
+  private apiUrl = `http://localhost:8080/countries`;
 
   constructor(private http: HttpClient) { }
 
   getAllCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>(this.apiUrl);
+    return this.http.get<Country[]>(`${this.apiUrl}/getAllCountries`);
   }
 
   getCountryById(id: number): Observable<Country> {
-    return this.http.get<Country>(`${this.apiUrl}/${id}`);
+    return this.http.get<Country>(`${this.apiUrl}/getCountryById?countryId=${id}`);
   }
 
   deleteCountryById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteCountry/${id}`);
   }
 }

@@ -35,7 +35,7 @@ export class OrderListComponent {
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/order`, id]);
+    this.router.navigate([`/order`], {queryParams: {orderId: id}});
   }
 
   openDeleteDialog(id: number) {

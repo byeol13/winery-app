@@ -1,8 +1,8 @@
 import { Region } from "./Region.model";
 
 export interface Producer {
-  id: number,
-  producer_name: string,
+  producerId: number,
+  producerName: string,
   details: string,
-  region_id: Region
+  regionDTO: Region
 }

@@ -9,12 +9,12 @@
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let bottle"> {{bottle.id}} </td>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.bottleId}} </td>
       </ng-container>
     
       <ng-container matColumnDef="full_name">
         <th mat-header-cell *matHeaderCellDef> Full Name </th>
-        <td mat-cell *matCellDef="let bottle"> {{bottle.full_name}} </td>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.fullName}} </td>
       </ng-container>
     
       <ng-container matColumnDef="label">
@@ -24,7 +24,7 @@
 
       <ng-container matColumnDef="category_id">
         <th mat-header-cell *matHeaderCellDef> Category </th>
-        <td mat-cell *matCellDef="let bottle"> {{bottle.category_id.category_name}} </td>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.categoryDTO.categoryName}} </td>
       </ng-container>
     
       <ng-container matColumnDef="volume">
@@ -34,29 +34,29 @@
     
       <ng-container matColumnDef="year_produced">
         <th mat-header-cell *matHeaderCellDef> Year Produced </th>
-        <td mat-cell *matCellDef="let bottle"> {{bottle.year_produced}} </td>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.yearProduced}} </td>
       </ng-container>
 
       <ng-container matColumnDef="producer_id">
         <th mat-header-cell *matHeaderCellDef> Producer </th>
-        <td mat-cell *matCellDef="let bottle"> {{bottle.producer_id.producer_name}} </td>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.producerDTO.producerName}} </td>
       </ng-container>
     
       <ng-container matColumnDef="picture">
         <th mat-header-cell *matHeaderCellDef> Image </th>
         <td mat-cell *matCellDef="let bottle">
-          <img [src]="bottle.picture" alt="{{bottle.full_name}}" width="100" height="auto">
+          <img [src]="bottle.picture" alt="{{bottle.fullName}}" width="100" height="auto">
         </td>
       </ng-container>
     
       <ng-container matColumnDef="alcohol_percentage">
         <th mat-header-cell *matHeaderCellDef> Alcohol Percentage </th>
-        <td mat-cell *matCellDef="let bottle"> {{bottle.alcohol_percentage}} %</td>
+        <td mat-cell *matCellDef="let bottle"> {{bottle.alcoholPercentage}} %</td>
       </ng-container>
     
       <ng-container matColumnDef="current_price">
         <th mat-header-cell *matHeaderCellDef> Price </th>
-        <td mat-cell *matCellDef="let bottle">$ {{bottle.current_price}} </td>
+        <td mat-cell *matCellDef="let bottle">$ {{bottle.currentPrice}} </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

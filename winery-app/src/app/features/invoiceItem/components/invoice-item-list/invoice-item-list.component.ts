@@ -35,7 +35,7 @@ export class InvoiceItemListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/invoiceItem`, id]);
+    this.router.navigate([`/invoiceItem`], {queryParams: {invoiceItemId: id}});
   }
 
   openDeleteDialog(id: number) {

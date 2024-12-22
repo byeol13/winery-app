@@ -4,12 +4,12 @@ import { Employee } from "./Employee.model"
 import { Store } from "./Store.model"
 
 export interface Invoice {
-  id: number,
-  invoice_number: string,
-  store_id: Store,
-  customer_order_id: CustomerOrder,
-  customer_id: Customer,
-  employee_id: Employee,
-  invoice_total: number,
-  time_created: Date
+  invoiceId: number,
+  invoiceNumber: string,
+  storeDTO: Store,
+  customerOrderDTO: CustomerOrder,
+  customerDTO: Customer,
+  employeeDTO: Employee,
+  invoiceTotal: number,
+  timeCreated: Date
 }

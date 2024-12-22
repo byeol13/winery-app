@@ -8,19 +8,19 @@ import { InvoiceItem } from '../../../shared/models/InvoiceItem.model';
 })
 export class InvoiceItemService {
 
-  private apiUrl = `http://localhost:3000/invoiceItem`;
+  private apiUrl = `http://localhost:8080/invoiceItems`;
 
   constructor(private http: HttpClient) { }
 
   getAllInvoiceItems(): Observable<InvoiceItem[]> {
-    return this.http.get<InvoiceItem[]>(`${this.apiUrl}`);
+    return this.http.get<InvoiceItem[]>(`${this.apiUrl}/getAllInvoiceItems`);
   }
 
   getInvoiceItemById(id: number): Observable<InvoiceItem> {
-    return this.http.get<InvoiceItem>(`${this.apiUrl}/${id}`);
+    return this.http.get<InvoiceItem>(`${this.apiUrl}/getInvoiceItemById?invoiceItemId=${id}`);
   }
 
   deleteInvoiceItemById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteInvoiceItem/${id}`);
   }
 }

@@ -8,19 +8,19 @@ import { Supplier } from '../../../shared/models/Supplier.model';
 })
 export class SupplierService {
 
-  private apiUrl = `http://localhost:3000/supplier`;
+  private apiUrl = `http://localhost:8080/suppliers`;
 
   constructor(private http: HttpClient) { }
 
   getAllSuppliers(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>(this.apiUrl);
+    return this.http.get<Supplier[]>(`${this.apiUrl}/getAllSuppliers`);
   }
 
   getSupplierById(id: number): Observable<Supplier> {
-    return this.http.get<Supplier>(`${this.apiUrl}/${id}`);
+    return this.http.get<Supplier>(`${this.apiUrl}/getSupplierById?supplierId=${id}`);
   }
 
   deleteSupplierById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteSupplier/${id}`);
   }
 }

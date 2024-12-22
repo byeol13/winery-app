@@ -3,14 +3,14 @@ import { Store } from "./Store.model"
 import { Supplier } from "./Supplier.model"
 
 export interface Order {
-  id: number,
-  order_number: string,
-  expected_delivery_date: Date,
-  time_placed: Date,
-  time_canceled: Date | null,
-  time_delivered: Date | null,
-  supplier_id: Supplier,
-  store_id: Store,
-  employee_id: Employee,
-  order_price: number
+  orderId: number,
+  orderNumber: string,
+  expectedDeliveryDate: Date,
+  timePlaced: Date,
+  timeCanceled: Date | null,
+  timeDelivered: Date | null,
+  supplierDTO: Supplier,
+  storeDTO: Store,
+  employeeDTO: Employee,
+  orderPrice: number
 }

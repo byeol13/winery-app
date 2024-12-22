@@ -35,7 +35,7 @@ export class ProducerListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/producer`, id]);
+    this.router.navigate([`/producer`], {queryParams: { producerId: id}});
   }
 
   openDeleteDialog(id: number) {

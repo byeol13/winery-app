@@ -22,7 +22,7 @@ export class ProducerDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'producer_name', 'region_id', 'details'];
 
   constructor(private producerService: ProducerService, private activatedRoute: ActivatedRoute){
-    this.producerId = activatedRoute.snapshot.paramMap.get('id');
+    this.producerId = activatedRoute.snapshot.queryParamMap.get('producerId');
   }
 
   ngOnInit(): void {

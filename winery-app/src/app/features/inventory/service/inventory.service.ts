@@ -8,20 +8,20 @@ import { Inventory } from '../../../shared/models/Inventory.model';
 })
 export class InventoryService {
 
-  private apiUrl = `http://localhost:3000/inventory`;
+  private apiUrl = `http://localhost:8080/inventories`;
 
   constructor(private http: HttpClient) { }
 
   getAllInventories(): Observable<Inventory[]> {
-    return this.http.get<Inventory[]>(this.apiUrl);
+    return this.http.get<Inventory[]>(`${this.apiUrl}/getAllInventories`);
   }
 
   getInventoryById(id: number): Observable<Inventory> {
-    return this.http.get<Inventory>(`${this.apiUrl}/${id}`);
+    return this.http.get<Inventory>(`${this.apiUrl}/getInventoryById?inventoryId=${id}`);
   }
 
   deleteInventoryById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteInventory/${id}`);
   }
 }
 
