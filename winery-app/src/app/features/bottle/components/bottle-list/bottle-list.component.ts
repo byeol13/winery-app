@@ -5,13 +5,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Bottle } from '../../../../shared/models/Bottle.model';
 import { BottleService } from '../../service/bottle.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { BottleDeleteComponent } from '../bottle-delete/bottle-delete.component';
 
 @Component({
   selector: 'app-bottle-list',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatToolbarModule, MatTableModule, BottleDeleteComponent],
+  imports: [CommonModule, MatButtonModule, MatToolbarModule, MatTableModule, BottleDeleteComponent, RouterModule],
   templateUrl: './bottle-list.component.html',
   styleUrl: './bottle-list.component.css'
 })

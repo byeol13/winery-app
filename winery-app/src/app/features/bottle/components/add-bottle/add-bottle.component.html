@@ -1,0 +1,69 @@
+<mat-toolbar>
+  <span>New Bottle</span>
+</mat-toolbar>
+
+<mat-card appearance="outlined">
+  <mat-card-title>Add New Bottle</mat-card-title>
+
+  <mat-card-content>
+    <form [formGroup]="bottleForm">
+      <mat-form-field>
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="fullName"/>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Label</mat-label>
+        <input matInput formControlName="label"/>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Volume (ml)</mat-label>
+        <input matInput formControlName="volume"/>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Year Produced</mat-label>
+        <input matInput formControlName="yearProduced"/>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Picture URL</mat-label>
+        <input matInput formControlName="picture"/>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Alcohol Percentage</mat-label>
+        <input matInput formControlName="alcoholPercentage"/>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Current Price ($)</mat-label>
+        <input matInput formControlName="currentPrice"/>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="categoryId">
+          <mat-option *ngFor="let category of categories" [value]="category.categoryId">
+            {{ category.categoryName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Producer</mat-label>
+        <mat-select formControlName="producerId">
+          <mat-option *ngFor="let producer of producers" [value]="producer.producerId">
+            {{ producer.producerName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <div class="buttons">
+        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
+        <button mat-raised-button (click)="goBack()">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>  
