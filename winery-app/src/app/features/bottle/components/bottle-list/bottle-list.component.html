@@ -4,7 +4,7 @@
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="bottles" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedBottles" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -43,6 +43,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalBottles"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedBottles()">
+</mat-paginator>
 
 
 <app-bottle-delete *ngIf="bottleIdToDelete"
