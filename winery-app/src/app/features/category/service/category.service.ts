@@ -23,4 +23,8 @@ export class CategoryService {
   deleteCategoryById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteCategory/${id}`);
   }
+
+  addCategory(category: Category): Observable<Category> {
+    return this.http.post<Category>(`${this.apiUrl}/newCategory`, category);
+  }
 }

@@ -6,12 +6,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { Bottle } from '../../../../shared/models/Bottle.model';
 import { BottleService } from '../../service/bottle.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-bottle-details',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatButtonModule, MatToolbarModule, MatCardModule],
+  imports: [CommonModule, MatTableModule, MatButtonModule, MatToolbarModule, MatCardModule, RouterModule],
   templateUrl: './bottle-details.component.html',
   styleUrl: './bottle-details.component.css'
 })
@@ -19,7 +19,7 @@ export class BottleDetailsComponent implements OnInit{
 
   bottleId: any;
   bottles: Bottle | undefined;
-  displayedColumns: string[] = ['id', 'full_name', 'label', 'category_id', 'volume', 'year_produced', 'producer_id', 'picture', 'alcohol_percentage', 'current_price'];
+  displayedColumns: string[] = ['id', 'full_name', 'label', 'category_id', 'volume', 'year_produced', 'producer_id', 'picture', 'alcohol_percentage', 'current_price', 'actions'];
 
   constructor(private bottleService: BottleService, private activatedRoute: ActivatedRoute, private router: Router){
     this.bottleId = activatedRoute.snapshot.queryParamMap.get('bottleId');

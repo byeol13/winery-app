@@ -35,6 +35,7 @@ import { StoreDetailsComponent } from './features/store/components/store-details
 import { SupplierDetailsComponent } from './features/supplier/components/supplier-details/supplier-details.component';
 import { AddBottleComponent } from './features/bottle/components/add-bottle/add-bottle.component';
 import { UpdateBottleComponent } from './features/bottle/components/update-bottle/update-bottle.component';
+import { AddCategoryComponent } from './features/category/components/add-category/add-category.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -43,6 +44,7 @@ export const routes: Routes = [
   {path: 'updateBottle/:bottleId', component: UpdateBottleComponent},
   {path: 'dashboard/category', component: CategoryListComponent},
   {path: 'category', component: CategoryDetailsComponent},
+  {path: 'addCategory', component: AddCategoryComponent},
   {path: 'dashboard/city', component: CityListComponent},
   {path: 'city', component: CityDetailsComponent},
   {path: 'dashboard/country', component: CountryListComponent},

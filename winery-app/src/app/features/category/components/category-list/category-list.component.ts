@@ -4,7 +4,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Category } from '../../../../shared/models/Category.model';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CategoryService } from '../../service/category.service';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { CategoryDeleteComponent } from '../category-delete/category-delete.component';
@@ -12,7 +12,7 @@ import { CategoryDeleteComponent } from '../category-delete/category-delete.comp
 @Component({
   selector: 'app-category-list',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatButtonModule, MatTableModule, CategoryDeleteComponent],
+  imports: [CommonModule, MatToolbarModule, MatButtonModule, MatTableModule, CategoryDeleteComponent, RouterModule],
   templateUrl: './category-list.component.html',
   styleUrl: './category-list.component.css'
 })
