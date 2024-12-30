@@ -47,14 +47,14 @@ export class AddBottleComponent {
   }
 
   loadCategories() {
-    this.categoryService.getAllCategories().subscribe((data) => {
-      this.categories = data;
+    this.categoryService.getAllCategories().subscribe((res) => {
+      this.categories = res;
     });
   }
 
   loadProducers() {
-    this.producerService.getAllProducers().subscribe((data) => {
-      this.producers = data;
+    this.producerService.getAllProducers().subscribe((res) => {
+      this.producers = res;
     });
   }
 

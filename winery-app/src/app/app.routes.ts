@@ -33,10 +33,14 @@ import { ProducerDetailsComponent } from './features/producer/components/produce
 import { RegionDetailsComponent } from './features/region/components/region-details/region-details.component';
 import { StoreDetailsComponent } from './features/store/components/store-details/store-details.component';
 import { SupplierDetailsComponent } from './features/supplier/components/supplier-details/supplier-details.component';
+import { AddBottleComponent } from './features/bottle/components/add-bottle/add-bottle.component';
+import { UpdateBottleComponent } from './features/bottle/components/update-bottle/update-bottle.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
   {path: 'bottle', component: BottleDetailsComponent},
+  {path: 'addBottle', component: AddBottleComponent},
+  {path: 'updateBottle/:bottleId', component: UpdateBottleComponent},
   {path: 'dashboard/category', component: CategoryListComponent},
   {path: 'category', component: CategoryDetailsComponent},
   {path: 'dashboard/city', component: CityListComponent},
