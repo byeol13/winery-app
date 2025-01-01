@@ -48,6 +48,9 @@
           <mat-option *ngFor="let category of categories" [value]="category.categoryId">
             {{ category.categoryName }}
           </mat-option>
+          <mat-option (click)="openAddCategoryDialog()" class="add-new-category">
+            <span>Add New Category</span>
+          </mat-option>
         </mat-select>
       </mat-form-field>
     

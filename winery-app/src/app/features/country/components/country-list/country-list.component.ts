@@ -4,14 +4,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Country } from '../../../../shared/models/Country.model';
 import { CountryService } from '../../service/country.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CountryDeleteComponent } from '../country-delete/country-delete.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-country-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CountryDeleteComponent, CommonModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CountryDeleteComponent, CommonModule, RouterModule],
   templateUrl: './country-list.component.html',
   styleUrl: './country-list.component.css'
 })

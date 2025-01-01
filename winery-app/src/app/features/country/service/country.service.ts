@@ -23,4 +23,8 @@ export class CountryService {
   deleteCountryById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteCountry/${id}`);
   }
+
+  addCountry(country: Country): Observable<Country> {
+    return this.http.post<Country>(`${this.apiUrl}/newCountry`, country);
+  }
 }

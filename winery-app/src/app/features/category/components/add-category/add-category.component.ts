@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CategoryService } from '../../service/category.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddCategoryDialogComponent } from '../add-category-dialog/add-category-dialog.component';
 import { Router } from '@angular/router';
 
@@ -23,7 +23,7 @@ export class AddCategoryComponent {
 
   categoryForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private categoryService: CategoryService, private dialog: MatDialog, private router: Router){
+  constructor(private fb: FormBuilder, private categoryService: CategoryService, private dialog: MatDialog, private router: Router,  @Optional() private dialogRef: MatDialogRef<AddCategoryComponent>){
 
     this.categoryForm = this.fb.group({
       categoryName: ['', Validators.required]
@@ -45,13 +45,21 @@ export class AddCategoryComponent {
   }
 
   saveCategory() {
-    this.categoryService.addCategory(this.categoryForm.value).subscribe(() => {
-      this.router.navigate(['/dashboard/category']);
+    this.categoryService.addCategory(this.categoryForm.value).subscribe((newCategory) => {
+      if (this.dialogRef) {
+        this.dialogRef.close(newCategory);
+      } else {
+        this.router.navigate(['/dashboard/category']);
+      }
     })
   }
 
   goBack() {
-    this.router.navigate(['/dashboard/category']);
+    if (this.dialogRef) {
+      this.dialogRef.close();
+    } else {
+      this.router.navigate(['/dashboard/category']);
+    }
   }
 
 }

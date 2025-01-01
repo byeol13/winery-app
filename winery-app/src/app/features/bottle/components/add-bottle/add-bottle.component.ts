@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddBottleDialogComponent } from '../add-bottle-dialog/add-bottle-dialog.component';
 import { MatCardModule } from '@angular/material/card';
+import { AddCategoryComponent } from '../../../category/components/add-category/add-category.component';
 
 @Component({
   selector: 'app-add-bottle',
@@ -50,6 +51,19 @@ export class AddBottleComponent {
     this.categoryService.getAllCategories().subscribe((res) => {
       this.categories = res;
     });
+  }
+
+  openAddCategoryDialog() {
+    const addDialog = this.dialog.open(AddCategoryComponent, {
+      width: '500px'
+    });
+
+    addDialog.afterClosed().subscribe((newCategory) => {
+      if (newCategory) {
+        this.categories.push(newCategory);
+        this.bottleForm.get('categoryId')?.setValue(newCategory.categoryId);
+      }
+    })
   }
 
   loadProducers() {
@@ -93,7 +107,6 @@ export class AddBottleComponent {
       this.router.navigate(['/dashboard/bottle']);
     })
   }
-
 
   goBack() {
     this.router.navigate(['/dashboard/bottle']);

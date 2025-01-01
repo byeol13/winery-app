@@ -14,6 +14,8 @@ import { ProducerService } from '../../../producer/service/producer.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { BottleService } from '../../service/bottle.service';
 import { Bottle } from '../../../../shared/models/Bottle.model';
+import { MatDialog } from '@angular/material/dialog';
+import { AddCategoryComponent } from '../../../category/components/add-category/add-category.component';
 
 @Component({
   selector: 'app-update-bottle',
@@ -29,7 +31,7 @@ export class UpdateBottleComponent implements OnInit{
   categories: Category[] = [];
   producers: Producer[] = [];
 
-  constructor(private fb: FormBuilder, private categoryService: CategoryService, private producerService: ProducerService, private activatedRoute: ActivatedRoute, private bottleService: BottleService, private router: Router){
+  constructor(private fb: FormBuilder, private categoryService: CategoryService, private producerService: ProducerService, private activatedRoute: ActivatedRoute, private bottleService: BottleService, private router: Router, private dialog: MatDialog){
 
     this.bottleForm = this.fb.group({
           id: ['', Validators.required],
@@ -98,6 +100,19 @@ export class UpdateBottleComponent implements OnInit{
       })
     }
   }
+
+  openAddCategoryDialog() {
+      const addDialog = this.dialog.open(AddCategoryComponent, {
+        width: '500px'
+      });
+  
+      addDialog.afterClosed().subscribe((newCategory) => {
+        if (newCategory) {
+          this.categories.push(newCategory);
+          this.bottleForm.get('categoryId')?.setValue(newCategory.categoryId);
+        }
+      })
+    }
 
   loadCategories() {
     this.categoryService.getAllCategories().subscribe((res) => {

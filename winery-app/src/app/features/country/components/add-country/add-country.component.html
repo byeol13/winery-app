@@ -1,18 +1,18 @@
 <mat-toolbar>
-  <span>New Category</span>
+  <span>New Country</span>
 </mat-toolbar>
 
 <mat-card appearance="outlined">
 
   <mat-card-content>
-    <form [formGroup]="categoryForm">
+    <form [formGroup]="countryForm">
       <mat-form-field>
-        <mat-label>Category Name</mat-label>
-        <input matInput formControlName="categoryName"/>
+        <mat-label>Country Name</mat-label>
+        <input matInput formControlName="countryName"/>
       </mat-form-field>
     
       <div class="buttons">
-        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
+        <button mat-raised-button (click)="onSubmit()">Save</button>
         <button mat-raised-button (click)="goBack()">Cancel</button>
       </div>
     </form>
