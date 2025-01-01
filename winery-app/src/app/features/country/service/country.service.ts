@@ -27,4 +27,8 @@ export class CountryService {
   addCountry(country: Country): Observable<Country> {
     return this.http.post<Country>(`${this.apiUrl}/newCountry`, country);
   }
+
+  updateCountry(country: Country): Observable<Country> {
+    return this.http.put<Country>(`${this.apiUrl}/updateCountry`, country);
+  }
 }

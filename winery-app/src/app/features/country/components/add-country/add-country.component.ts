@@ -9,6 +9,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { CountryService } from '../../service/country.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddCountryDialogComponent } from '../add-country-dialog/add-country-dialog.component';
 
 @Component({
   selector: 'app-add-country',
@@ -21,14 +23,28 @@ export class AddCountryComponent {
 
   countryForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private countryService: CountryService) {
+  constructor(private fb: FormBuilder, private router: Router, private countryService: CountryService, private dialog: MatDialog) {
 
     this.countryForm = this.fb.group({
       countryName: ['', Validators.required]
     });
   }
 
-  onSubmit() {
+  openConfirmationDialog() {
+    if (this.countryForm.valid) {
+      const addDialog = this.dialog.open(AddCountryDialogComponent, {
+        width: '500px', height: '250px'
+      });
+
+      addDialog.afterClosed().subscribe((res) => {
+        if (res === 'confirm') {
+          this.saveCountry();
+        }
+      });
+    }
+  }
+
+  saveCountry() {
     this.countryService.addCountry(this.countryForm.value).subscribe(() => {
       this.router.navigate(['/dashboard/country']);
     })

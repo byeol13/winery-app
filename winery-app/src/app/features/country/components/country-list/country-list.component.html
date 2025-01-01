@@ -21,6 +21,7 @@
     <td mat-cell *matCellDef="let country">
       <button mat-stroked-button (click)="viewDetails(country.countryId)">View More</button>
       <button mat-stroked-button (click)="openDeleteDialog(country.countryId)">Delete</button>
+      <button mat-stroked-button [routerLink]="['/updateCountry', country.countryId]">Update</button>
     </td>
   </ng-container>
 

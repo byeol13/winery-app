@@ -6,12 +6,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { Country } from '../../../../shared/models/Country.model';
 import { CountryService } from '../../service/country.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-country-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatCardModule, MatTableModule, MatButtonModule],
+  imports: [CommonModule, MatToolbarModule, MatCardModule, MatTableModule, MatButtonModule, RouterModule],
   templateUrl: './country-details.component.html',
   styleUrl: './country-details.component.css'
 })
@@ -19,7 +19,7 @@ export class CountryDetailsComponent {
 
   countryId: any;
   countries: Country | undefined;
-  displayedColumns: string[] = ['id', 'country_name'];
+  displayedColumns: string[] = ['id', 'country_name', 'actions'];
 
   constructor(private countryService: CountryService, private activatedRoute: ActivatedRoute){
     this.countryId = activatedRoute.snapshot.queryParamMap.get('countryId');
