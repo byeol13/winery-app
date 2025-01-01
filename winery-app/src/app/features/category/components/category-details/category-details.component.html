@@ -15,6 +15,13 @@
         <th mat-header-cell *matHeaderCellDef>  Category Name </th>
         <td mat-cell *matCellDef="let category"> {{category.categoryName}} </td>
       </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let category">
+          <button mat-stroked-button [routerLink]="['/updateCategory', category.categoryId]">Update</button>
+        </td>
+      </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

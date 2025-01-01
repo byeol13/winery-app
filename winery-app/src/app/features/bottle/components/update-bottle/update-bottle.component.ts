@@ -34,7 +34,7 @@ export class UpdateBottleComponent implements OnInit{
   constructor(private fb: FormBuilder, private categoryService: CategoryService, private producerService: ProducerService, private activatedRoute: ActivatedRoute, private bottleService: BottleService, private router: Router, private dialog: MatDialog){
 
     this.bottleForm = this.fb.group({
-          id: ['', Validators.required],
+          id: [{value: '', disabled: true}],
           fullName: ['', Validators.required],
           label: ['', Validators.required],
           volume: ['', Validators.required],
@@ -69,7 +69,6 @@ export class UpdateBottleComponent implements OnInit{
             categoryId: bottle.categoryDTO?.categoryId,
             producerId: bottle.producerDTO?.producerId
           });
-          this.bottleForm.get('id')?.disable();
         }
       });
     }

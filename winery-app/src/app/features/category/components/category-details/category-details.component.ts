@@ -6,12 +6,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { Category } from '../../../../shared/models/Category.model';
 import { CategoryService } from '../../service/category.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-category-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatButtonModule, MatCardModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatButtonModule, MatCardModule, RouterModule],
   templateUrl: './category-details.component.html',
   styleUrl: './category-details.component.css'
 })
@@ -19,7 +19,7 @@ export class CategoryDetailsComponent implements OnInit{
 
   categoryId: any;
   categories: Category | undefined;
-  displayedColumns: string[] = ['id', 'category_name'];
+  displayedColumns: string[] = ['id', 'category_name', 'actions'];
 
   constructor(private categoryService: CategoryService, private activatedRoute: ActivatedRoute){
     this.categoryId = activatedRoute.snapshot.queryParamMap.get('categoryId');

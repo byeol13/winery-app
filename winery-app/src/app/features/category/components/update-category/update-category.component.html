@@ -1,0 +1,24 @@
+<mat-toolbar>
+  <span>Update Category</span>
+</mat-toolbar>
+
+<mat-card appearance="outlined">
+
+  <mat-card-content>
+    <form [formGroup]="categoryForm">
+      <mat-form-field>
+        <mat-label>Category Id</mat-label>
+        <input matInput formControlName="id">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="categoryName">
+      </mat-form-field>
+
+      <div class="buttons">
+        <button mat-raised-button (click)="onSubmit()">Save</button>
+        <button mat-raised-button [routerLink]="['/dashboard/category']">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card> 
