@@ -47,7 +47,7 @@ export class AddCountryComponent {
   saveCountry() {
     this.countryService.addCountry(this.countryForm.value).subscribe(() => {
       this.router.navigate(['/dashboard/country']);
-    })
+    });
   }
 
   goBack() {
