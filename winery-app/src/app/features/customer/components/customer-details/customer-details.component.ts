@@ -6,13 +6,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { Customer } from '../../../../shared/models/Customer.model';
 import { CustomerService } from '../../service/customer.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-customer-details',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, MatIconModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, MatIconModule, RouterModule],
   templateUrl: './customer-details.component.html',
   styleUrl: './customer-details.component.css'
 })
@@ -20,7 +20,7 @@ export class CustomerDetailsComponent implements OnInit{
 
   customerId: any;
   customers: Customer | undefined;
-  displayedColumns: string[] = ['id', 'username', 'password', 'customer_name', 'address', 'phone', 'email'];
+  displayedColumns: string[] = ['id', 'username', 'password', 'customer_name', 'address', 'phone', 'email', 'actions'];
   showPassword = false;
 
   togglePassword() {

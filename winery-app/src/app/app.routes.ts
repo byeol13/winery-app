@@ -40,6 +40,7 @@ import { AddCountryComponent } from './features/country/components/add-country/a
 import { UpdateCategoryComponent } from './features/category/components/update-category/update-category.component';
 import { UpdateCountryComponent } from './features/country/components/update-country/update-country.component';
 import { AddCustomerComponent } from './features/customer/components/add-customer/add-customer.component';
+import { UpdateCustomerComponent } from './features/customer/components/update-customer/update-customer.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -59,6 +60,7 @@ export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
   {path: 'customer', component: CustomerDetailsComponent},
   {path: 'addCustomer', component: AddCustomerComponent},
+  {path: 'updateCustomer/:customerId', component: UpdateCustomerComponent},
   {path: 'dashboard/customerOrder', component: CustomerOrderListComponent},
   {path: 'customerOrder', component: CustomerOrderDetailsComponent},
   {path: 'dashboard/customerOrderItem', component: CustomerOrderItemListComponent},
