@@ -5,14 +5,14 @@ import {MatButtonModule} from '@angular/material/button';
 import { Employee } from '../../../../shared/models/Employee.model';
 import { EmployeeService } from '../../service/employee.service';
 import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { EmployeeDeleteComponent } from '../employee-delete/employee-delete.component';
 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
-  imports: [MatButtonModule, MatTableModule, MatToolbarModule, MatIconModule, CommonModule, EmployeeDeleteComponent],
+  imports: [MatButtonModule, MatTableModule, MatToolbarModule, MatIconModule, CommonModule, EmployeeDeleteComponent, RouterModule],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
 })

@@ -41,6 +41,7 @@ import { UpdateCategoryComponent } from './features/category/components/update-c
 import { UpdateCountryComponent } from './features/country/components/update-country/update-country.component';
 import { AddCustomerComponent } from './features/customer/components/add-customer/add-customer.component';
 import { UpdateCustomerComponent } from './features/customer/components/update-customer/update-customer.component';
+import { AddEmployeeComponent } from './features/employee/components/add-employee/add-employee.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -67,6 +68,7 @@ export const routes: Routes = [
   {path: 'customerOrderItem', component: CustomerOrderItemDetailsComponent},
   {path: 'dashboard/employee', component: EmployeeListComponent},
   {path: 'employee', component: EmployeeDetailsComponent},
+  {path: 'addEmployee', component: AddEmployeeComponent},
   {path: 'dashboard/inventory', component: InventoryListComponent},
   {path: 'inventory', component: InventoryDetailsComponent},
   {path: 'dashboard/invoice', component: InvoiceListComponent},
