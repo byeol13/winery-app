@@ -4,14 +4,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Inventory } from '../../../../shared/models/Inventory.model';
 import { InventoryService } from '../../service/inventory.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { InventoryDeleteComponent } from '../inventory-delete/inventory-delete.component';
 
 @Component({
   selector: 'app-inventory-list',
   standalone: true,
-  imports: [MatButtonModule, MatToolbarModule, MatButtonModule, MatTableModule, CommonModule, InventoryDeleteComponent],
+  imports: [MatButtonModule, MatToolbarModule, MatButtonModule, MatTableModule, CommonModule, InventoryDeleteComponent, RouterModule],
   templateUrl: './inventory-list.component.html',
   styleUrl: './inventory-list.component.css'
 })

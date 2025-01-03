@@ -7,6 +7,10 @@
   <mat-card-content>
     <form [formGroup]="storeForm">
       <mat-form-field>
+        <mat-label>Store Id</mat-label>
+        <input matInput formControlName="id"/>
+      </mat-form-field>
+      <mat-form-field>
         <mat-label>Store Name</mat-label>
         <input matInput formControlName="storeName"/>
       </mat-form-field>

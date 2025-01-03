@@ -53,6 +53,7 @@ import { AddProducerComponent } from './features/producer/components/add-produce
 import { UpdateProducerComponent } from './features/producer/components/update-producer/update-producer.component';
 import { AddStoreComponent } from './features/store/components/add-store/add-store.component';
 import { UpdateStoreComponent } from './features/store/components/update-store/update-store.component';
+import { AddInventoryComponent } from './features/inventory/components/add-inventory/add-inventory.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -85,6 +86,7 @@ export const routes: Routes = [
   {path: 'updateEmployee/:employeeId', component: UpdateEmployeeComponent},
   {path: 'dashboard/inventory', component: InventoryListComponent},
   {path: 'inventory', component: InventoryDetailsComponent},
+  {path: 'addInventory', component: AddInventoryComponent},
   {path: 'dashboard/invoice', component: InvoiceListComponent},
   {path: 'invoice', component: InvoiceDetailsComponent},
   {path: 'dashboard/invoiceItem', component: InvoiceItemListComponent},

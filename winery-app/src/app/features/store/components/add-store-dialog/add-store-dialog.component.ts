@@ -12,11 +12,11 @@ export class AddStoreDialogComponent {
 
   constructor(private dialogRef: MatDialogRef<AddStoreDialogComponent>){}
   
-    onConfirm() {
-      this.dialogRef.close('confirm');
-    }
+  onConfirm() {
+    this.dialogRef.close('confirm');
+  }
   
-    onCancel() {
-      this.dialogRef.close('cancel');
-    }
+  onCancel() {
+    this.dialogRef.close('cancel');
+  }
 }
