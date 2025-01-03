@@ -23,4 +23,8 @@ export class RegionService {
   deleteRegionById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteRegion/${id}`);
   }
+
+  addRegion(region: Region): Observable<Region> {
+    return this.http.post<Region>(`${this.apiUrl}/newRegion`, region);
+  }
 }

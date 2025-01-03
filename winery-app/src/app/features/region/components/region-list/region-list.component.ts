@@ -4,14 +4,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Region } from '../../../../shared/models/Region.model';
 import { RegionService } from '../../service/region.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RegionDeleteComponent } from '../region-delete/region-delete.component';
 
 @Component({
   selector: 'app-region-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, RegionDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, RegionDeleteComponent, RouterModule],
   templateUrl: './region-list.component.html',
   styleUrl: './region-list.component.css'
 })
