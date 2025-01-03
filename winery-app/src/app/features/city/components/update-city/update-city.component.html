@@ -1,11 +1,16 @@
 <mat-toolbar>
-  <span>New City</span>
+  <span>Update City</span>
 </mat-toolbar>
 
 <mat-card appearance="outlined">
 
   <mat-card-content>
     <form [formGroup]="cityForm">
+      <mat-form-field>
+        <mat-label>City Id</mat-label>
+        <input matInput formControlName="id"/>
+      </mat-form-field>
+
       <mat-form-field>
         <mat-label>City Name</mat-label>
         <input matInput formControlName="cityName"/>
@@ -29,8 +34,8 @@
       </mat-form-field>
     
       <div class="buttons">
-        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
-        <button mat-raised-button (click)="goBack()">Cancel</button>
+        <button mat-raised-button (click)="onSubmit()">Save</button>
+        <button mat-raised-button [routerLink]="['/dashboard/city']">Cancel</button>
       </div>
     </form>
   </mat-card-content>

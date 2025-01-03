@@ -1,7 +1,7 @@
+import { City } from './../../../shared/models/City.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { City } from '../../../shared/models/City.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,9 @@ export class CityService {
 
   addCity(city: City): Observable<City> {
     return this.http.post<City>(`${this.apiUrl}/newCity`, city);
+  }
+
+  updateCity(city: City): Observable<City> {
+    return this.http.put<City>(`${this.apiUrl}/updateCity`, city);
   }
 }

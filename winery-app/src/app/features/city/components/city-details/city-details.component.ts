@@ -6,12 +6,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { City } from '../../../../shared/models/City.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-city-details',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, RouterModule],
   templateUrl: './city-details.component.html',
   styleUrl: './city-details.component.css'
 })
@@ -19,7 +19,7 @@ export class CityDetailsComponent implements OnInit{
 
   cityId: any;
   cities: City | undefined;
-  displayedColumns: string[] = ['id', 'city_name', 'country_id', 'postal_code'];
+  displayedColumns: string[] = ['id', 'city_name', 'country_id', 'postal_code', 'actions'];
 
   constructor(private cityService: CityService, private activatedRoute: ActivatedRoute){
     this.cityId = activatedRoute.snapshot.queryParamMap.get('cityId');

@@ -46,6 +46,7 @@ import { UpdateEmployeeComponent } from './features/employee/components/update-e
 import { AddSupplierComponent } from './features/supplier/components/add-supplier/add-supplier.component';
 import { UpdateSupplierComponent } from './features/supplier/components/update-supplier/update-supplier.component';
 import { AddCityComponent } from './features/city/components/add-city/add-city.component';
+import { UpdateCityComponent } from './features/city/components/update-city/update-city.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -59,6 +60,7 @@ export const routes: Routes = [
   {path: 'dashboard/city', component: CityListComponent},
   {path: 'city', component: CityDetailsComponent},
   {path: 'addCity', component: AddCityComponent},
+  {path: 'updateCity/:cityId', component: UpdateCityComponent},
   {path: 'dashboard/country', component: CountryListComponent},
   {path: 'country', component: CountryDetailsComponent},
   {path: 'addCountry', component: AddCountryComponent},

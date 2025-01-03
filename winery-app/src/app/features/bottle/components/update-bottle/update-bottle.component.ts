@@ -96,7 +96,7 @@ export class UpdateBottleComponent implements OnInit{
 
       this.bottleService.updateBottle(updatedBottle).subscribe(() => {
         this.router.navigate(['/dashboard/bottle']);
-      })
+      });
     }
   }
 
