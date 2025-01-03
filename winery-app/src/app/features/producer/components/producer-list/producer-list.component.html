@@ -3,7 +3,6 @@
   <button mat-stroked-button [routerLink]="['/addProducer']">+ Add Producer</button>
 </mat-toolbar>
 
-
 <table mat-table [dataSource]="producers" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
@@ -26,6 +25,7 @@
     <td mat-cell *matCellDef="let producer">
       <button mat-stroked-button (click)="viewDetails(producer.producerId)">View More</button>
       <button mat-stroked-button (click)="openDeleteDialog(producer.producerId)">Delete</button>
+      <button mat-stroked-button [routerLink]="['/updateProducer', producer.producerId]">Update</button>
     </td>
   </ng-container>
 

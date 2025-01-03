@@ -50,6 +50,7 @@ import { UpdateCityComponent } from './features/city/components/update-city/upda
 import { AddRegionComponent } from './features/region/components/add-region/add-region.component';
 import { UpdateRegionComponent } from './features/region/components/update-region/update-region.component';
 import { AddProducerComponent } from './features/producer/components/add-producer/add-producer.component';
+import { UpdateProducerComponent } from './features/producer/components/update-producer/update-producer.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -93,6 +94,7 @@ export const routes: Routes = [
   {path: 'dashboard/producer', component: ProducerListComponent},
   {path: 'producer', component: ProducerDetailsComponent},
   {path: 'addProducer', component: AddProducerComponent},
+  {path: 'updateProducer/:producerId', component: UpdateProducerComponent},
   {path: 'dashboard/region', component: RegionListComponent},
   {path: 'region', component: RegionDetailsComponent},
   {path: 'addRegion', component: AddRegionComponent},

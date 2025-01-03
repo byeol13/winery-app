@@ -27,4 +27,8 @@ export class ProducerService {
   addProducer(producer: Producer): Observable<Producer> {
     return this.http.post<Producer>(`${this.apiUrl}/newProducer`, producer);
   }
+
+  updateProducer(producer: Producer): Observable<Producer> {
+    return this.http.put<Producer>(`${this.apiUrl}/updateProducer`, producer);
+  }
 }
