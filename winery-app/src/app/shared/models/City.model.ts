@@ -15,5 +15,4 @@ export class City {
     this.countryDTO = countryDTO;
     if (cityId) this.cityId = cityId;
   }
-  
 }

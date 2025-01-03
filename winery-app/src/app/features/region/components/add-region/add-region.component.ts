@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Country } from '../../../../shared/models/Country.model';
 import { CountryService } from '../../../country/service/country.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { RegionService } from '../../service/region.service';
 import { Router } from '@angular/router';
 import { AddCountryComponent } from '../../../country/components/add-country/add-country.component';
@@ -27,7 +27,7 @@ export class AddRegionComponent {
   regionForm: FormGroup;
   countries: Country[] = [];
 
-  constructor(private fb: FormBuilder, private countryService: CountryService, private dialog: MatDialog, private regionService: RegionService, private router: Router) {
+  constructor(private fb: FormBuilder, private countryService: CountryService, private dialog: MatDialog, private regionService: RegionService, private router: Router, @Optional() private dialogRef: MatDialogRef<AddRegionComponent>) {
     this.regionForm = this.fb.group({
       regionName: ['', Validators.required],
       countryId: ['', Validators.required]
@@ -77,13 +77,21 @@ export class AddRegionComponent {
       }
     };
 
-    this.regionService.addRegion(newRegion).subscribe(() => {
-      this.router.navigate(['/dashboard/region']);
+    this.regionService.addRegion(newRegion).subscribe((newRegion) => {
+      if(this.dialogRef) {
+        this.dialogRef.close(newRegion);
+      } else {
+        this.router.navigate(['/dashboard/region']);
+      }
     });
   }
 
   goBack() {
-    this.router.navigate(['/dashboard/region']);
+    if(this.dialogRef) {
+      this.dialogRef.close();
+    } else {
+      this.router.navigate(['/dashboard/region']);
+    }
   }
 
 }

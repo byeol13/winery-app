@@ -23,4 +23,8 @@ export class ProducerService {
   deleteProducerById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteProducer/${id}`);
   }
+
+  addProducer(producer: Producer): Observable<Producer> {
+    return this.http.post<Producer>(`${this.apiUrl}/newProducer`, producer);
+  }
 }
