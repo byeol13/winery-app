@@ -43,6 +43,7 @@ import { AddCustomerComponent } from './features/customer/components/add-custome
 import { UpdateCustomerComponent } from './features/customer/components/update-customer/update-customer.component';
 import { AddEmployeeComponent } from './features/employee/components/add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './features/employee/components/update-employee/update-employee.component';
+import { AddSupplierComponent } from './features/supplier/components/add-supplier/add-supplier.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -88,5 +89,6 @@ export const routes: Routes = [
   {path: 'dashboard/store', component: StoreListComponent},
   {path: 'store', component: StoreDetailsComponent},
   {path: 'dashboard/supplier', component: SupplierListComponent},
-  {path: 'supplier', component: SupplierDetailsComponent}
+  {path: 'supplier', component: SupplierDetailsComponent},
+  {path: 'addSupplier', component: AddSupplierComponent}
 ];

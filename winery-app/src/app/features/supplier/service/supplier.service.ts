@@ -23,4 +23,8 @@ export class SupplierService {
   deleteSupplierById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteSupplier/${id}`);
   }
+
+  addSupplier(supplier: Supplier): Observable<Supplier> {
+    return this.http.post<Supplier>(`${this.apiUrl}/newSupplier`, supplier);
+  }
 }

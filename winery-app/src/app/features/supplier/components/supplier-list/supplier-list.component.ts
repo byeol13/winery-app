@@ -4,14 +4,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Supplier } from '../../../../shared/models/Supplier.model';
 import { SupplierService } from '../../service/supplier.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SupplierDeleteComponent } from '../supplier-delete/supplier-delete.component';
 
 @Component({
   selector: 'app-supplier-list',
   standalone: true,
-  imports: [MatButtonModule, MatTableModule, MatToolbarModule, CommonModule, SupplierDeleteComponent],
+  imports: [MatButtonModule, MatTableModule, MatToolbarModule, CommonModule, SupplierDeleteComponent, RouterModule],
   templateUrl: './supplier-list.component.html',
   styleUrl: './supplier-list.component.css'
 })
