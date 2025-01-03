@@ -1,0 +1,44 @@
+<mat-toolbar>
+  <span>Update Supplier</span>
+</mat-toolbar>
+
+<mat-card appearance="outlined">
+
+  <mat-card-content>
+    <form [formGroup]="supplierForm">
+      <mat-form-field>
+        <mat-label>Supplier Id</mat-label>
+        <input matInput formControlName="id"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Supplier Name</mat-label>
+        <input matInput formControlName="supplierName"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Mobile</mat-label>
+        <input matInput formControlName="mobile"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Details</mat-label>
+        <input matInput formControlName="details"/>
+      </mat-form-field>
+
+      <div class="buttons">
+        <button mat-raised-button (click)="onSubmit()">Save</button>
+        <button mat-raised-button [routerLink]="['/dashboard/supplier']">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>  

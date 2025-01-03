@@ -27,4 +27,8 @@ export class SupplierService {
   addSupplier(supplier: Supplier): Observable<Supplier> {
     return this.http.post<Supplier>(`${this.apiUrl}/newSupplier`, supplier);
   }
+
+  updateSupplier(supplier: Supplier): Observable<Supplier> {
+    return this.http.put<Supplier>(`${this.apiUrl}/updateSupplier`, supplier);
+  }
 }
