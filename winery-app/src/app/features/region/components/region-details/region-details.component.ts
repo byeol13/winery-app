@@ -6,12 +6,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { Region } from '../../../../shared/models/Region.model';
 import { RegionService } from '../../service/region.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-region-details',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, RouterModule],
   templateUrl: './region-details.component.html',
   styleUrl: './region-details.component.css'
 })
@@ -19,7 +19,7 @@ export class RegionDetailsComponent implements OnInit{
 
   regionId: any;
   regions: Region | undefined;
-  displayedColumns: string[] = ['id', 'region_name', 'country_id'];
+  displayedColumns: string[] = ['id', 'region_name', 'country_id', 'actions'];
 
   constructor(private regionService: RegionService, private activatedRoute: ActivatedRoute){
     this.regionId = activatedRoute.snapshot.queryParamMap.get('regionId');

@@ -72,10 +72,10 @@ export class AddCityComponent {
 
   saveCity() {
     const newCity = {
-      cityName: this.cityForm.value.cityName,
-      postalCode: this.cityForm.value.postalCode,
+      cityName: this.cityForm.get('cityName')?.value,
+      postalCode: this.cityForm.get('postalCode')?.value,
       countryDTO: {
-        countryId: this.cityForm.value.countryId
+        countryId: this.cityForm.get('countryId')?.value
       }
     };
 

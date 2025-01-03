@@ -1,7 +1,7 @@
+import { Region } from './../../../shared/models/Region.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, retry } from 'rxjs';
-import { Region } from '../../../shared/models/Region.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,9 @@ export class RegionService {
 
   addRegion(region: Region): Observable<Region> {
     return this.http.post<Region>(`${this.apiUrl}/newRegion`, region);
+  }
+
+  updateRegion(region: Region): Observable<Region> {
+    return this.http.put<Region>(`${this.apiUrl}/updateRegion`, region);
   }
 }

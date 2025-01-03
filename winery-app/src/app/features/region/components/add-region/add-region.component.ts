@@ -14,7 +14,6 @@ import { RegionService } from '../../service/region.service';
 import { Router } from '@angular/router';
 import { AddCountryComponent } from '../../../country/components/add-country/add-country.component';
 import { AddRegionDialogComponent } from '../add-region-dialog/add-region-dialog.component';
-import { Region } from '../../../../shared/models/Region.model';
 
 @Component({
   selector: 'app-add-region',
@@ -72,9 +71,9 @@ export class AddRegionComponent {
 
   saveRegion() {
     const newRegion = {
-      regionName: this.regionForm.value.regionName,
+      regionName: this.regionForm.get('regionName')?.value,
       countryDTO: {
-        countryId: this.regionForm.value.countryId
+      countryId: this.regionForm.get('countryId')?.value
       }
     };
 
