@@ -27,4 +27,8 @@ export class StoreService {
   addStore(store: Store): Observable<Store> {
     return this.http.post<Store>(`${this.apiUrl}/newStore`, store);
   }
+
+  updateStore(store: Store): Observable<Store> {
+    return this.http.put<Store>(`${this.apiUrl}/updateStore`, store);
+  }
 }

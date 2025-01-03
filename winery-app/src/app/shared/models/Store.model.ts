@@ -1,7 +1,7 @@
 import { City } from "./City.model";
 
 export class Store {
-  id?: number;
+  storeId?: number;
   storeName: string;
   cityDTO: { cityId: number};
   address: string;
@@ -18,7 +18,7 @@ export class Store {
     mobile: string,
     email: string,
     details: string,
-    id?: number
+    storeId?: number
   ) {
     this.storeName = storeName;
     this.cityDTO = cityDTO;
@@ -27,6 +27,6 @@ export class Store {
     this.mobile = mobile;
     this.email = email;
     this.details = details;
-    if (id) this.id = id;
+    if (storeId) this.storeId = storeId;
   }
 }

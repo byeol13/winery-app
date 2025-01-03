@@ -1,0 +1,52 @@
+<mat-toolbar>
+  <span>New Store</span>
+</mat-toolbar>
+
+<mat-card appearance="outlined">
+
+  <mat-card-content>
+    <form [formGroup]="storeForm">
+      <mat-form-field>
+        <mat-label>Store Name</mat-label>
+        <input matInput formControlName="storeName"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Mobile</mat-label>
+        <input matInput formControlName="mobile"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Details</mat-label>
+        <input matInput formControlName="details"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <mat-select formControlName="cityId">
+          <mat-option *ngFor="let city of cities" [value]="city.cityId">
+            {{ city.cityName }}
+          </mat-option>
+          <mat-option (click)="openAddCityDialog()" class="add-new-country">
+            <span>Add New City</span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div class="buttons">
+        <button mat-raised-button (click)="onSubmit()">Save</button>
+        <button mat-raised-button [routerLink]="['/dashboard/store']">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>  

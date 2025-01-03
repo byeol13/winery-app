@@ -52,6 +52,7 @@ import { UpdateRegionComponent } from './features/region/components/update-regio
 import { AddProducerComponent } from './features/producer/components/add-producer/add-producer.component';
 import { UpdateProducerComponent } from './features/producer/components/update-producer/update-producer.component';
 import { AddStoreComponent } from './features/store/components/add-store/add-store.component';
+import { UpdateStoreComponent } from './features/store/components/update-store/update-store.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -103,6 +104,7 @@ export const routes: Routes = [
   {path: 'dashboard/store', component: StoreListComponent},
   {path: 'store', component: StoreDetailsComponent},
   {path: 'addStore', component: AddStoreComponent},
+  {path: 'updateStore/:storeId', component: UpdateStoreComponent},
   {path: 'dashboard/supplier', component: SupplierListComponent},
   {path: 'supplier', component: SupplierDetailsComponent},
   {path: 'addSupplier', component: AddSupplierComponent},
