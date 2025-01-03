@@ -4,14 +4,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Store } from '../../../../shared/models/Store.model';
 import { StoreService } from '../../service/store.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StoreDeleteComponent } from '../store-delete/store-delete.component';
 
 @Component({
   selector: 'app-store-list',
   standalone: true,
-  imports: [MatButtonModule, MatTableModule, MatToolbarModule, CommonModule, StoreDeleteComponent],
+  imports: [MatButtonModule, MatTableModule, MatToolbarModule, CommonModule, StoreDeleteComponent, RouterModule],
   templateUrl: './store-list.component.html',
   styleUrl: './store-list.component.css'
 })

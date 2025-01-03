@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CountryService } from '../../../country/service/country.service';
 import { Country } from '../../../../shared/models/Country.model';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddCityDialogComponent } from '../add-city-dialog/add-city-dialog.component';
 import { CityService } from '../../service/city.service';
 import { Router } from '@angular/router';
@@ -27,7 +27,7 @@ export class AddCityComponent {
   cityForm: FormGroup;
   countries: Country[] = [];
 
-  constructor(private fb: FormBuilder, private countryService: CountryService, private dialog: MatDialog, private cityService: CityService, private router: Router) {
+  constructor(private fb: FormBuilder, private countryService: CountryService, private dialog: MatDialog, private cityService: CityService, private router: Router, @Optional() private dialogRef: MatDialogRef<AddCityComponent>) {
     this.cityForm = this.fb.group({
       cityName: ['', Validators.required],
       postalCode: ['', Validators.required],
@@ -79,12 +79,20 @@ export class AddCityComponent {
       }
     };
 
-    this.cityService.addCity(newCity).subscribe(() => {
-      this.router.navigate(['/dashboard/city']);
-    })
+    this.cityService.addCity(newCity).subscribe((newCity) => {
+      if(this.dialogRef) {
+        this.dialogRef.close(newCity);
+      } else {
+        this.router.navigate(['/dashboard/city']);
+      }
+    });
   }
 
   goBack() {
-    this.router.navigate(['/dashboard/city'])
+    if(this.dialogRef) {
+      this.dialogRef.close();
+    } else {
+      this.router.navigate(['/dashboard/city']);
+    }
   }
 }

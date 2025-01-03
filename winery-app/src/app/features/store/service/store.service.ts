@@ -23,4 +23,8 @@ export class StoreService {
   deleteStoreById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteStore/${id}`);
   }
+
+  addStore(store: Store): Observable<Store> {
+    return this.http.post<Store>(`${this.apiUrl}/newStore`, store);
+  }
 }
