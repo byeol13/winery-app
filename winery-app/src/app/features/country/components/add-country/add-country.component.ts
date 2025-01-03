@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { CountryService } from '../../service/country.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddCountryDialogComponent } from '../add-country-dialog/add-country-dialog.component';
 
 @Component({
@@ -23,7 +23,7 @@ export class AddCountryComponent {
 
   countryForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private countryService: CountryService, private dialog: MatDialog) {
+  constructor(private fb: FormBuilder, private router: Router, private countryService: CountryService, private dialog: MatDialog, @Optional() private dialogRef: MatDialogRef<AddCountryComponent>) {
 
     this.countryForm = this.fb.group({
       countryName: ['', Validators.required]
@@ -45,13 +45,21 @@ export class AddCountryComponent {
   }
 
   saveCountry() {
-    this.countryService.addCountry(this.countryForm.value).subscribe(() => {
-      this.router.navigate(['/dashboard/country']);
+    this.countryService.addCountry(this.countryForm.value).subscribe((newCountry) => {
+      if(this.dialogRef) {
+        this.dialogRef.close(newCountry);
+      } else {
+        this.router.navigate(['/dashboard/country']);
+      }
     });
   }
 
   goBack() {
-    this.router.navigate(['/dashboard/country']);
+    if(this.dialogRef) {
+      this.dialogRef.close();
+    } else {
+      this.router.navigate(['/dashboard/country']);
+    }
   }
 
 }

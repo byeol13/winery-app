@@ -5,13 +5,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { City } from '../../../../shared/models/City.model';
 import { CityService } from '../../service/city.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CityDeleteComponent } from '../city-delete/city-delete.component';
 
 @Component({
   selector: 'app-city-list',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatTableModule, MatToolbarModule, CityDeleteComponent],
+  imports: [CommonModule, MatButtonModule, MatTableModule, MatToolbarModule, CityDeleteComponent, RouterModule],
   templateUrl: './city-list.component.html',
   styleUrl: './city-list.component.css'
 })

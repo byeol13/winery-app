@@ -23,4 +23,8 @@ export class CityService {
   deleteCityById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteCity/${id}`);
   }
+
+  addCity(city: City): Observable<City> {
+    return this.http.post<City>(`${this.apiUrl}/newCity`, city);
+  }
 }

@@ -82,7 +82,7 @@ export class AddBottleComponent {
         if(res == 'confirm') {
           this.saveBottle();
         }
-      })
+      });
     }
   }
 

@@ -51,7 +51,7 @@ export class AddCategoryComponent {
       } else {
         this.router.navigate(['/dashboard/category']);
       }
-    })
+    });
   }
 
   goBack() {
