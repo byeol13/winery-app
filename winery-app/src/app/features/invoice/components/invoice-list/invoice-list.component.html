@@ -41,6 +41,7 @@
     <td mat-cell *matCellDef="let invoice">
       <button mat-stroked-button (click)="viewDetails(invoice.invoiceId)">View More</button>
       <button mat-stroked-button (click)="openDeleteDialog(invoice.invoiceId)">Delete</button>
+      <button mat-stroked-button [routerLink]="['/updateInvoice', invoice.invoiceId]">Update</button>
     </td>
   </ng-container>
 

@@ -7,6 +7,10 @@
   <mat-card-content>
     <form [formGroup]="invoiceForm">
       <mat-form-field>
+        <mat-label>Invoice Id</mat-label>
+        <input matInput formControlName="id"/>
+      </mat-form-field>
+      <mat-form-field>
         <mat-label>Invoice Number</mat-label>
         <input matInput formControlName="invoiceNumber"/>
       </mat-form-field>
@@ -48,8 +52,8 @@
       </mat-form-field>
   
       <div class="buttons">
-        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
-        <button mat-raised-button (click)="goBack()">Cancel</button>
+        <button mat-raised-button (click)="onSubmit()">Save</button>
+        <button mat-raised-button [routerLink]="['/dashboard/invoice']">Cancel</button>
       </div>
     </form>
   </mat-card-content>
