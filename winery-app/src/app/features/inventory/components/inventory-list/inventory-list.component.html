@@ -26,6 +26,7 @@
     <td mat-cell *matCellDef="let inventory">
       <button mat-stroked-button (click)="viewDetails(inventory.inventoryId)">View More</button>
       <button mat-stroked-button (click)="openDeleteDialog(inventory.inventoryId)">Delete</button>
+      <button mat-stroked-button [routerLink]="['/updateInventory', inventory.inventoryId]">Update</button>
     </td>
   </ng-container>
 

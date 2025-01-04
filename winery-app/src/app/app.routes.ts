@@ -54,6 +54,7 @@ import { UpdateProducerComponent } from './features/producer/components/update-p
 import { AddStoreComponent } from './features/store/components/add-store/add-store.component';
 import { UpdateStoreComponent } from './features/store/components/update-store/update-store.component';
 import { AddInventoryComponent } from './features/inventory/components/add-inventory/add-inventory.component';
+import { UpdateInventoryComponent } from './features/inventory/components/update-inventory/update-inventory.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -87,6 +88,7 @@ export const routes: Routes = [
   {path: 'dashboard/inventory', component: InventoryListComponent},
   {path: 'inventory', component: InventoryDetailsComponent},
   {path: 'addInventory', component: AddInventoryComponent},
+  {path: 'updateInventory/:inventoryId', component: UpdateInventoryComponent},
   {path: 'dashboard/invoice', component: InvoiceListComponent},
   {path: 'invoice', component: InvoiceDetailsComponent},
   {path: 'dashboard/invoiceItem', component: InvoiceItemListComponent},
