@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -10,7 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SupplierService } from '../../service/supplier.service';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddSupplierDialogComponent } from '../add-supplier-dialog/add-supplier-dialog.component';
 
 @Component({
@@ -24,7 +24,7 @@ export class AddSupplierComponent {
 
   supplierForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private supplierService: SupplierService, private router: Router, private dialog: MatDialog) {
+  constructor(private fb: FormBuilder, private supplierService: SupplierService, private router: Router, private dialog: MatDialog, @Optional() private dialogRef: MatDialogRef<AddSupplierComponent>) {
     this.supplierForm = this.fb.group({
       supplierName: ['', Validators.required],
       address: ['', Validators.required],
@@ -48,12 +48,20 @@ export class AddSupplierComponent {
   }
 
   saveSupplier() {
-    this.supplierService.addSupplier(this.supplierForm.value).subscribe(() => {
-      this.router.navigate(['/dashboard/supplier']);
-    })
+    this.supplierService.addSupplier(this.supplierForm.value).subscribe((newSupplier) => {
+      if(this.dialogRef) {
+        this.dialogRef.close(newSupplier);
+      } else {
+        this.router.navigate(['/dashboard/supplier']);
+      }
+    });
   }
 
   goBack() {
-    this.router.navigate(['/dashboard/supplier']);
+    if(this.dialogRef) {
+      this.dialogRef.close();
+    } else {
+      this.router.navigate(['/dashboard/supplier']);
+    }
   }
 }

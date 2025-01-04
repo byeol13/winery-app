@@ -55,6 +55,7 @@ import { AddStoreComponent } from './features/store/components/add-store/add-sto
 import { UpdateStoreComponent } from './features/store/components/update-store/update-store.component';
 import { AddInventoryComponent } from './features/inventory/components/add-inventory/add-inventory.component';
 import { UpdateInventoryComponent } from './features/inventory/components/update-inventory/update-inventory.component';
+import { AddOrderComponent } from './features/order/components/add-order/add-order.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -95,6 +96,7 @@ export const routes: Routes = [
   {path: 'invoiceItem', component: InvoiceItemDetailsComponent},
   {path: 'dashboard/order', component: OrderListComponent},
   {path: 'order', component: OrderDetailsComponent},
+  {path: 'addOrder', component: AddOrderComponent},
   {path: 'dashboard/orderItem', component: OrderItemListComponent},
   {path: 'orderItem', component: OrderItemDetailsComponent},
   {path: 'dashboard/producer', component: ProducerListComponent},

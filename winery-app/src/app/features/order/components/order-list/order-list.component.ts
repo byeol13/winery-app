@@ -4,14 +4,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Order } from '../../../../shared/models/Order.model';
 import { OrderService } from '../../service/order.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { OrderDeleteComponent } from '../order-delete/order-delete.component';
 
 @Component({
   selector: 'app-order-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, OrderDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, OrderDeleteComponent, RouterModule],
   templateUrl: './order-list.component.html',
   styleUrl: './order-list.component.css'
 })
