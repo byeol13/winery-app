@@ -5,12 +5,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import { Order } from '../../../../shared/models/Order.model';
 import { OrderService } from '../../service/order.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-order-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, RouterModule, MatButtonModule],
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.css'
 })
@@ -18,7 +19,7 @@ export class OrderDetailsComponent {
 
   orderId: any;
   orders: Order | undefined;
-  displayedColumns: string[] = ['id', 'order_number', 'time_placed', 'order_price', 'supplier_id', 'store_id', 'employee_id', 'expected_delivery_date', 'time_delivered', 'time_canceled'];
+  displayedColumns: string[] = ['id', 'order_number', 'time_placed', 'order_price', 'supplier_id', 'store_id', 'employee_id', 'expected_delivery_date', 'time_delivered', 'time_canceled', 'actions'];
 
   constructor(private orderService: OrderService, private activatedRoute: ActivatedRoute){
     this.orderId = activatedRoute.snapshot.queryParamMap.get('orderId');
