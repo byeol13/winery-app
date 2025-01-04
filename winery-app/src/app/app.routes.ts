@@ -59,6 +59,7 @@ import { AddOrderComponent } from './features/order/components/add-order/add-ord
 import { UpdateOrderComponent } from './features/order/components/update-order/update-order.component';
 import { AddInvoiceComponent } from './features/invoice/components/add-invoice/add-invoice.component';
 import { UpdateInvoiceComponent } from './features/invoice/components/update-invoice/update-invoice.component';
+import { AddOrderItemComponent } from './features/orderItem/components/add-order-item/add-order-item.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -105,6 +106,7 @@ export const routes: Routes = [
   {path: 'updateOrder/:orderId', component: UpdateOrderComponent},
   {path: 'dashboard/orderItem', component: OrderItemListComponent},
   {path: 'orderItem', component: OrderItemDetailsComponent},
+  {path: 'addOrderItem', component: AddOrderItemComponent},
   {path: 'dashboard/producer', component: ProducerListComponent},
   {path: 'producer', component: ProducerDetailsComponent},
   {path: 'addProducer', component: AddProducerComponent},

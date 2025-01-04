@@ -23,4 +23,8 @@ export class OrderItemService {
   deleteOrderItemBbyId(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteOrderItem/${id}`);
   }
+
+  addOrderItem(orderItem: OrderItem): Observable<OrderItem> {
+    return this.http.post<OrderItem>(`${this.apiUrl}/newOrderItem`, orderItem);
+  }
 }
