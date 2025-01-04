@@ -1,0 +1,62 @@
+<mat-toolbar>
+  <span>New Invoice</span>
+</mat-toolbar>
+
+<mat-card appearance="outlined">
+
+  <mat-card-content>
+    <form [formGroup]="invoiceForm">
+      <mat-form-field>
+        <mat-label>Invoice Number</mat-label>
+        <input matInput formControlName="invoiceNumber"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Customer Order Number</mat-label>
+        <mat-select formControlName="customerOrderId">
+          <mat-option *ngFor="let customerOrder of customersOrder" [value]="customerOrder.customerOrderId">
+            {{ customerOrder.orderNumber }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Customer</mat-label>
+        <mat-select formControlName="customerId">
+          <mat-option *ngFor="let customer of customers" [value]="customer.customerId">
+            {{ customer.username }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Store</mat-label>
+        <mat-select formControlName="storeId">
+          <mat-option *ngFor="let store of stores" [value]="store.storeId">
+            {{ store.storeName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Invoice Price</mat-label>
+        <input matInput formControlName="invoiceTotal"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Employee</mat-label>
+        <mat-select formControlName="employeeId">
+          <mat-option *ngFor="let employee of employees" [value]="employee.employeeId">
+            {{ employee.username }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <mat-label>Time Created</mat-label>
+        <input matInput [matDatepicker]="timeCreatedPicker" formControlName="timeCreated"/>
+        <mat-datepicker-toggle matSuffix [for]="timeCreatedPicker"></mat-datepicker-toggle>
+        <mat-datepicker #timeCreatedPicker></mat-datepicker>
+      </mat-form-field> -->
+  
+      <div class="buttons">
+        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
+        <button mat-raised-button (click)="goBack()">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>  

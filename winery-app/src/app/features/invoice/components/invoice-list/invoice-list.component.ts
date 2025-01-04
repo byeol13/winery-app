@@ -4,14 +4,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { Invoice } from '../../../../shared/models/Invoice.model';
 import { InvoiceService } from '../../service/invoice.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { InvoiceDeleteComponent } from '../invoice-delete/invoice-delete.component';
 
 @Component({
   selector: 'app-invoice-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, InvoiceDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, InvoiceDeleteComponent, RouterModule],
   templateUrl: './invoice-list.component.html',
   styleUrl: './invoice-list.component.css'
 })

@@ -57,6 +57,7 @@ import { AddInventoryComponent } from './features/inventory/components/add-inven
 import { UpdateInventoryComponent } from './features/inventory/components/update-inventory/update-inventory.component';
 import { AddOrderComponent } from './features/order/components/add-order/add-order.component';
 import { UpdateOrderComponent } from './features/order/components/update-order/update-order.component';
+import { AddInvoiceComponent } from './features/invoice/components/add-invoice/add-invoice.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -93,6 +94,7 @@ export const routes: Routes = [
   {path: 'updateInventory/:inventoryId', component: UpdateInventoryComponent},
   {path: 'dashboard/invoice', component: InvoiceListComponent},
   {path: 'invoice', component: InvoiceDetailsComponent},
+  {path: 'addInvoice', component: AddInvoiceComponent},
   {path: 'dashboard/invoiceItem', component: InvoiceItemListComponent},
   {path: 'invoiceItem', component: InvoiceItemDetailsComponent},
   {path: 'dashboard/order', component: OrderListComponent},

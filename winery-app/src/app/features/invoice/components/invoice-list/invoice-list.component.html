@@ -1,5 +1,6 @@
 <mat-toolbar>
-  <span>invoices</span>
+  <span>Invoices</span>
+  <button mat-stroked-button [routerLink]="['/addInvoice']">+ Add Invoice</button>
 </mat-toolbar>
 
 
@@ -27,7 +28,7 @@
 
   <ng-container matColumnDef="time_created">
     <th mat-header-cell *matHeaderCellDef> Time Created </th>
-    <td mat-cell *matCellDef="let invoice">{{invoice.timeCreated}} </td>
+    <td mat-cell *matCellDef="let invoice">{{invoice.timeCreated | date: 'dd/MM/yyyy'}} </td>
   </ng-container>
 
   <ng-container matColumnDef="store_id">

@@ -1,15 +1,30 @@
-import { Customer } from "./Customer.model"
-import { CustomerOrder } from "./CustomerOrder.model"
-import { Employee } from "./Employee.model"
-import { Store } from "./Store.model"
+export class Invoice {
+  invoiceId?: number;
+  invoiceNumber: string;
+  storeDTO: { storeId: number };
+  customerOrderDTO: { customerOrderId: number };
+  customerDTO: { customerId: number };
+  employeeDTO: { employeeId: number };
+  invoiceTotal: number;
+  timeCreated: Date;
 
-export interface Invoice {
-  invoiceId: number,
-  invoiceNumber: string,
-  storeDTO: Store,
-  customerOrderDTO: CustomerOrder,
-  customerDTO: Customer,
-  employeeDTO: Employee,
-  invoiceTotal: number,
-  timeCreated: Date
+  constructor(
+    invoiceNumber: string,
+    storeDTO: { storeId: number },
+    customerOrderDTO: { customerOrderId: number },
+    customerDTO: { customerId: number },
+    employeeDTO: { employeeId: number },
+    invoiceTotal: number,
+    timeCreated: Date,
+    invoiceId?: number
+  ) {
+    this.invoiceNumber = invoiceNumber;
+    this.storeDTO = storeDTO;
+    this.customerOrderDTO = customerOrderDTO;
+    this.customerDTO = customerDTO;
+    this.employeeDTO = employeeDTO;
+    this.invoiceTotal = invoiceTotal;
+    this.timeCreated = timeCreated;
+    if (invoiceId) this.invoiceId = invoiceId;
+  }
 }
