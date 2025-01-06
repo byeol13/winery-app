@@ -1,11 +1,16 @@
 <mat-toolbar>
-  <span>New Order Item</span>
+  <span>New Invoice Item</span>
 </mat-toolbar>
 
 <mat-card appearance="outlined">
 
   <mat-card-content>
-    <form [formGroup]="orderItemForm">
+    <form [formGroup]="invoiceItemForm">
+      <mat-form-field>
+        <mat-label>Invoice Number</mat-label>
+        <input matInput [value]="invoiceNumber" disabled />
+      </mat-form-field>
+
       <mat-form-field>
         <mat-label>Choose a Bottle</mat-label>
         <mat-select formControlName="bottleId" (selectionChange)="onBottleChange()">
@@ -22,12 +27,7 @@
       
       <mat-form-field>
         <mat-label>Total Price</mat-label>
-        <input matInput formControlName="orderPrice" [value]="orderPrice"/>
-      </mat-form-field>
-    
-      <mat-form-field>
-        <mat-label>Order Number</mat-label>
-        <input matInput [value]="orderNumber" disabled />
+        <input matInput formControlName="itemPrice" [value]="itemPrice"/>
       </mat-form-field>
   
       <div class="buttons">

@@ -60,6 +60,7 @@ import { UpdateOrderComponent } from './features/order/components/update-order/u
 import { AddInvoiceComponent } from './features/invoice/components/add-invoice/add-invoice.component';
 import { UpdateInvoiceComponent } from './features/invoice/components/update-invoice/update-invoice.component';
 import { AddOrderItemComponent } from './features/orderItem/components/add-order-item/add-order-item.component';
+import { AddInvoiceItemComponent } from './features/invoiceItem/components/add-invoice-item/add-invoice-item.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -100,13 +101,14 @@ export const routes: Routes = [
   {path: 'updateInvoice/:invoiceId', component: UpdateInvoiceComponent},
   {path: 'dashboard/invoiceItem', component: InvoiceItemListComponent},
   {path: 'invoiceItem', component: InvoiceItemDetailsComponent},
+  {path: 'addInvoiceItem/:invoiceId', component: AddInvoiceItemComponent},
   {path: 'dashboard/order', component: OrderListComponent},
   {path: 'order', component: OrderDetailsComponent},
   {path: 'addOrder', component: AddOrderComponent},
   {path: 'updateOrder/:orderId', component: UpdateOrderComponent},
   {path: 'dashboard/orderItem', component: OrderItemListComponent},
   {path: 'orderItem', component: OrderItemDetailsComponent},
-  {path: 'addOrderItem', component: AddOrderItemComponent},
+  {path: 'addOrderItem/:orderId', component: AddOrderItemComponent},
   {path: 'dashboard/producer', component: ProducerListComponent},
   {path: 'producer', component: ProducerDetailsComponent},
   {path: 'addProducer', component: AddProducerComponent},

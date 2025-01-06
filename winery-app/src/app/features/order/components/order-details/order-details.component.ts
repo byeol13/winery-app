@@ -7,6 +7,8 @@ import { Order } from '../../../../shared/models/Order.model';
 import { OrderService } from '../../service/order.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { OrderItemService } from '../../../orderItem/service/order-item.service';
+import { OrderItem } from '../../../../shared/models/OrderItem.model';
 
 @Component({
   selector: 'app-order-details',
@@ -36,5 +38,4 @@ export class OrderDetailsComponent {
       })
     }
   }
-
 }

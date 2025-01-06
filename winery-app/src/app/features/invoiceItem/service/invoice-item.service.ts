@@ -23,4 +23,8 @@ export class InvoiceItemService {
   deleteInvoiceItemById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteInvoiceItem/${id}`);
   }
+
+  addInvoiceItem(invoiceItem: InvoiceItem): Observable<InvoiceItem> {
+    return this.http.post<InvoiceItem>(`${this.apiUrl}/newInvoiceItem`, invoiceItem);
+  }
 }

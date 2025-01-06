@@ -20,6 +20,8 @@ import { OrderService } from '../../service/order.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddSupplierComponent } from '../../../supplier/components/add-supplier/add-supplier.component';
 import { Order } from '../../../../shared/models/Order.model';
+import { OrderItemService } from '../../../orderItem/service/order-item.service';
+import { OrderItem } from '../../../../shared/models/OrderItem.model';
 
 @Component({
   selector: 'app-update-order',
@@ -35,8 +37,12 @@ export class UpdateOrderComponent implements OnInit{
   suppliers: Supplier[] = [];
   stores: Store[] = [];
   employees: Employee[] = [];
+
+  //
+  totalOrderPrice: number | undefined;
+
   
-  constructor(private fb: FormBuilder, private supplierService: SupplierService, private storeService: StoreService, private employeeService: EmployeeService, private dialog: MatDialog, private router: Router, private orderService: OrderService, private activatedRoute: ActivatedRoute){
+  constructor(private fb: FormBuilder, private supplierService: SupplierService, private storeService: StoreService, private employeeService: EmployeeService, private dialog: MatDialog, private router: Router, private orderService: OrderService, private activatedRoute: ActivatedRoute, private orderItemService: OrderItemService){
   
     this.orderForm = this.fb.group({
       id: [{value: '', disabled: true}],
@@ -60,6 +66,10 @@ export class UpdateOrderComponent implements OnInit{
       this.orderId = this.activatedRoute.snapshot.paramMap.get('orderId');
 
       if(this.orderId) {
+
+        //
+        this.orderId = Number(this.orderId);
+
         this.orderService.getOrderById(this.orderId).subscribe((res) => {
           if(res) {
             this.orderForm.patchValue({
@@ -74,10 +84,23 @@ export class UpdateOrderComponent implements OnInit{
               storeId: res.storeDTO.storeId,
               employeeId: res.employeeDTO.employeeId
             });
+
+            //
+            this.calculateTotalPrice(this.orderId);
           }
         });
       }
     }
+
+    //
+    calculateTotalPrice(orderId: number) {
+      this.orderItemService.getAllOrdedrItems().subscribe((orderItems) => {
+        const filteredItems = orderItems.filter(item => item.orderDTO.orderId === orderId);
+        
+        this.totalOrderPrice = filteredItems.reduce((total, item) => total + (item.orderPrice || 0), 0);
+      });
+    }
+    
   
     loadSuppliers() {
       this.supplierService.getAllSuppliers().subscribe((res) => {
@@ -136,5 +159,4 @@ export class UpdateOrderComponent implements OnInit{
         });
       }
     }
-
 }

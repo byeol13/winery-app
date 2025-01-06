@@ -24,7 +24,7 @@
     
       <ng-container matColumnDef="order_price">
         <th mat-header-cell *matHeaderCellDef> Order Price </th>
-        <td mat-cell *matCellDef="let order">$ {{order.orderPrice}} </td>
+        <td mat-cell *matCellDef="let order">{{ order.orderPrice ? '$ ' + order.orderPrice : '-' }} </td>
       </ng-container>
 
       <ng-container matColumnDef="supplier_id">

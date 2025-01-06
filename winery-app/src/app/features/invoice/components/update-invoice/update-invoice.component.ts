@@ -21,6 +21,7 @@ import { EmployeeService } from '../../../employee/service/employee.service';
 import { StoreService } from '../../../store/service/store.service';
 import { InvoiceService } from '../../service/invoice.service';
 import { Invoice } from '../../../../shared/models/Invoice.model';
+import { InvoiceItemService } from '../../../invoiceItem/service/invoice-item.service';
 
 @Component({
   selector: 'app-update-invoice',
@@ -38,7 +39,9 @@ export class UpdateInvoiceComponent implements OnInit{
   stores: Store[] = [];
   employees: Employee[] = [];
 
-  constructor(private fb: FormBuilder, private customerService: CustomerService, private customerOrderService: CustomerOrderService, private storeService: StoreService, private employeeService: EmployeeService, private router: Router, private invoiceService: InvoiceService, private activatedRoute: ActivatedRoute){
+  totalInvoicePrice: number | undefined;
+
+  constructor(private fb: FormBuilder, private customerService: CustomerService, private customerOrderService: CustomerOrderService, private storeService: StoreService, private employeeService: EmployeeService, private router: Router, private invoiceService: InvoiceService, private activatedRoute: ActivatedRoute, private invoiceItemService: InvoiceItemService){
 
     this.invoiceForm = this.fb.group({
       id: [{value: '', disabled: true}],
@@ -62,6 +65,9 @@ export class UpdateInvoiceComponent implements OnInit{
     this.invoiceId = this.activatedRoute.snapshot.paramMap.get('invoiceId');
 
     if(this.invoiceId) {
+
+      this.invoiceId = Number(this.invoiceId);
+
       this.invoiceService.getInvoiceById(this.invoiceId).subscribe((res) => {
         if(res) {
           this.invoiceForm.patchValue({
@@ -73,9 +79,19 @@ export class UpdateInvoiceComponent implements OnInit{
             storeId: res.storeDTO.storeId,
             employeeId: res.employeeDTO.employeeId
           });
+
+          this.calculateTotalPrice(this.invoiceId);
         }
       });
     }
+  }
+
+  calculateTotalPrice(invoiceId: number) {
+    this.invoiceItemService.getAllInvoiceItems().subscribe((invoiceItems) => {
+      const filteredItems = invoiceItems.filter(item => item.invoiceDTO.invoiceId === invoiceId);
+
+      this.totalInvoicePrice = filteredItems.reduce((total, item) => total + (item.itemPrice || 0), 0);
+    });
   }
 
   loadCustomers() {

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -11,9 +11,9 @@ import { Bottle } from '../../../../shared/models/Bottle.model';
 import { Order } from '../../../../shared/models/Order.model';
 import { BottleService } from '../../../bottle/service/bottle.service';
 import { OrderService } from '../../../order/service/order.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddInventoryDialogComponent } from '../../../inventory/components/add-inventory-dialog/add-inventory-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { OrderItemService } from '../../service/order-item.service';
 
 @Component({
@@ -23,14 +23,16 @@ import { OrderItemService } from '../../service/order-item.service';
   templateUrl: './add-order-item.component.html',
   styleUrl: './add-order-item.component.css'
 })
-export class AddOrderItemComponent {
+export class AddOrderItemComponent implements OnInit{
 
+  orderId: any;
   orderItemForm: FormGroup;
   bottles: Bottle[] = []; 
-  orders: Order[] = [];
+  orders: Order[] = []; 
   orderPrice: number = 0;
+  orderNumber: string = '';
 
-  constructor(private fb: FormBuilder, private bottleService: BottleService, private orderService: OrderService, private router: Router, private dialog: MatDialog, private orderItemService: OrderItemService) {
+  constructor(private fb: FormBuilder, private bottleService: BottleService, private orderService: OrderService, private router: Router, private dialog: MatDialog, private orderItemService: OrderItemService, private activatedRoute: ActivatedRoute) {
     this.orderItemForm = this.fb.group({
       bottleId: ['', Validators.required],
       orderId: ['', Validators.required],
@@ -40,6 +42,20 @@ export class AddOrderItemComponent {
 
     this.loadBottles();
     this.loadOrders();
+  }
+
+  ngOnInit(): void {
+    this.orderId = this.activatedRoute.snapshot.paramMap.get('orderId') || '';
+    
+    this.orderService.getOrderById(this.orderId).subscribe((order: Order) => {
+      if (order) {
+        this.orderNumber = order.orderNumber; // Get orderNumber from the order
+        this.orderItemForm.patchValue({
+          orderId: this.orderId, // Set the orderId
+          orderPrice: 0 // Set initial price to 0 (or set a default value)
+        });
+      }
+    });
   }
 
   loadBottles() {
@@ -103,12 +119,22 @@ export class AddOrderItemComponent {
     };
 
     this.orderItemService.addOrderItem(newOrderItem).subscribe(() => {
-      this.router.navigate(['/dashboard/orderItem']);
-    })
+      // if(this.dialogRef) {
+      //   this.dialogRef.close(newOrderItem);
+      // } else {
+      //   this.router.navigate(['/updateOrder', newOrderItem.orderDTO.orderId]);
+      // }
+      this.router.navigate(['/updateOrder', newOrderItem.orderDTO.orderId]);
+    });
   }
 
   goBack() {
-    this.router.navigate(['/dashboard/orderItem']);
+    // if (this.dialogRef) {
+    //   this.dialogRef.close();
+    // } else {
+    //   this.router.navigate(['/dashboard/orderItem']);
+    // }
+    this.router.navigate(['/dashboard/order']);
   }
 
 }

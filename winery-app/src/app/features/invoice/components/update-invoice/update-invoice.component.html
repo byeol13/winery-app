@@ -2,6 +2,11 @@
   <span>New Invoice</span>
 </mat-toolbar>
 
+<div *ngIf="totalInvoicePrice !== undefined">
+  <h3>Total Order Price</h3>
+  <p>{{ totalInvoicePrice | currency:'USD':'symbol':'1.2-2' }}</p>
+</div>
+
 <mat-card appearance="outlined">
 
   <mat-card-content>
@@ -38,10 +43,12 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+
       <mat-form-field>
         <mat-label>Invoice Price</mat-label>
         <input matInput formControlName="invoiceTotal"/>
       </mat-form-field>
+      
       <mat-form-field>
         <mat-label>Employee</mat-label>
         <mat-select formControlName="employeeId">

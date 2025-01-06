@@ -43,7 +43,7 @@ export class AddOrderComponent {
       timePlaced: ['', Validators.required],
       timeCanceled: [''],
       timeDelivered: [''],
-      orderPrice: ['', Validators.required],
+      orderPrice: [{value: '', disabled: true}],
       supplierId: ['', Validators.required],
       storeId: ['', Validators.required],
       employeeId: ['', Validators.required]

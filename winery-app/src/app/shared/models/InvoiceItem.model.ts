@@ -1,10 +1,21 @@
-import { Bottle } from "./Bottle.model"
-import { Invoice } from "./Invoice.model"
+export class InvoiceItem {
+  invoiceItemId?: number;
+  invoiceDTO: { invoiceId: number };
+  bottleDTO: { bottleId: number };
+  quantity: number;
+  itemPrice: number;
 
-export interface InvoiceItem {
-  invoiceItemId: number,
-  invoiceDTO: Invoice,
-  bottleDTO: Bottle,
-  quantity: number,
-  itemPrice: number
+  constructor(
+    invoiceDTO: { invoiceId: number },
+    bottleDTO: { bottleId: number },
+    quantity: number,
+    itemPrice: number,
+    invoiceItemId?: number
+  ){
+    this.invoiceDTO = invoiceDTO;
+    this.bottleDTO = bottleDTO;
+    this.quantity = quantity;
+    this.itemPrice = itemPrice;
+    if (invoiceItemId) this.invoiceItemId = invoiceItemId;
+  }
 }

@@ -1,6 +1,11 @@
 <mat-toolbar>
-  <span>New Producer</span>
+  <span>Update Order</span>
 </mat-toolbar>
+
+<div *ngIf="totalOrderPrice !== undefined">
+  <h3>Total Order Price</h3>
+  <p>{{ totalOrderPrice | currency:'USD':'symbol':'1.2-2' }}</p>
+</div>
 
 <mat-card appearance="outlined">
 
