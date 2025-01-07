@@ -49,10 +49,10 @@ export class AddOrderItemComponent implements OnInit{
     
     this.orderService.getOrderById(this.orderId).subscribe((order: Order) => {
       if (order) {
-        this.orderNumber = order.orderNumber; // Get orderNumber from the order
+        this.orderNumber = order.orderNumber; 
         this.orderItemForm.patchValue({
-          orderId: this.orderId, // Set the orderId
-          orderPrice: 0 // Set initial price to 0 (or set a default value)
+          orderId: this.orderId, 
+          orderPrice: 0 
         });
       }
     });

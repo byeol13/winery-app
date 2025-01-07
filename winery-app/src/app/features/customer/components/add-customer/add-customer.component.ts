@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { CustomerService } from '../../service/customer.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddCustomerDialogComponent } from '../add-customer-dialog/add-customer-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -25,7 +25,7 @@ export class AddCustomerComponent {
   customerForm: FormGroup;
   hidePassword = true;
 
-  constructor(private fb: FormBuilder, private router: Router, private customerService: CustomerService, private dialog: MatDialog){
+  constructor(private fb: FormBuilder, private router: Router, private customerService: CustomerService, private dialog: MatDialog, @Optional() private dialogRef: MatDialogRef<AddCustomerComponent>){
 
     this.customerForm = this.fb.group({
       username: ['', Validators.required],
@@ -52,13 +52,21 @@ export class AddCustomerComponent {
   }
 
   saveCustomer() {
-    this.customerService.addCustomer(this.customerForm.value).subscribe(() => {
-      this.router.navigate(['/dashboard/customer']);
+    this.customerService.addCustomer(this.customerForm.value).subscribe((newCustomer) => {
+      if(this.dialogRef) {
+        this.dialogRef.close(newCustomer);
+      } else {
+        this.router.navigate(['/dashboard/customer']);
+      }
     });
   }
 
   goBack() {
-    this.router.navigate(['/dashboard/customer']);
+    if (this.dialogRef) {
+      this.dialogRef.close();
+    } else {
+      this.router.navigate(['/dashboard/customer']);
+    }
   }
 
   togglePasswordVisibility() {

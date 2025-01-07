@@ -1,0 +1,65 @@
+<mat-toolbar>
+  <span>Update Customer Order</span>
+</mat-toolbar>
+
+<div *ngIf="totalCustomerOrderPrice !== undefined">
+  <h3>Total Order Price</h3>
+  <p>{{ totalCustomerOrderPrice | currency:'USD':'symbol':'1.2-2' }}</p>
+</div>
+
+<mat-card appearance="outlined">
+
+  <mat-card-content>
+    <form [formGroup]="customerOrderForm">
+      <mat-form-field>
+        <mat-label>Order Number</mat-label>
+        <input matInput formControlName="orderNumber"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Customer</mat-label>
+        <mat-select formControlName="customerId">
+          <mat-option *ngFor="let customer of customers" [value]="customer.customerId">
+            {{ customer.username }}
+          </mat-option>
+          <mat-option (click)="openAddCustomerDialog()" class="add-new-country">
+            <span>Add New Customer</span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Store</mat-label>
+        <mat-select formControlName="storeId">
+          <mat-option *ngFor="let store of stores" [value]="store.storeId">
+            {{ store.storeName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Expected Delivery Date</mat-label>
+        <input matInput [matDatepicker]="expectedDeliveryDatePicker" formControlName="expectedDeliveryDate"/>
+        <mat-datepicker-toggle matSuffix [for]="expectedDeliveryDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #expectedDeliveryDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Time Placed</mat-label>
+        <input matInput [matDatepicker]="timePlacedPicker" formControlName="timePlaced"/>
+        <mat-datepicker-toggle matSuffix [for]="timePlacedPicker"></mat-datepicker-toggle>
+        <mat-datepicker #timePlacedPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Order Price</mat-label>
+        <input matInput formControlName="orderPrice"/>
+      </mat-form-field>
+  
+      <div class="buttons">
+        <button mat-raised-button (click)="onSubmit()">Save</button>
+        <button mat-raised-button [routerLink]="['/dashboard/customerOrder']">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>  

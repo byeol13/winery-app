@@ -23,4 +23,8 @@ export class CustomerOrderItemService {
   deleteCustomerOrderItemById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteCustomerOrderItem/${id}`);
   }
+
+  addCustomerOrderItem(customerOrderItem: CustomerOrderItem): Observable<CustomerOrderItem> {
+    return this.http.post<CustomerOrderItem>(`${this.apiUrl}/newCustomerOrderItems`, customerOrderItem);
+  }
 }

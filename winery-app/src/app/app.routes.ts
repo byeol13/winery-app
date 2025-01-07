@@ -1,3 +1,4 @@
+import { UpdateCustomerOrderComponent } from './features/customerOrder/components/update-customer-order/update-customer-order.component';
 import { Routes } from '@angular/router';
 import { BottleListComponent } from './features/bottle/components/bottle-list/bottle-list.component';
 import { CategoryListComponent } from './features/category/components/category-list/category-list.component';
@@ -61,6 +62,8 @@ import { AddInvoiceComponent } from './features/invoice/components/add-invoice/a
 import { UpdateInvoiceComponent } from './features/invoice/components/update-invoice/update-invoice.component';
 import { AddOrderItemComponent } from './features/orderItem/components/add-order-item/add-order-item.component';
 import { AddInvoiceItemComponent } from './features/invoiceItem/components/add-invoice-item/add-invoice-item.component';
+import { AddCustomerOrderComponent } from './features/customerOrder/components/add-customer-order/add-customer-order.component';
+import { AddCustomerOrderItemComponent } from './features/customerOrderItem/components/add-customer-order-item/add-customer-order-item.component';
 
 export const routes: Routes = [
   {path: 'dashboard/bottle', component: BottleListComponent},
@@ -85,8 +88,11 @@ export const routes: Routes = [
   {path: 'updateCustomer/:customerId', component: UpdateCustomerComponent},
   {path: 'dashboard/customerOrder', component: CustomerOrderListComponent},
   {path: 'customerOrder', component: CustomerOrderDetailsComponent},
+  {path: 'addCustomerOrder', component: AddCustomerOrderComponent},
+  {path: 'updateCustomerOrder/:customerOrderId', component: UpdateCustomerOrderComponent},
   {path: 'dashboard/customerOrderItem', component: CustomerOrderItemListComponent},
   {path: 'customerOrderItem', component: CustomerOrderItemDetailsComponent},
+  {path: 'addCustomerOrderItem/:customerOrderId', component: AddCustomerOrderItemComponent},
   {path: 'dashboard/employee', component: EmployeeListComponent},
   {path: 'employee', component: EmployeeDetailsComponent},
   {path: 'addEmployee', component: AddEmployeeComponent},

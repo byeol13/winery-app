@@ -1,12 +1,27 @@
-import { Customer } from "./Customer.model"
-import { Store } from "./Store.model"
+export class CustomerOrder {
+  customerOrderId?: number;
+  orderNumber: string;
+  customerDTO: { customerId: number};
+  storeDTO: { storeId: number };
+  expectedDeliveryDate: string;
+  timePlaced: string;
+  orderPrice: number;
 
-export interface CustomerOrder {
-  customerOrderId: number,
-  orderNumber: string,
-  customerDTO: Customer,
-  storeDTO: Store,
-  expectedDeliveryDate: string,
-  timePlaced: string,
-  orderPrice: number
+  constructor(
+    orderNumber: string,
+    customerDTO: { customerId: number},
+    storeDTO: { storeId: number },
+    expectedDeliveryDate: string,
+    timePlaced: string,
+    orderPrice: number,
+    customerOrderId?: number
+  ){
+    this.orderNumber = orderNumber;
+    this.customerDTO = customerDTO;
+    this.storeDTO = storeDTO;
+    this.expectedDeliveryDate = expectedDeliveryDate;
+    this.timePlaced = timePlaced;
+    this.orderPrice = orderPrice;
+    if (customerOrderId) this.customerOrderId = customerOrderId;
+  }
 }
