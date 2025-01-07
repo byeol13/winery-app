@@ -7,11 +7,12 @@ import {MatCardModule} from '@angular/material/card';
 import { Store } from '../../../../shared/models/Store.model';
 import { StoreService } from '../../service/store.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-store-details',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, RouterModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, RouterModule, MatIconModule],
   templateUrl: './store-details.component.html',
   styleUrl: './store-details.component.css'
 })

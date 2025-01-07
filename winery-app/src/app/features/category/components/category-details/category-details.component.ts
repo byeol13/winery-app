@@ -7,11 +7,12 @@ import {MatCardModule} from '@angular/material/card';
 import { Category } from '../../../../shared/models/Category.model';
 import { CategoryService } from '../../service/category.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-category-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatButtonModule, MatCardModule, RouterModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatButtonModule, MatCardModule, RouterModule, MatIconModule],
   templateUrl: './category-details.component.html',
   styleUrl: './category-details.component.css'
 })

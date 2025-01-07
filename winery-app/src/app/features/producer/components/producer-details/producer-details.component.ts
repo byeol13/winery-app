@@ -7,11 +7,12 @@ import {MatCardModule} from '@angular/material/card';
 import { Producer } from '../../../../shared/models/Producer.model';
 import { ProducerService } from '../../service/producer.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-producer-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, MatButtonModule, RouterModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, MatButtonModule, RouterModule, MatIconModule],
   templateUrl: './producer-details.component.html',
   styleUrl: './producer-details.component.css'
 })

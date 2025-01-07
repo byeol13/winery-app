@@ -6,12 +6,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { InvoiceItem } from '../../../../shared/models/InvoiceItem.model';
 import { InvoiceItemService } from '../../service/invoice-item.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-invoice-item-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, MatButtonModule, MatIconModule, RouterModule],
   templateUrl: './invoice-item-details.component.html',
   styleUrl: './invoice-item-details.component.css'
 })

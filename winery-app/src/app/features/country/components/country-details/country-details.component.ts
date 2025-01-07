@@ -7,11 +7,12 @@ import {MatCardModule} from '@angular/material/card';
 import { Country } from '../../../../shared/models/Country.model';
 import { CountryService } from '../../service/country.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-country-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatCardModule, MatTableModule, MatButtonModule, RouterModule],
+  imports: [CommonModule, MatToolbarModule, MatCardModule, MatTableModule, MatButtonModule, RouterModule, MatIconModule],
   templateUrl: './country-details.component.html',
   styleUrl: './country-details.component.css'
 })

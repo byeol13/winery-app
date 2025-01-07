@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-customer-details',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, MatIconModule, RouterModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, MatIconModule, RouterModule, MatIconModule],
   templateUrl: './customer-details.component.html',
   styleUrl: './customer-details.component.css'
 })

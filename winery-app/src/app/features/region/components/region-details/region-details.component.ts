@@ -7,11 +7,12 @@ import {MatCardModule} from '@angular/material/card';
 import { Region } from '../../../../shared/models/Region.model';
 import { RegionService } from '../../service/region.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-region-details',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, RouterModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatTableModule, MatToolbarModule, RouterModule, MatIconModule],
   templateUrl: './region-details.component.html',
   styleUrl: './region-details.component.css'
 })

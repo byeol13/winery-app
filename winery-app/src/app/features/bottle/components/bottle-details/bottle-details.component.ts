@@ -7,11 +7,12 @@ import {MatCardModule} from '@angular/material/card';
 import { Bottle } from '../../../../shared/models/Bottle.model';
 import { BottleService } from '../../service/bottle.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-bottle-details',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatButtonModule, MatToolbarModule, MatCardModule, RouterModule],
+  imports: [CommonModule, MatTableModule, MatButtonModule, MatToolbarModule, MatCardModule, RouterModule, MatIconModule],
   templateUrl: './bottle-details.component.html',
   styleUrl: './bottle-details.component.css'
 })

@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-employee-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatButtonModule, MatCardModule, MatIconModule, RouterModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatButtonModule, MatCardModule, MatIconModule, RouterModule, MatIconModule],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.css'
 })

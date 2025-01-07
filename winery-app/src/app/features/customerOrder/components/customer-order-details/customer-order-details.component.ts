@@ -6,12 +6,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { CustomerOrder } from '../../../../shared/models/CustomerOrder.model';
 import { CustomerOrderService } from '../../service/customer-order.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-customer-order-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatButtonModule, MatCardModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatButtonModule, MatCardModule, MatIconModule, RouterModule],
   templateUrl: './customer-order-details.component.html',
   styleUrl: './customer-order-details.component.css'
 })

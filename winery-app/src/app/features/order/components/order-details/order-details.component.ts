@@ -9,11 +9,12 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { OrderItemService } from '../../../orderItem/service/order-item.service';
 import { OrderItem } from '../../../../shared/models/OrderItem.model';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-order-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, RouterModule, MatButtonModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, RouterModule, MatButtonModule, MatIconModule],
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.css'
 })
