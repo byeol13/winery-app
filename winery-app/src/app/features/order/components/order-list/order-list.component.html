@@ -4,7 +4,7 @@
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="orders" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedOrders" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -50,6 +50,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalOrders"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedOrders()">
+</mat-paginator>
 
 <app-order-delete *ngIf="showDeleteDialog"
                   [orderId]="orderIdToDelete"

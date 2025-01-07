@@ -45,7 +45,7 @@ export class UpdateInvoiceComponent implements OnInit{
 
     this.invoiceForm = this.fb.group({
       id: [{value: '', disabled: true}],
-      invoiceNumber: ['', Validators.required],
+      invoiceNumber: [{value: '', disabled: true}],
       invoiceTotal: ['', Validators.required],
       customerId: [{value: '', disabled: true}],
       customerOrderId: ['', Validators.required],

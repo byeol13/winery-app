@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
@@ -7,11 +7,12 @@ import { InventoryService } from '../../service/inventory.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { InventoryDeleteComponent } from '../inventory-delete/inventory-delete.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-inventory-list',
   standalone: true,
-  imports: [MatButtonModule, MatToolbarModule, MatButtonModule, MatTableModule, CommonModule, InventoryDeleteComponent, RouterModule],
+  imports: [MatButtonModule, MatToolbarModule, MatButtonModule, MatTableModule, CommonModule, InventoryDeleteComponent, RouterModule, MatPaginatorModule],
   templateUrl: './inventory-list.component.html',
   styleUrl: './inventory-list.component.css'
 })
@@ -22,6 +23,11 @@ export class InventoryListComponent implements OnInit{
   displayedColumns: string[] = ['id', 'store_id', 'bottle_id', 'actions'];
   showDeleteDialog = false;
 
+  totalInventories: number = 0;
+  displayedInventories: Inventory[] = [];
+  
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   constructor(private inventoryService: InventoryService, private router: Router){}
 
   ngOnInit(): void {
@@ -31,6 +37,8 @@ export class InventoryListComponent implements OnInit{
   loadAllInventories() {
     this.inventoryService.getAllInventories().subscribe((res) => {
       this.inventories = res;
+      this.totalInventories = this.inventories.length;
+      this.paginatedInventories();
     })
   }
 
@@ -52,6 +60,11 @@ export class InventoryListComponent implements OnInit{
   
   cancel() {
     this.showDeleteDialog = false;
+  }
+
+  paginatedInventories() {
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    this.displayedInventories = this.inventories.slice(startIndex, startIndex + this.paginator.pageSize);
   }
 
 }

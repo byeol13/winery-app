@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
@@ -7,11 +7,12 @@ import { CountryService } from '../../service/country.service';
 import { Router, RouterModule } from '@angular/router';
 import { CountryDeleteComponent } from '../country-delete/country-delete.component';
 import { CommonModule } from '@angular/common';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-country-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CountryDeleteComponent, CommonModule, RouterModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CountryDeleteComponent, CommonModule, RouterModule, MatPaginatorModule],
   templateUrl: './country-list.component.html',
   styleUrl: './country-list.component.css'
 })
@@ -21,6 +22,10 @@ export class CountryListComponent implements OnInit{
   countries: Country[] = [];
   displayedColumns: string[] = ['id', 'country_name', 'actions'];
   showDeleteDialog = false;
+  totalCountries: number = 0;
+  displayedCountries: Country[] = [];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private countryService: CountryService, private router: Router){}
   
@@ -31,6 +36,8 @@ export class CountryListComponent implements OnInit{
   loadAllCountries() {
     this.countryService.getAllCountries().subscribe((res) => {
       this.countries = res;
+      this.totalCountries = this.countries.length;
+      this.paginatedCountries();
     })
   }
 
@@ -55,6 +62,11 @@ export class CountryListComponent implements OnInit{
 
   cancelDelete() {
     this.showDeleteDialog = false;
+  }
+
+  paginatedCountries() {
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    this.displayedCountries = this.countries.slice(startIndex, startIndex + this.paginator.pageSize);
   }
 
 }

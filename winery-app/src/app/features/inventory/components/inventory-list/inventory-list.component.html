@@ -4,7 +4,7 @@
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="inventories" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedInventories" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -33,6 +33,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalInventories"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedInventories()">
+</mat-paginator>
 
 <app-inventory-delete *ngIf="showDeleteDialog"
                       [inventoryId]="inventoryIdToDelete"

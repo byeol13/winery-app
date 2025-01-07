@@ -12,6 +12,11 @@
   <mat-card-content>
     <form [formGroup]="customerOrderForm">
       <mat-form-field>
+        <mat-label>Customer Order Id</mat-label>
+        <input matInput formControlName="id"/>
+      </mat-form-field>
+
+      <mat-form-field>
         <mat-label>Order Number</mat-label>
         <input matInput formControlName="orderNumber"/>
       </mat-form-field>

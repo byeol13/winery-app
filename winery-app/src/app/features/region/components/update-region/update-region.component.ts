@@ -32,7 +32,7 @@ export class UpdateRegionComponent implements OnInit{
   constructor(private fb: FormBuilder, private countryService: CountryService, private activatedRoute: ActivatedRoute, private regionService: RegionService, private dialog: MatDialog, private router: Router){
 
     this.regionForm = this.fb.group({
-      id: [{value: '', diabled: true}],
+      id: [{value: '', disabled: true}],
       regionName: ['', Validators.required],
       countryId: ['', Validators.required]
     });

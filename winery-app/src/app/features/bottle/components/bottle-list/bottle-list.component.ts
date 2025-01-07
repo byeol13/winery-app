@@ -53,7 +53,7 @@ export class BottleListComponent implements OnInit{
       console.log("deleteee", id);
       this.loadAllBottles();
       this.bottleIdToDelete = undefined;
-    })
+    });
   }
 
   cancelDelete() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
@@ -7,11 +7,12 @@ import { City } from '../../../../shared/models/City.model';
 import { CityService } from '../../service/city.service';
 import { Router, RouterModule } from '@angular/router';
 import { CityDeleteComponent } from '../city-delete/city-delete.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-city-list',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatTableModule, MatToolbarModule, CityDeleteComponent, RouterModule],
+  imports: [CommonModule, MatButtonModule, MatTableModule, MatToolbarModule, CityDeleteComponent, RouterModule, MatPaginatorModule],
   templateUrl: './city-list.component.html',
   styleUrl: './city-list.component.css'
 })
@@ -21,6 +22,10 @@ export class CityListComponent implements OnInit{
   cities: City[] = [];
   displayedColumns: string[] = ['id', 'city_name', 'country_id', 'actions'];
   showDeleteDialog = false;
+  totalCities: number = 0;
+  displayedCities: City[] = [];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private cityService: CityService, private router: Router){}
 
@@ -31,7 +36,9 @@ export class CityListComponent implements OnInit{
   loadAllCities() {
     this.cityService.getAllCities().subscribe((res) => {
       this.cities = res;
-    })
+      this.totalCities = this.cities.length;
+      this.paginatedCities();
+    });
   }
 
   viewDetails(id: number) {
@@ -52,6 +59,11 @@ export class CityListComponent implements OnInit{
 
   cancelDelete() {
     this.showDeleteDialog = false;
+  }
+
+  paginatedCities() {
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    this.displayedCities = this.cities.slice(startIndex, startIndex + this.paginator.pageSize);
   }
 
 }

@@ -3,7 +3,7 @@
   <button mat-stroked-button [routerLink]="['/addRegion']">+ Add Region</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="regions" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedRegions" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -27,6 +27,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalRegions"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedRegions()">
+</mat-paginator>
 
 <app-region-delete *ngIf="showDeleteDialog"
                     [regionId]="regionIdToDelete"

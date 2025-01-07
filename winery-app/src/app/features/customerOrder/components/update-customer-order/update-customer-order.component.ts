@@ -40,7 +40,7 @@ export class UpdateCustomerOrderComponent implements OnInit{
 
     this.customerOrderForm = this.fb.group({
       id: [{value: '', disabled: true}],
-      orderNumber: ['', Validators.required],
+      orderNumber: [{value: '', disabled: true}],
       expectedDeliveryDate: ['', Validators.required],
       timePlaced: ['', Validators.required],
       orderPrice: ['', Validators.required],

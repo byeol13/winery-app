@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { OrderItem } from '../../../../shared/models/OrderItem.model';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
@@ -7,11 +7,12 @@ import { OrderItemService } from '../../service/order-item.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { OrderItemDeleteComponent } from '../order-item-delete/order-item-delete.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-order-item-list',
   standalone: true,
-  imports: [MatButtonModule, MatTableModule, MatToolbarModule, CommonModule, OrderItemDeleteComponent, RouterModule],
+  imports: [MatButtonModule, MatTableModule, MatToolbarModule, CommonModule, OrderItemDeleteComponent, RouterModule, MatPaginatorModule, MatPaginator],
   templateUrl: './order-item-list.component.html',
   styleUrl: './order-item-list.component.css'
 })
@@ -22,6 +23,11 @@ export class OrderItemListComponent implements OnInit{
   displayedColumns: string[] = ['id', 'order_id', 'order_price', 'actions'];
   showDeleteDialog = false;
 
+  totalOrderItems: number = 0;
+  displayedOrderItems: OrderItem[] = [];
+
+   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   constructor(private orderItemService: OrderItemService, private router: Router){}
 
   ngOnInit(): void {
@@ -31,6 +37,8 @@ export class OrderItemListComponent implements OnInit{
   loadAllOrderItems() {
     this.orderItemService.getAllOrdedrItems().subscribe((res) => {
       this.orderItems = res;
+      this.totalOrderItems = this.orderItems.length;
+      this.paginatedOrderItems();
     })
   }
 
@@ -52,5 +60,10 @@ export class OrderItemListComponent implements OnInit{
 
   cancelDelete() {
     this.showDeleteDialog = false;
+  }
+
+  paginatedOrderItems() {
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    this.displayedOrderItems = this.orderItems.slice(startIndex, startIndex + this.paginator.pageSize);
   }
 }

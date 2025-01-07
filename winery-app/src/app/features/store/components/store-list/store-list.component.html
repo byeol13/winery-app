@@ -4,7 +4,7 @@
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="stores" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedStores" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -38,6 +38,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalStores"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedStores()">
+</mat-paginator>
 
 <app-store-delete *ngIf="showDeleteDialog"
                   [storeId]="storeIdToDelete"

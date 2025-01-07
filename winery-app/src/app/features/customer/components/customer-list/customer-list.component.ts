@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Customer } from '../../../../shared/models/Customer.model';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
@@ -8,12 +8,13 @@ import { CustomerService } from '../../service/customer.service';
 import { Router, RouterModule } from '@angular/router';
 import { CustomerDeleteComponent } from '../customer-delete/customer-delete.component';
 import { CommonModule } from '@angular/common';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, MatIconModule, CustomerDeleteComponent, CommonModule, RouterModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, MatIconModule, CustomerDeleteComponent, CommonModule, RouterModule, MatPaginatorModule],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'
 })
@@ -24,6 +25,11 @@ export class CustomerListComponent {
   displayedColumns: string[] = ['id', 'username', 'password', 'customer_name', 'actions'];
   showPassword = false;
   showDeleteDialog = false;
+
+  totalCustomers: number = 0;
+  displayedCustomers: Customer[] = [];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator; 
 
   constructor(private customerService: CustomerService, private router: Router){}
 
@@ -38,6 +44,8 @@ export class CustomerListComponent {
   loadAllCustomers() {
     this.customerService.getAllCustomers().subscribe((res) => {
       this.customers = res;
+      this.totalCustomers = this.customers.length;
+      this.paginatedCustomers();
     })
   }
 
@@ -61,5 +69,10 @@ export class CustomerListComponent {
 
   cancelDelete() {
     this.showDeleteDialog = false;
+  }
+
+  paginatedCustomers() {
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    this.displayedCustomers = this.customers.slice(startIndex, startIndex + this.paginator.pageSize);
   }
 }

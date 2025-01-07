@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
@@ -8,11 +8,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { EmployeeDeleteComponent } from '../employee-delete/employee-delete.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
-  imports: [MatButtonModule, MatTableModule, MatToolbarModule, MatIconModule, CommonModule, EmployeeDeleteComponent, RouterModule],
+  imports: [MatButtonModule, MatTableModule, MatToolbarModule, MatIconModule, CommonModule, EmployeeDeleteComponent, RouterModule, MatPaginatorModule],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
 })
@@ -23,6 +24,11 @@ export class EmployeeListComponent {
   displayedColumns: string[] = ['id', 'first_name', 'last_name', 'username', 'password', 'actions'];
   showPassword = false;
   showDeleteDialog = false;
+
+  totalEmployees: number = 0;
+  displayedEmployees: Employee[] = [];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private employeeService: EmployeeService, private router: Router){}
 
@@ -37,6 +43,8 @@ export class EmployeeListComponent {
   loadAllEmployees() {
     this.employeeService.getAllEmployees().subscribe((res) => {
       this.employees = res;
+      this.totalEmployees = this.employees.length;
+      this.paginatedEmployees();
     })
   }
 
@@ -58,5 +66,10 @@ export class EmployeeListComponent {
 
   cancelDelete() {
     this.showDeleteDialog = false;
+  }
+
+  paginatedEmployees() {
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    this.displayedEmployees = this.employees.slice(startIndex, startIndex + this.paginator.pageSize);
   }
 }

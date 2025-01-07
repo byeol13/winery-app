@@ -3,7 +3,7 @@
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="orderItems" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedOrderItems" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -31,6 +31,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalOrderItems"
+              [pageSize]="2"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedOrderItems()">
+</mat-paginator>
 
 <app-order-item-delete *ngIf="showDeleteDialog"
                         [orderItemId]="orderItemIdToDelete"

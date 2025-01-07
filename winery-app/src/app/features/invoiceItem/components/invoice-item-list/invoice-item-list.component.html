@@ -3,7 +3,7 @@
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="invoiceItems" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedInvoiceItems" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -36,6 +36,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalInvoiceItems"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedInvoiceItems()">
+</mat-paginator>
 
 <app-invoice-item-delete *ngIf="showDeleteDialog"
                           [invoiceItemId]="invoiceItemIdToDelete"

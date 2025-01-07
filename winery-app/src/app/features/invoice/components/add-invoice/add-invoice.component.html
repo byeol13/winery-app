@@ -36,10 +36,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Invoice Price</mat-label>
-        <input matInput formControlName="invoiceTotal"/>
-      </mat-form-field>
+
       <mat-form-field>
         <mat-label>Employee</mat-label>
         <mat-select formControlName="employeeId">
@@ -47,6 +44,11 @@
             {{ employee.username }}
           </mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Invoice Price</mat-label>
+        <input matInput formControlName="invoiceTotal"/>
       </mat-form-field>
   
       <div class="buttons">

@@ -7,6 +7,11 @@
   <mat-card-content>
     <form [formGroup]="orderItemForm">
       <mat-form-field>
+        <mat-label>Order Number</mat-label>
+        <input matInput [value]="orderNumber" disabled />
+      </mat-form-field>
+
+      <mat-form-field>
         <mat-label>Choose a Bottle</mat-label>
         <mat-select formControlName="bottleId" (selectionChange)="onBottleChange()">
           <mat-option *ngFor="let bottle of bottles" [value]="bottle.bottleId">
@@ -23,11 +28,6 @@
       <mat-form-field>
         <mat-label>Total Price</mat-label>
         <input matInput formControlName="orderPrice" [value]="orderPrice"/>
-      </mat-form-field>
-    
-      <mat-form-field>
-        <mat-label>Order Number</mat-label>
-        <input matInput [value]="orderNumber" disabled />
       </mat-form-field>
   
       <div class="buttons">

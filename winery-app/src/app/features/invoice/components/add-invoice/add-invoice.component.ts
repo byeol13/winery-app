@@ -41,7 +41,7 @@ export class AddInvoiceComponent {
 
     this.invoiceForm = this.fb.group({
       invoiceNumber: ['', Validators.required],
-      invoiceTotal: ['', Validators.required],
+      invoiceTotal: [{value: '', disabled: true}],
       customerId: [{value: '', disabled: true}],
       customerOrderId: ['', Validators.required],
       storeId: [{value: '', disabled: true}],

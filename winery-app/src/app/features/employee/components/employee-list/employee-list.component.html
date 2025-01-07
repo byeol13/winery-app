@@ -3,7 +3,7 @@
   <button mat-stroked-button [routerLink]="['/addEmployee']">+ Add Employee</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="employees" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedEmployees" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -47,6 +47,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalEmployees"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedEmployees()">
+</mat-paginator>
 
 <app-employee-delete *ngIf="showDeleteDialog"
                       [employeeId]="employeeIdToDelete"

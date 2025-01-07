@@ -4,7 +4,7 @@
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="invoices" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedInvoices" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -55,6 +55,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalInvoices"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedInvoices()">
+</mat-paginator>
 
 <app-invoice-delete *ngIf="showDeleteDialog"
                     [invoiceId]="invoiceIdToDelete"
