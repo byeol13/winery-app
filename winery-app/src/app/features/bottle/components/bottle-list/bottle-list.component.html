@@ -1,56 +1,62 @@
-<mat-toolbar>
-  <span>Bottles</span>
-  <button mat-stroked-button [routerLink]="['/addBottle']">+ Add Bottle</button>
-</mat-toolbar>
-
-
-<table mat-table [dataSource]="displayedBottles" class="mat-elevation-z8">
-
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let bottle"> {{bottle.bottleId}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="full_name">
-    <th mat-header-cell *matHeaderCellDef> Full Name </th>
-    <td mat-cell *matCellDef="let bottle"> {{bottle.fullName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="label">
-    <th mat-header-cell *matHeaderCellDef> Label </th>
-    <td mat-cell *matCellDef="let bottle"> {{bottle.label}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="category_id">
-    <th mat-header-cell *matHeaderCellDef> Category </th>
-    <td mat-cell *matCellDef="let bottle"> {{bottle.categoryDTO.categoryName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="year_produced">
-    <th mat-header-cell *matHeaderCellDef> Year Produced </th>
-    <td mat-cell *matCellDef="let bottle"> {{bottle.yearProduced}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let bottle">
-      <button mat-stroked-button (click)="viewDetails(bottle.bottleId)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(bottle.bottleId)">Delete</button>
-      <button mat-stroked-button [routerLink]="['/updateBottle', bottle.bottleId]">Update</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalBottles"
-              [pageSize]="5"
-              [pageSizeOptions]="[5, 10, 15]"
-              aria-label="Select page"
-              (page)="paginatedBottles()">
-</mat-paginator>
-
+    <mat-toolbar class="custom-toolbar">
+      <span class="toolbar-title">
+        <span class="material-symbols-outlined">
+          wine_bar
+        </span>
+        Bottles
+      </span>
+      <button mat-stroked-button [routerLink]="['/addBottle']" class="add-button">+ Add Bottle</button>
+    </mat-toolbar>
+    
+    <div>
+      <table mat-table [dataSource]="displayedBottles" class="mat-elevation-z8 custom-table">
+    
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let bottle"> {{bottle.bottleId}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="full_name">
+          <th mat-header-cell *matHeaderCellDef> Full Name </th>
+          <td mat-cell *matCellDef="let bottle"> {{bottle.fullName}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="label">
+          <th mat-header-cell *matHeaderCellDef> Label </th>
+          <td mat-cell *matCellDef="let bottle"> {{bottle.label}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="category_id">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let bottle"> {{bottle.categoryDTO.categoryName}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="year_produced">
+          <th mat-header-cell *matHeaderCellDef> Year Produced </th>
+          <td mat-cell *matCellDef="let bottle"> {{bottle.yearProduced}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let bottle">
+            <button mat-flat-button (click)="viewDetails(bottle.bottleId)" class="action-button accent-btn">View More
+            </button>
+            <button mat-flat-button [routerLink]="['/updateBottle', bottle.bottleId]" class="action-button accent-btn">Edit</button>
+            <button mat-flat-button (click)="openDeleteDialog(bottle.bottleId)" class="action-button delete-button">Delete</button>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    
+    <mat-paginator [length]="totalBottles"
+                  [pageSize]="5"
+                  [pageSizeOptions]="[5, 10, 15]"
+                  aria-label="Select page"
+                  (page)="paginatedBottles()" class="custom-paginator">
+    </mat-paginator>
 
 <app-bottle-delete *ngIf="bottleIdToDelete"
                     [bottleId]="bottleIdToDelete"

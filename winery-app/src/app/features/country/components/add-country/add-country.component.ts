@@ -22,8 +22,11 @@ import { AddCountryDialogComponent } from '../add-country-dialog/add-country-dia
 export class AddCountryComponent {
 
   countryForm: FormGroup;
+  isDialog: boolean;
 
   constructor(private fb: FormBuilder, private router: Router, private countryService: CountryService, private dialog: MatDialog, @Optional() private dialogRef: MatDialogRef<AddCountryComponent>) {
+
+    this.isDialog = !!dialogRef;
 
     this.countryForm = this.fb.group({
       countryName: ['', Validators.required]
@@ -33,7 +36,7 @@ export class AddCountryComponent {
   openConfirmationDialog() {
     if (this.countryForm.valid) {
       const addDialog = this.dialog.open(AddCountryDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

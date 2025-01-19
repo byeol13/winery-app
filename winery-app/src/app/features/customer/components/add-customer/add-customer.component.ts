@@ -33,14 +33,14 @@ export class AddCustomerComponent {
       customerName: ['', Validators.required],
       address: ['', Validators.required],
       phone: ['', Validators.required],
-      email: ['', Validators.required]
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
   openConfirmationDialog() {
     if(this.customerForm.valid) {
       const addDialog = this.dialog.open(AddCustomerDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

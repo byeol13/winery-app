@@ -19,19 +19,12 @@ import { StoreListComponent } from './features/store/components/store-list/store
 import { SupplierListComponent } from './features/supplier/components/supplier-list/supplier-list.component';
 import { BottleDetailsComponent } from './features/bottle/components/bottle-details/bottle-details.component';
 import { CategoryDetailsComponent } from './features/category/components/category-details/category-details.component';
-import { CityDetailsComponent } from './features/city/components/city-details/city-details.component';
-import { CountryDetailsComponent } from './features/country/components/country-details/country-details.component';
 import { CustomerDetailsComponent } from './features/customer/components/customer-details/customer-details.component';
 import { CustomerOrderDetailsComponent } from './features/customerOrder/components/customer-order-details/customer-order-details.component';
-import { CustomerOrderItemDetailsComponent } from './features/customerOrderItem/components/customer-order-item-details/customer-order-item-details.component';
 import { EmployeeDetailsComponent } from './features/employee/components/employee-details/employee-details.component';
-import { InventoryDetailsComponent } from './features/inventory/components/inventory-details/inventory-details.component';
 import { InvoiceDetailsComponent } from './features/invoice/components/invoice-details/invoice-details.component';
-import { InvoiceItemDetailsComponent } from './features/invoiceItem/components/invoice-item-details/invoice-item-details.component';
 import { OrderDetailsComponent } from './features/order/components/order-details/order-details.component';
-import { OrderItemDetailsComponent } from './features/orderItem/components/order-item-details/order-item-details.component';
 import { ProducerDetailsComponent } from './features/producer/components/producer-details/producer-details.component';
-import { RegionDetailsComponent } from './features/region/components/region-details/region-details.component';
 import { StoreDetailsComponent } from './features/store/components/store-details/store-details.component';
 import { SupplierDetailsComponent } from './features/supplier/components/supplier-details/supplier-details.component';
 import { AddBottleComponent } from './features/bottle/components/add-bottle/add-bottle.component';
@@ -75,11 +68,9 @@ export const routes: Routes = [
   {path: 'addCategory', component: AddCategoryComponent},
   {path: 'updateCategory/:categoryId', component: UpdateCategoryComponent},
   {path: 'dashboard/city', component: CityListComponent},
-  {path: 'city', component: CityDetailsComponent},
   {path: 'addCity', component: AddCityComponent},
   {path: 'updateCity/:cityId', component: UpdateCityComponent},
   {path: 'dashboard/country', component: CountryListComponent},
-  {path: 'country', component: CountryDetailsComponent},
   {path: 'addCountry', component: AddCountryComponent},
   {path: 'updateCountry/:countryId', component: UpdateCountryComponent},
   {path: 'dashboard/customer', component: CustomerListComponent},
@@ -91,14 +82,12 @@ export const routes: Routes = [
   {path: 'addCustomerOrder', component: AddCustomerOrderComponent},
   {path: 'updateCustomerOrder/:customerOrderId', component: UpdateCustomerOrderComponent},
   {path: 'dashboard/customerOrderItem', component: CustomerOrderItemListComponent},
-  {path: 'customerOrderItem', component: CustomerOrderItemDetailsComponent},
   {path: 'addCustomerOrderItem/:customerOrderId', component: AddCustomerOrderItemComponent},
   {path: 'dashboard/employee', component: EmployeeListComponent},
   {path: 'employee', component: EmployeeDetailsComponent},
   {path: 'addEmployee', component: AddEmployeeComponent},
   {path: 'updateEmployee/:employeeId', component: UpdateEmployeeComponent},
   {path: 'dashboard/inventory', component: InventoryListComponent},
-  {path: 'inventory', component: InventoryDetailsComponent},
   {path: 'addInventory', component: AddInventoryComponent},
   {path: 'updateInventory/:inventoryId', component: UpdateInventoryComponent},
   {path: 'dashboard/invoice', component: InvoiceListComponent},
@@ -106,21 +95,18 @@ export const routes: Routes = [
   {path: 'addInvoice', component: AddInvoiceComponent},
   {path: 'updateInvoice/:invoiceId', component: UpdateInvoiceComponent},
   {path: 'dashboard/invoiceItem', component: InvoiceItemListComponent},
-  {path: 'invoiceItem', component: InvoiceItemDetailsComponent},
   {path: 'addInvoiceItem/:invoiceId', component: AddInvoiceItemComponent},
   {path: 'dashboard/order', component: OrderListComponent},
   {path: 'order', component: OrderDetailsComponent},
   {path: 'addOrder', component: AddOrderComponent},
   {path: 'updateOrder/:orderId', component: UpdateOrderComponent},
   {path: 'dashboard/orderItem', component: OrderItemListComponent},
-  {path: 'orderItem', component: OrderItemDetailsComponent},
   {path: 'addOrderItem/:orderId', component: AddOrderItemComponent},
   {path: 'dashboard/producer', component: ProducerListComponent},
   {path: 'producer', component: ProducerDetailsComponent},
   {path: 'addProducer', component: AddProducerComponent},
   {path: 'updateProducer/:producerId', component: UpdateProducerComponent},
   {path: 'dashboard/region', component: RegionListComponent},
-  {path: 'region', component: RegionDetailsComponent},
   {path: 'addRegion', component: AddRegionComponent},
   {path: 'updateRegion/:regionId', component: UpdateRegionComponent},
   {path: 'dashboard/store', component: StoreListComponent},

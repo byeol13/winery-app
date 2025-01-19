@@ -1,58 +1,65 @@
-<mat-toolbar>
-  <span>Orders</span>
-  <button mat-stroked-button [routerLink]="['/addOrder']">+ Add Order</button>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">
+    <span class="material-symbols-outlined">
+      orders
+    </span>
+    Orders
+  </span>
+  <button mat-stroked-button class="add-button" [routerLink]="['/addOrder']">+ Add Order</button>
 </mat-toolbar>
 
+<div>
+  <table mat-table [dataSource]="displayedOrders" class="mat-elevation-z8 custom-table">
 
-<table mat-table [dataSource]="displayedOrders" class="mat-elevation-z8">
-
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let order"> {{order.orderId}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="order_number">
-    <th mat-header-cell *matHeaderCellDef> Order Number </th>
-    <td mat-cell *matCellDef="let order"> {{order.orderNumber}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="time_placed">
-    <th mat-header-cell *matHeaderCellDef> Time Placed </th>
-    <td mat-cell *matCellDef="let order">  {{ order.timePlaced | date: 'dd/MM/yyyy' }}  </td>
-  </ng-container>
-
-  <ng-container matColumnDef="order_price">
-    <th mat-header-cell *matHeaderCellDef> Order Price </th>
-    <td mat-cell *matCellDef="let order">{{ order.orderPrice ? '$ ' + (order.orderPrice | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let order"> {{order.orderId}} </td>
+    </ng-container>
   
-  <ng-container matColumnDef="store_id">
-    <th mat-header-cell *matHeaderCellDef> Store </th>
-    <td mat-cell *matCellDef="let order"> {{order.storeDTO.storeName}} </td>
-  </ng-container>
+    <ng-container matColumnDef="order_number">
+      <th mat-header-cell *matHeaderCellDef> Order Number </th>
+      <td mat-cell *matCellDef="let order"> {{order.orderNumber}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="time_placed">
+      <th mat-header-cell *matHeaderCellDef> Time Placed </th>
+      <td mat-cell *matCellDef="let order">  {{ order.timePlaced | date: 'dd/MM/yyyy' }}  </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="order_price">
+      <th mat-header-cell *matHeaderCellDef> Order Price </th>
+      <td mat-cell *matCellDef="let order">{{ order.orderPrice ? (order.orderPrice | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="store_id">
+      <th mat-header-cell *matHeaderCellDef> Store </th>
+      <td mat-cell *matCellDef="let order"> {{order.storeDTO.storeName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let order">
+        <button mat-flat-button class="action-button accent-btn" (click)="viewDetails(order.orderId)">View More</button>
+        <button mat-flat-button class="action-button accent-btn" [routerLink]="['/updateOrder', order.orderId]">Edit</button>
+        <button mat-flat-button class="action-button delete-button" (click)="openDeleteDialog(order.orderId)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="add-order-item">
+      <th mat-header-cell *matHeaderCellDef> Manage </th>
+      <td mat-cell *matCellDef="let order">
+        <button mat-stroked-button class="manage-button" (click)="addOrderItem(order.orderId)">+ Add Item</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let order">
-      <button mat-stroked-button (click)="viewDetails(order.orderId)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(order.orderId)">Delete</button>
-      <button mat-stroked-button [routerLink]="['/updateOrder', order.orderId]">Update</button>
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="add-order-item">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let order">
-      <button mat-stroked-button (click)="addOrderItem(order.orderId)">Add Order Item</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalOrders"
-              [pageSize]="5"
+<mat-paginator class="custom-paginator" 
+              [length]="totalOrders"
+              [pageSize]="4"
               [pageSizeOptions]="[5, 10, 15]"
               aria-label="Select page"
               (page)="paginatedOrders()">

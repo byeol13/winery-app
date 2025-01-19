@@ -1,15 +1,14 @@
-<div>
-  <button mat-stroked-button [routerLink]="['/dashboard/customerOrder']"><mat-icon>arrow_back</mat-icon></button>
-</div>
-
-<mat-toolbar>
-  <span>Customer Order Details</span>
+<mat-toolbar class="custom-toolbar">
+  <div class="toolbar-title">
+    <button mat-icon-button [routerLink]="['/dashboard/customerOrder']"><mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <span>Customer Order Details</span>
+  </div>
 </mat-toolbar>
 
-
-<div class="table-container">
+<div>
   <mat-card-content *ngIf="customerOrders">
-    <table mat-table [dataSource]="[customerOrders]" class="mat-elevation-z8">
+    <table mat-table [dataSource]="[customerOrders]" class="mat-elevation-z8 custom-table">
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -23,7 +22,7 @@
 
       <ng-container matColumnDef="order_price">
         <th mat-header-cell *matHeaderCellDef> Order Price </th>
-        <td mat-cell *matCellDef="let customerOrder">$ {{customerOrder.orderPrice}} </td>
+        <td mat-cell *matCellDef="let customerOrder"> {{customerOrder.orderPrice ? (customerOrder.orderPrice | currency:'USD':'symbol':'1.2-2') : '-'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="customer_id">
@@ -49,6 +48,13 @@
       <ng-container matColumnDef="time_placed">
         <th mat-header-cell *matHeaderCellDef> Time Placed </th>
         <td mat-cell *matCellDef="let customerOrder"> {{customerOrder.timePlaced | date: 'yyyy-MM-dd HH:mm'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let customerOrder">
+          <button mat-flat-button class="action-button accent-btn" [routerLink]="['/updateCustomerOrder', customerOrder.customerOrderId]">Edit</button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

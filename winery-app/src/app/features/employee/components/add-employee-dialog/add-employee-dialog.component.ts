@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-employee-dialog',
   standalone: true,
-  imports: [],
+  imports: [MatButtonModule],
   templateUrl: './add-employee-dialog.component.html',
   styleUrl: './add-employee-dialog.component.css'
 })

@@ -26,8 +26,11 @@ export class AddRegionComponent {
 
   regionForm: FormGroup;
   countries: Country[] = [];
+  isDialog: boolean;
 
   constructor(private fb: FormBuilder, private countryService: CountryService, private dialog: MatDialog, private regionService: RegionService, private router: Router, @Optional() private dialogRef: MatDialogRef<AddRegionComponent>) {
+    this.isDialog = !!dialogRef;
+
     this.regionForm = this.fb.group({
       regionName: ['', Validators.required],
       countryId: ['', Validators.required]
@@ -58,7 +61,7 @@ export class AddRegionComponent {
   openConfirmationDialog() {
     if(this.regionForm.valid) {
       const addDialog = this.dialog.open(AddRegionDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

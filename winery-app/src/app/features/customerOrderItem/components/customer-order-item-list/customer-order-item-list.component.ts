@@ -20,7 +20,7 @@ export class CustomerOrderItemListComponent implements OnInit{
 
   customerOrderItemIdToDelete: number | undefined;
   customerOrderItems: CustomerOrderItem[] = [];
-  displayedColumns: string[] = ['id', 'customer_order_id', 'order_price', 'actions'];
+  displayedColumns: string[] = ['id', 'customer_order_id', 'order_price', 'bottle_id', 'quantity', 'actions'];
   showDeleteDialog = false;
 
   totalCustomerOrderItems: number = 0;
@@ -42,19 +42,25 @@ export class CustomerOrderItemListComponent implements OnInit{
     })
   }
 
-  viewDetails(id: number) {
-    this.router.navigate([`/customerOrderItem`], {queryParams: {customerOrderItemId: id}});
-  }
-
   openDeleteDialog(id: number) {
     this.customerOrderItemIdToDelete = id;
     this.showDeleteDialog = true;
   }
 
   deleteCustomerOrderItemById(id: number) {
+    const customerOrderItem = this.customerOrderItems.find(item => item.customerOrderItemId === id);
+    const customerOrderId = customerOrderItem?.customerOrderDTO?.customerOrderId;
+
+    if (!customerOrderId) {
+      console.error('Unable to find associated customer order for the deleted invoice item.');
+      return;
+    }
+
     this.customerOrderItemService.deleteCustomerOrderItemById(id).subscribe(() => {
       this.loadAllCustomerOrderItems();
       this.showDeleteDialog = false;
+
+      this.router.navigate(['/updateCustomerOrder', customerOrderId]);
     })
   }
 

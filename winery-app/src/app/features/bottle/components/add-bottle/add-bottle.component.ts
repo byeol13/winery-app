@@ -75,7 +75,7 @@ export class AddBottleComponent {
   openConfirmationDialog() {
     if (this.bottleForm.valid) {
       const addDialog = this.dialog.open(AddBottleDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

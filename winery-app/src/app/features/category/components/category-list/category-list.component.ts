@@ -42,10 +42,6 @@ export class CategoryListComponent implements OnInit{
     })
   }
 
-  viewDetails(id: number) {
-    this.router.navigate([`/category`], { queryParams: { categoryId: id}});
-  }
-
   openDeleteDialog(id: number) {
     this.categoryIdToDelete = id;
     this.showDeleteDialog = true;

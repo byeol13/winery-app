@@ -1,22 +1,254 @@
-/* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
-.delete-dialog {
+
+/* tables */
+.custom-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 3rem 3rem !important;
+  background-color: #352530 !important;
+  color: #fff !important;
+}
+
+.custom-table {
+  border-collapse: separate;
+  padding: 10px 30px;
+  background-color: #fff !important;
+  box-shadow: none;
+}
+
+.toolbar-title {
+  font-size: 1.45rem;
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-title .material-symbols-outlined {
+  transform: scale(1.6);
+  font-weight: 100;
+  margin-right: 1rem;
+}
+
+.toolbar-title .back-btn {
+  transform: scale(1.6);
+  font-weight: 100;
+  margin-right: 1rem;
+}
+
+.add-button {
+  color: #e0c7d7 !important;
+  border-color: #e0c7d7 !important;
+  padding: 20px !important;
+  font-weight: 400 !important;
+}
+
+.add-button:hover {
+  background-color: #e0c7d7;
+  color: #34222e !important;
+}
+
+
+.custom-table th {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  color: #000;
+}
+
+.custom-table td {
+  text-align: center;
+  color: #000;
+}
+
+.custom-table tr:hover {
+  background-color: #E2CDD6;
+}
+
+.action-button {
+  margin-right: 8px;
+  font-weight: 400 !important;
+  padding: 20px !important;
+}
+
+.accent-btn {
+  background-color: #b0bec5 !important;
+}
+
+.accent-btn:hover,
+.manage-button:hover {
+  background-color: #352530 !important;
+  color: #fff !important;
+}
+
+.delete-button {
+  background-color: #d32f2f !important;
+  color: #fff !important;
+}
+
+.delete-button:hover {
+  opacity: .9;
+}
+
+.custom-paginator {
+  margin-top: 20px;
+}
+
+.manage-button {
+  margin-right: 8px;
+  font-weight: 400 !important;
+  padding: 19px !important;
+  color: #352530 !important;
+  border-color: #352530 !important;
+}
+
+
+/* forms */
+.displayed-form-card {
+  padding: 10px 80px;
+}
+
+.displayed-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+.form-row {
+  display: flex;
+  gap: 16px; 
+}
+
+.form-field {
+  width: 40vw;
+}
+
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.buttons .btn {
+  padding: 20px 30px;
+  box-shadow: none;
+}
+
+.buttons .cancel-button {
+  border: 1px solid #ccc;
+  color: #666 !important;
+  background-color: #fff;
+}
+
+.cancel-button:hover {
+  background-color: #ede9e9 !important;
+}
+
+.save-btn {
+  background-color: #d7bfcf !important;
+}
+
+.add-option {
+  color: rgb(82, 82, 230);
+}
+
+.component-mode {
+  .displayed-form {
+    align-items: center;
+  }  
+}
+
+.dialog-mode {
+  .custom-toolbar {
+    background-color: white !important;
+    color: #000 !important;
+  }
+
+  .displayed-form-card {
+    padding: 5px 20px;
+  }
+}
+
+.input-hint {
+  font-size: 12px; 
+  color: gray; 
+  margin-top: 4px; 
+}
+
+.total-price-msg {
+  display: flex;
+  align-items: end;
+  padding: 12px 10px;
+  border-radius: 0 !important;
+}
+
+/* confirm dialogs */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirm-dialog {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 20px;
-  z-index: 1000;
+  z-index: 1001;
+  width: 27vw;
+  padding: 25px;
+  background-color: #fff;
 }
 
-.delete-dialog button {
-  margin: 10px;
+.confirm-dialog h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
 }
 
-p {
-  color: black;
+.confirm-dialog p {
+  margin: 16px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.dialog-actions .cancel-btn {
+  color: #525252 !important;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5 !important;
+}
+
+.dialog-actions .cancel-btn:hover {
+  background-color: #e0e0e0 !important;
+}
+
+.dialog-actions .delete-btn {
+  background-color:#d32f2f !important;
+  color: #fff !important;
+}
+
+.dialog-actions .delete-btn:hover {
+  background-color: #f44336 !important;
+}
+
+.dialog-actions .confirm-btn {
+  color: #fff !important;
+  background-color: #34222e !important;
 }

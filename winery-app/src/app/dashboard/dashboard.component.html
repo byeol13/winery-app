@@ -1,20 +1,25 @@
-<mat-toolbar>
-  <button mat-icon-button (click)="sidenav.toggle()" class="example-icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Dashboard</span>
+<mat-toolbar class="navbar">
+  <img src="/assets/logo.png" class="logo"/>
+  <div class="nav-links">
+    <div class="dropdown" *ngFor="let r of routes">
+      <button mat-button class="dropdown-button">
+        {{ r.label }}
+        <mat-icon>expand_more</mat-icon>
+      </button>
+      <div class="dropdown-menu">
+        <a 
+          mat-menu-item 
+          *ngFor="let route of r.subRoutes" 
+          [routerLink]="route.path" 
+          routerLinkActive="active-link">
+          {{ route.label }}
+        </a>
+      </div>
+    </div>
+  </div>
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" [opened]="true" style="width: 20%;">
-    <mat-nav-list>
-        <a *ngFor="let r of routes"
-         mat-list-item 
-         [routerLink]="r.path"
-         routerLinkActive="active-link"
-         >{{ r.label }}</a>
-    </mat-nav-list>
-  </mat-sidenav>
   <mat-sidenav-content>
     <div>
       <router-outlet></router-outlet>

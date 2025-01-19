@@ -22,18 +22,21 @@ import { Router } from '@angular/router';
 export class AddCategoryComponent {
 
   categoryForm: FormGroup;
+  isDialog: boolean;
 
   constructor(private fb: FormBuilder, private categoryService: CategoryService, private dialog: MatDialog, private router: Router,  @Optional() private dialogRef: MatDialogRef<AddCategoryComponent>){
 
     this.categoryForm = this.fb.group({
       categoryName: ['', Validators.required]
     });
+
+    this.isDialog = !!dialogRef;
   }
 
   openConfirmationDialog() {
     if(this.categoryForm.valid) {
       const addDialog = this.dialog.open(AddCategoryDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

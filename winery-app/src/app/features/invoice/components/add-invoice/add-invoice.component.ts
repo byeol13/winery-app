@@ -101,7 +101,7 @@ export class AddInvoiceComponent {
   openConfirmationDialog() {
     if(this.invoiceForm.valid) {
       const addDialog = this.dialog.open(AddInvoiceDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px' 
       });
 
       addDialog.afterClosed().subscribe((res) => {

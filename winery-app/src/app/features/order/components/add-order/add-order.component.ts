@@ -74,7 +74,7 @@ export class AddOrderComponent {
 
   openAddSupplierDialog() {
     const addSupplier = this.dialog.open(AddSupplierComponent, {
-      width: '500px'
+      width: '700px'
     });
 
     addSupplier.afterClosed().subscribe((newSupplier) => {
@@ -88,7 +88,7 @@ export class AddOrderComponent {
   openConfirmationDialog() {
     if(this.orderForm.valid) {
       const addDialog = this.dialog.open(AddOrderDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

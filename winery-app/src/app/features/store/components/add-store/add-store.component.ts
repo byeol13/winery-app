@@ -33,7 +33,7 @@ export class AddStoreComponent {
       address: ['', Validators.required],
       phone: ['', Validators.required],
       mobile: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       details: ['', Validators.required],
       cityId: ['', Validators.required]
     });
@@ -63,7 +63,7 @@ export class AddStoreComponent {
   openConfirmationDialog() {
     if (this.storeForm.valid) {
       const addDialog = this.dialog.open(AddStoreDialogComponent, {
-        width: '500px', height: '250px'
+        width: '500px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

@@ -1,46 +1,54 @@
-<mat-toolbar>
-  <span>Stores</span>
-  <button mat-stroked-button [routerLink]="['/addStore']">+ Add Store</button>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">
+    <span class="material-symbols-outlined">
+      storefront
+    </span>
+    Stores
+  </span>
+  <button mat-stroked-button class="add-button" [routerLink]="['/addStore']">+ Add Store</button>
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="displayedStores" class="mat-elevation-z8">
+<div>
+  <table mat-table [dataSource]="displayedStores" class="mat-elevation-z8 custom-table">
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let store"> {{store.storeId}} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let store"> {{store.storeId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="store_name">
+      <th mat-header-cell *matHeaderCellDef> Store Name </th>
+      <td mat-cell *matCellDef="let store">  {{store.storeName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let store">  {{store.address}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="city_id">
+      <th mat-header-cell *matHeaderCellDef> City </th>
+      <td mat-cell *matCellDef="let store">  {{store.cityDTO.cityName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let store">
+        <button mat-flat-button class="action-button accent-btn" (click)="viewDetails(store.storeId)">View More</button>
+        <button mat-flat-button class="action-button accent-btn" [routerLink]="['/updateStore', store.storeId]">Edit</button>
+        <button mat-flat-button class="action-button delete-button" (click)="openDeleteDialog(store.storeId)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="store_name">
-    <th mat-header-cell *matHeaderCellDef> Store Name </th>
-    <td mat-cell *matCellDef="let store">  {{store.storeName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="address">
-    <th mat-header-cell *matHeaderCellDef> Address </th>
-    <td mat-cell *matCellDef="let store">  {{store.address}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="city_id">
-    <th mat-header-cell *matHeaderCellDef> City </th>
-    <td mat-cell *matCellDef="let store">  {{store.cityDTO.cityName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let store">
-      <button mat-stroked-button (click)="viewDetails(store.storeId)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(store.storeId)">Delete</button>
-      <button mat-stroked-button [routerLink]="['/updateStore', store.storeId]">Update</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalStores"
-              [pageSize]="5"
+<mat-paginator class="custom-paginator" 
+              [length]="totalStores"
+              [pageSize]="4"
               [pageSizeOptions]="[5, 10, 15]"
               aria-label="Select page"
               (page)="paginatedStores()">

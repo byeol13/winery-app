@@ -33,7 +33,7 @@ export class UpdateCustomerComponent implements OnInit{
       customerName: ['', Validators.required],
       address: ['', Validators.required],
       phone: ['', Validators.required],
-      email: ['', Validators.required]
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 

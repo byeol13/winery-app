@@ -20,7 +20,7 @@ export class InvoiceItemListComponent implements OnInit{
 
   invoiceItemIdToDelete: number | undefined;
   invoiceItems: InvoiceItem[] = [];
-  displayedColumns: string[] = ['id', 'invoice_id', 'bottle_id', 'item_price', 'actions'];
+  displayedColumns: string[] = ['id', 'invoice_id', 'bottle_id', 'item_price', 'quantity', 'actions'];
   showDeleteDialog = false;
 
   totalInvoiceItems: number = 0;
@@ -52,9 +52,19 @@ export class InvoiceItemListComponent implements OnInit{
   }
 
   deleteInvoiceItemById(id: number) {
+    const invoiceItem = this.invoiceItems.find(item => item.invoiceItemId === id);
+    const invoiceId = invoiceItem?.invoiceDTO?.invoiceId;
+
+    if (!invoiceId) {
+      console.error('Unable to find associated invoice for the deleted invoice item.');
+      return;
+    }
+
     this.invoiceItemService.deleteInvoiceItemById(id).subscribe(() => {
       this.loadAllInvoiceItems();
       this.showDeleteDialog = false;
+
+      this.router.navigate(['/updateInvoice', invoiceId]);
     })
   }
 

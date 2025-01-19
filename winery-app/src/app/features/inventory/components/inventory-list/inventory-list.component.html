@@ -1,41 +1,52 @@
-<mat-toolbar>
-  <span>Inventories</span>
-  <button mat-stroked-button [routerLink]="['/addInventory']">+ Add Inventory</button>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">
+    <span class="material-symbols-outlined">
+      inventory
+    </span>
+    Inventories
+  </span>
+  <button mat-stroked-button class="add-button" [routerLink]="['/addInventory']">+ Add Inventory</button>
 </mat-toolbar>
 
+<div>
+  <table mat-table [dataSource]="displayedInventories" class="mat-elevation-z8 custom-table">
 
-<table mat-table [dataSource]="displayedInventories" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let inventory"> {{inventory.inventoryId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="store_id">
+      <th mat-header-cell *matHeaderCellDef> Store </th>
+      <td mat-cell *matCellDef="let inventory"> {{inventory.storeDTO.storeName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="bottle_id">
+      <th mat-header-cell *matHeaderCellDef> Bottle </th>
+      <td mat-cell *matCellDef="let inventory"> {{inventory.bottleDTO.fullName}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let inventory"> {{inventory.inventoryId}} </td>
-  </ng-container>
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Quantity </th>
+      <td mat-cell *matCellDef="let inventory"> {{inventory.quantity}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let inventory">
+        <button mat-flat-button class="action-button accent-btn" [routerLink]="['/updateInventory', inventory.inventoryId]">Edit</button>
+        <button mat-flat-button class="action-button delete-button" (click)="openDeleteDialog(inventory.inventoryId)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="store_id">
-    <th mat-header-cell *matHeaderCellDef> Store </th>
-    <td mat-cell *matCellDef="let inventory"> {{inventory.storeDTO.storeName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="bottle_id">
-    <th mat-header-cell *matHeaderCellDef> Bottle </th>
-    <td mat-cell *matCellDef="let inventory"> {{inventory.bottleDTO.fullName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let inventory">
-      <button mat-stroked-button (click)="viewDetails(inventory.inventoryId)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(inventory.inventoryId)">Delete</button>
-      <button mat-stroked-button [routerLink]="['/updateInventory', inventory.inventoryId]">Update</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalInventories"
-              [pageSize]="5"
+<mat-paginator class="custom-paginator" 
+              [length]="totalInventories"
+              [pageSize]="4"
               [pageSizeOptions]="[5, 10, 15]"
               aria-label="Select page"
               (page)="paginatedInventories()">

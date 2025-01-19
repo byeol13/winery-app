@@ -95,7 +95,7 @@ export class AddOrderItemComponent implements OnInit{
   openConfirmationDialog() {
     if (this.orderItemForm.valid) {
       const addDialog = this.dialog.open(AddInventoryDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {
@@ -119,21 +119,11 @@ export class AddOrderItemComponent implements OnInit{
     };
 
     this.orderItemService.addOrderItem(newOrderItem).subscribe(() => {
-      // if(this.dialogRef) {
-      //   this.dialogRef.close(newOrderItem);
-      // } else {
-      //   this.router.navigate(['/updateOrder', newOrderItem.orderDTO.orderId]);
-      // }
       this.router.navigate(['/updateOrder', newOrderItem.orderDTO.orderId]);
     });
   }
 
   goBack() {
-    // if (this.dialogRef) {
-    //   this.dialogRef.close();
-    // } else {
-    //   this.router.navigate(['/dashboard/orderItem']);
-    // }
     this.router.navigate(['/dashboard/order']);
   }
 

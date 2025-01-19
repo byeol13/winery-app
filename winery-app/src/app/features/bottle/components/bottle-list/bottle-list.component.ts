@@ -8,11 +8,13 @@ import { BottleService } from '../../service/bottle.service';
 import { Router, RouterModule } from '@angular/router';
 import { BottleDeleteComponent } from '../bottle-delete/bottle-delete.component';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-bottle-list',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatToolbarModule, MatTableModule, BottleDeleteComponent, RouterModule, MatPaginatorModule],
+  imports: [CommonModule, MatButtonModule, MatToolbarModule, MatTableModule, BottleDeleteComponent, RouterModule, MatPaginatorModule, MatCardModule, MatIconModule],
   templateUrl: './bottle-list.component.html',
   styleUrl: './bottle-list.component.css'
 })

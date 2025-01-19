@@ -31,7 +31,7 @@ export class UpdateSupplierComponent implements OnInit{
       address: ['', Validators.required],
       phone: ['', Validators.required],
       mobile: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       details: ['', Validators.required]
     });
   }

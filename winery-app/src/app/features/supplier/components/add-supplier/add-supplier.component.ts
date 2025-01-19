@@ -23,14 +23,17 @@ import { AddSupplierDialogComponent } from '../add-supplier-dialog/add-supplier-
 export class AddSupplierComponent {
 
   supplierForm: FormGroup;
+  isDialog: boolean;
 
   constructor(private fb: FormBuilder, private supplierService: SupplierService, private router: Router, private dialog: MatDialog, @Optional() private dialogRef: MatDialogRef<AddSupplierComponent>) {
+    this.isDialog = !!dialogRef;
+
     this.supplierForm = this.fb.group({
       supplierName: ['', Validators.required],
       address: ['', Validators.required],
       phone: ['', Validators.required],
       mobile: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       details: ['', Validators.required]
     });
   }
@@ -38,7 +41,7 @@ export class AddSupplierComponent {
   openConfirmationDialog() {
     if(this.supplierForm.valid) {
       const addDialog = this.dialog.open(AddSupplierDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
       
       addDialog.afterClosed().subscribe((res) => {

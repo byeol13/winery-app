@@ -96,7 +96,7 @@ export class AddInvoiceItemComponent implements OnInit{
   openConfirmationDialog() {
     if (this.invoiceItemForm.valid) {
       const addDialog = this.dialog.open(AddInvoiceItemDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

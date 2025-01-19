@@ -1,20 +1,25 @@
-<mat-toolbar>
-  <span>New Category</span>
-</mat-toolbar>
-
-<mat-card appearance="outlined">
-
-  <mat-card-content>
-    <form [formGroup]="categoryForm">
-      <mat-form-field>
-        <mat-label>Category Name</mat-label>
-        <input matInput formControlName="categoryName"/>
-      </mat-form-field>
-    
-      <div class="buttons">
-        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
-        <button mat-raised-button (click)="goBack()">Cancel</button>
-      </div>
-    </form>
-  </mat-card-content>
-</mat-card>  
+<div [ngClass]="{ 'dialog-mode': isDialog, 'component-mode': !isDialog }">
+  <mat-toolbar class="custom-toolbar">
+    <span class="toolbar-title">New Category</span>
+  </mat-toolbar>
+  
+  <mat-card appearance="outlined" class="displayed-form-card">
+  
+    <mat-card-content>
+      <form [formGroup]="categoryForm" class="displayed-form">
+  
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <mat-label>Category Name</mat-label>
+            <input matInput formControlName="categoryName"/>
+          </mat-form-field>
+        </div>
+      
+        <div class="buttons">
+          <button mat-flat-button class="save-btn btn" (click)="openConfirmationDialog()">Save</button>
+          <button mat-flat-button class="cancel-button btn" (click)="goBack()">Cancel</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>  
+</div>

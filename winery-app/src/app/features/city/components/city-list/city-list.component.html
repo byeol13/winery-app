@@ -1,41 +1,53 @@
-<mat-toolbar>
-  <span>Cities</span>
-  <button mat-stroked-button [routerLink]="['/addCity']">+ Add City</button>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">
+    <span class="material-symbols-outlined">
+      location_city
+    </span>
+    Cities
+  </span>
+  <button mat-stroked-button class="add-button" [routerLink]="['/addCity']">+ Add City</button>
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="displayedCities" class="mat-elevation-z8">
+<div>
+  <table mat-table [dataSource]="displayedCities" class="mat-elevation-z8 custom-table">
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let city"> {{city.cityId}} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let city"> {{city.cityId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="city_name">
+      <th mat-header-cell *matHeaderCellDef> City </th>
+      <td mat-cell *matCellDef="let city"> {{city.cityName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="country_id">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let city"> {{city.countryDTO.countryName}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="city_name">
-    <th mat-header-cell *matHeaderCellDef> City </th>
-    <td mat-cell *matCellDef="let city"> {{city.cityName}} </td>
-  </ng-container>
+    <ng-container matColumnDef="postal_code">
+      <th mat-header-cell *matHeaderCellDef> Postal Code </th>
+      <td mat-cell *matCellDef="let city"> {{city.postalCode}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let city">
+        <button mat-flat-button color="accent" class="action-button accent-btn" [routerLink]="['/updateCity', city.cityId]">Edit</button>
+        <button mat-flat-button class="action-button delete-button" (click)="openDeleteDialog(city.cityId)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="country_id">
-    <th mat-header-cell *matHeaderCellDef> Country </th>
-    <td mat-cell *matCellDef="let city"> {{city.countryDTO.countryName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let city">
-      <button mat-stroked-button (click)="viewDetails(city.cityId)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(city.cityId)">Delete</button>
-      <button mat-stroked-button [routerLink]="['/updateCity', city.cityId]">Update</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalCities"
-              [pageSize]="5"
+<mat-paginator class="custom-paginator" 
+              [length]="totalCities"
+              [pageSize]="4"
               [pageSizeOptions]="[5, 10, 15]"
               aria-label="Select page"
               (page)="paginatedCities()">

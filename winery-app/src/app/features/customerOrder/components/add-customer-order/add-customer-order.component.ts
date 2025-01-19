@@ -75,7 +75,7 @@ export class AddCustomerOrderComponent {
   openConfirmationDialog() {
     if(this.customerOrderForm.valid) {
       const addDialog = this.dialog.open(AddCustomerOrderDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

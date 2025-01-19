@@ -55,7 +55,7 @@ export class AddInventoryComponent {
   openConfirmationDialog() {
     if (this.inventoryForm.valid) {
       const addDialog = this.dialog.open(AddInventoryDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

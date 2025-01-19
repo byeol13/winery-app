@@ -1,6 +1,10 @@
-<h2 mat-dialog-title>Confirm Save</h2>
-<div mat-dialog-content>Are you sure you want to save this city?</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onConfirm()">Confirm</button>
+<div class="overlay">
+  <div class="confirm-dialog">
+    <h2>Confirm Save</h2>
+    <p>Are you sure you want to save this city?</p>
+    <div class="dialog-actions">
+      <button mat-flat-button class="cancel-btn" (click)="onCancel()">Cancel</button>
+      <button mat-flat-button class="confirm-btn" (click)="onConfirm()">Confirm</button>
+    </div>
+  </div>
 </div>

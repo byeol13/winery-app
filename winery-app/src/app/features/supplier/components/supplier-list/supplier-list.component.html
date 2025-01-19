@@ -1,41 +1,49 @@
-<mat-toolbar>
-  <span>Suppliers</span>
-  <button mat-stroked-button [routerLink]="['/addSupplier']">+ Add Supplier</button>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">
+    <span class="material-symbols-outlined">
+      trolley
+    </span>
+    Suppliers
+  </span>
+  <button mat-stroked-button class="add-button" [routerLink]="['/addSupplier']">+ Add Supplier</button>
 </mat-toolbar>
 
 
-<table mat-table [dataSource]="displayedSuppliers" class="mat-elevation-z8">
+<div>
+  <table mat-table [dataSource]="displayedSuppliers" class="mat-elevation-z8 custom-table">
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let supplier"> {{supplier.supplierId}} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let supplier"> {{supplier.supplierId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="supplier_name">
+      <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
+      <td mat-cell *matCellDef="let supplier">  {{supplier.supplierName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let supplier">  {{supplier.address}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let supplier">
+        <button mat-flat-button class="action-button accent-btn" (click)="viewDetails(supplier.supplierId)">View More</button>
+        <button mat-flat-button class="action-button accent-btn" [routerLink]="['/updateSupplier', supplier.supplierId]">Edit</button>
+        <button mat-flat-button class="action-button delete-button" (click)="openDeleteDialog(supplier.supplierId)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="supplier_name">
-    <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
-    <td mat-cell *matCellDef="let supplier">  {{supplier.supplierName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="address">
-    <th mat-header-cell *matHeaderCellDef> Address </th>
-    <td mat-cell *matCellDef="let supplier">  {{supplier.address}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let supplier">
-      <button mat-stroked-button (click)="viewDetails(supplier.supplierId)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(supplier.supplierId)">Delete</button>
-      <button mat-stroked-button [routerLink]="['/updateSupplier', supplier.supplierId]">Update</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalSuppliers"
-              [pageSize]="5"
+<mat-paginator class="custom-paginator" 
+              [length]="totalSuppliers"
+              [pageSize]="4"
               [pageSizeOptions]="[5, 10, 15]"
               aria-label="Select page"
               (page)="paginatedSuppliers()">

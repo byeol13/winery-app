@@ -20,7 +20,7 @@ export class CityListComponent implements OnInit{
 
   cityToDeleteId: number | undefined;
   cities: City[] = [];
-  displayedColumns: string[] = ['id', 'city_name', 'country_id', 'actions'];
+  displayedColumns: string[] = ['id', 'city_name', 'country_id', 'postal_code', 'actions'];
   showDeleteDialog = false;
   totalCities: number = 0;
   displayedCities: City[] = [];
@@ -39,10 +39,6 @@ export class CityListComponent implements OnInit{
       this.totalCities = this.cities.length;
       this.paginatedCities();
     });
-  }
-
-  viewDetails(id: number) {
-    this.router.navigate([`/city`], {queryParams: { cityId: id}});
   }
 
   openDeleteDialog(id: number) {

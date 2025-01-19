@@ -65,7 +65,7 @@ export class UpdateCityComponent implements OnInit{
 
   openAddCountryDialog() {
     const addCountry = this.dialog.open(AddCountryComponent, {
-      width: '500px', height: '250px'
+      width: '500px'
     });
 
     addCountry.afterClosed().subscribe((newCountry) => {

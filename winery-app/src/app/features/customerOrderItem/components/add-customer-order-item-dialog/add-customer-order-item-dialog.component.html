@@ -4,3 +4,14 @@
   <button mat-button (click)="onCancel()">Cancel</button>
   <button mat-button (click)="onConfirm()">Confirm</button>
 </div>
+
+<div class="overlay">
+  <div class="confirm-dialog">
+    <h2>Confirm Save</h2>
+    <p>Are you sure you want to save this customer order item?</p>
+    <div class="dialog-actions">
+      <button mat-flat-button class="cancel-btn" (click)="onCancel()">Cancel</button>
+      <button mat-flat-button class="confirm-btn" (click)="onConfirm()">Confirm</button>
+    </div>
+  </div>
+</div>

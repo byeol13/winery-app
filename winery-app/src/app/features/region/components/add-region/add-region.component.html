@@ -1,32 +1,39 @@
-<mat-toolbar>
-  <span>New Region</span>
-</mat-toolbar>
+<div [ngClass]="{ 'dialog-mode': isDialog, 'component-mode': !isDialog }">
+  <mat-toolbar class="custom-toolbar">
+    <span class="toolbar-title">New Region</span>
+  </mat-toolbar>
+  
+  <mat-card appearance="outlined" class="displayed-form-card">
+  
+    <mat-card-content>
+      <form [formGroup]="regionForm" class="displayed-form">
 
-<mat-card appearance="outlined">
-
-  <mat-card-content>
-    <form [formGroup]="regionForm">
-      <mat-form-field>
-        <mat-label>Region Name</mat-label>
-        <input matInput formControlName="regionName"/>
-      </mat-form-field>
-    
-      <mat-form-field>
-        <mat-label>Country</mat-label>
-        <mat-select formControlName="countryId">
-          <mat-option *ngFor="let country of countries" [value]="country.countryId">
-            {{ country.countryName }}
-          </mat-option>
-          <mat-option (click)="openAddCountryDialog()" class="add-new-country">
-            <span>Add New Country</span>
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    
-      <div class="buttons">
-        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
-        <button mat-raised-button (click)="goBack()">Cancel</button>
-      </div>
-    </form>
-  </mat-card-content>
-</mat-card>  
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <mat-label>Region Name</mat-label>
+            <input matInput formControlName="regionName"/>
+          </mat-form-field>
+        </div>
+      
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="countryId">
+              <mat-option *ngFor="let country of countries" [value]="country.countryId">
+                {{ country.countryName }}
+              </mat-option>
+              <mat-option (click)="openAddCountryDialog()" class="add-new-country">
+                <span class="add-option">+ Add Country</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      
+        <div class="buttons">
+          <button mat-flat-button class="save-btn btn" (click)="openConfirmationDialog()">Save</button>
+          <button mat-flat-button class="cancel-button btn" (click)="goBack()">Cancel</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>  
+</div>

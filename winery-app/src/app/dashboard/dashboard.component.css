@@ -4,12 +4,78 @@ body {
   margin: 0;
 }
 
-
 mat-sidenav-container {
-  height: 100%;
+  padding: 2vw;
+  background-color: #fff;
+}
+
+
+.logo {
+  height: 12vh; 
+  width: auto; 
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 13vh;
+  background-color: #2b2026;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2vw;
+  margin-right: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  width: 224px;
+  border-radius: 0;
+  color: #fff !important;
+  padding: 25px 12px !important;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: rgba(66, 45, 60, .95);
+  z-index: 1000;
+  width: 224px;
+  text-align: center;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  background-color: #E2CDD6;
+  color: #000;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
 .active-link {
-  background-color: rgba(0, 0, 255, 0.1);
-  color: blue;
+  font-weight: bold;
+  color: #ff4081 !important;
 }
+
+
+
+

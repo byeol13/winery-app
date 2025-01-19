@@ -1,15 +1,14 @@
-<div>
-  <button mat-stroked-button [routerLink]="['/dashboard/supplier']"><mat-icon>arrow_back</mat-icon></button>
-</div>
-
-<mat-toolbar>
-  <span>Supplier Details</span>
+<mat-toolbar class="custom-toolbar">
+  <div class="toolbar-title">
+    <button mat-icon-button [routerLink]="['/dashboard/supplier']"><mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <span>Supplier Details</span>
+  </div>
 </mat-toolbar>
 
-
-<div class="table-container">
+<div>
   <mat-card-content *ngIf="suppliers">
-    <table mat-table [dataSource]="[suppliers]" class="mat-elevation-z8">
+    <table mat-table [dataSource]="[suppliers]" class="mat-elevation-z8 custom-table">
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -49,7 +48,7 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let supplier">
-          <button mat-stroked-button [routerLink]="['/updateSupplier', supplier.supplierId]">Update</button>
+          <button mat-flat-button class="action-button accent-btn" [routerLink]="['/updateSupplier', supplier.supplierId]">Edit</button>
         </td>
       </ng-container>
     

@@ -59,7 +59,7 @@ export class AddProducerComponent {
   openConfirmationDialog() {
     if (this.producerForm.valid) {
       const addDialog = this.dialog.open(AddProducerDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

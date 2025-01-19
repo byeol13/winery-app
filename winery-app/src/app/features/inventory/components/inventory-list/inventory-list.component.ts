@@ -20,7 +20,7 @@ export class InventoryListComponent implements OnInit{
 
   inventoryIdToDelete: number | undefined;
   inventories: Inventory[] = [];
-  displayedColumns: string[] = ['id', 'store_id', 'bottle_id', 'actions'];
+  displayedColumns: string[] = ['id', 'store_id', 'bottle_id', 'quantity', 'actions'];
   showDeleteDialog = false;
 
   totalInventories: number = 0;
@@ -40,10 +40,6 @@ export class InventoryListComponent implements OnInit{
       this.totalInventories = this.inventories.length;
       this.paginatedInventories();
     })
-  }
-
-  viewDetails(id: number) {
-    this.router.navigate([`/inventory`], {queryParams: {inventoryId: id}});
   }
 
   openDeleteDialog(id: number) {

@@ -32,7 +32,7 @@ export class AddEmployeeComponent {
       username: ['', Validators.required],
       password: ['', Validators.required],
       phone: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       isActive: ['', Validators.required]
     });
   }
@@ -44,7 +44,7 @@ export class AddEmployeeComponent {
   openConfirmationDialog() {
     if(this.employeeForm.valid) {
       const addDialog = this.dialog.open(AddEmployeeDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

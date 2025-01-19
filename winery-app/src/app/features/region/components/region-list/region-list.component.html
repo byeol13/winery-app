@@ -1,35 +1,47 @@
-<mat-toolbar>
-  <span>Regions</span>
-  <button mat-stroked-button [routerLink]="['/addRegion']">+ Add Region</button>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">
+    <span class="material-symbols-outlined">
+      map
+    </span>
+    Regions
+  </span>
+  <button mat-stroked-button class="add-button" [routerLink]="['/addRegion']">+ Add Region</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="displayedRegions" class="mat-elevation-z8">
+<div>
+  <table mat-table [dataSource]="displayedRegions" class="mat-elevation-z8 custom-table">
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let region"> {{region.regionId}} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let region"> {{region.regionId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="region_name">
+      <th mat-header-cell *matHeaderCellDef> Region Name </th>
+      <td mat-cell *matCellDef="let region">  {{region.regionName}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="region_name">
-    <th mat-header-cell *matHeaderCellDef> Region Name </th>
-    <td mat-cell *matCellDef="let region">  {{region.regionName}} </td>
-  </ng-container>
+    <ng-container matColumnDef="country_id">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let region">  {{region.countryDTO.countryName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let region">
+        <button mat-flat-button color="accent" class="action-button accent-btn" [routerLink]="['/updateRegion', region.regionId]">Edit</button>
+        <button mat-flat-button class="action-button delete-button" (click)="openDeleteDialog(region.regionId)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let region">
-      <button mat-stroked-button (click)="viewDetails(region.regionId)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(region.regionId)">Delete</button>
-      <button mat-stroked-button [routerLink]="['/updateRegion', region.regionId]">Update</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalRegions"
-              [pageSize]="5"
+<mat-paginator class="custom-paginator" 
+              [length]="totalRegions"
+              [pageSize]="4"
               [pageSizeOptions]="[5, 10, 15]"
               aria-label="Select page"
               (page)="paginatedRegions()">

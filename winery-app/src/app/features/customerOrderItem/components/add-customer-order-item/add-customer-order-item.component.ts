@@ -98,7 +98,7 @@ export class AddCustomerOrderItemComponent implements OnInit{
   openConfirmationDialog() {
     if(this.customerOrderItemForm.valid) {
       const addDialog = this.dialog.open(AddCustomerOrderItemDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

@@ -20,7 +20,7 @@ export class RegionListComponent {
 
   regionIdToDelete: number | undefined;
   regions: Region[] = [];
-  displayedColumns: string[] = ['id', 'region_name', 'actions'];
+  displayedColumns: string[] = ['id', 'region_name', 'country_id', 'actions'];
   showDeleteDialog = false;
 
   totalRegions: number = 0;
@@ -40,10 +40,6 @@ export class RegionListComponent {
       this.totalRegions = this.regions.length;
       this.paginatedRegions();
     })
-  }
-
-  viewDetails(id: number) {
-    this.router.navigate([`/region`], {queryParams: { regionId: id}});
   }
 
   openDeleteDialog(id: number) {

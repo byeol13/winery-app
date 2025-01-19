@@ -1,55 +1,66 @@
-<mat-toolbar>
-  <span>New Store</span>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">Edit Store</span>
 </mat-toolbar>
 
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" class="displayed-form-card">
 
   <mat-card-content>
-    <form [formGroup]="storeForm">
-      <mat-form-field>
-        <mat-label>Store Id</mat-label>
-        <input matInput formControlName="id"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Store Name</mat-label>
-        <input matInput formControlName="storeName"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="address"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Phone</mat-label>
-        <input matInput formControlName="phone"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Mobile</mat-label>
-        <input matInput formControlName="mobile"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Details</mat-label>
-        <input matInput formControlName="details"/>
-      </mat-form-field>
+    <form [formGroup]="storeForm" class="displayed-form">
 
-      <mat-form-field>
-        <mat-label>City</mat-label>
-        <mat-select formControlName="cityId">
-          <mat-option *ngFor="let city of cities" [value]="city.cityId">
-            {{ city.cityName }}
-          </mat-option>
-          <mat-option (click)="openAddCityDialog()" class="add-new-country">
-            <span>Add New City</span>
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Store Id</mat-label>
+          <input matInput formControlName="id"/>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Store Name</mat-label>
+          <input matInput formControlName="storeName"/>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>City</mat-label>
+          <mat-select formControlName="cityId">
+            <mat-option *ngFor="let city of cities" [value]="city.cityId">
+              {{ city.cityName }}
+            </mat-option>
+            <mat-option (click)="openAddCityDialog()" class="add-new-country">
+              <span class="add-option">+ Add City</span>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address"/>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone"/>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Mobile</mat-label>
+          <input matInput formControlName="mobile"/>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email"/>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Details</mat-label>
+          <input matInput formControlName="details"/>
+        </mat-form-field>
+      </div>
   
       <div class="buttons">
-        <button mat-raised-button (click)="onSubmit()">Save</button>
-        <button mat-raised-button [routerLink]="['/dashboard/store']">Cancel</button>
+        <button mat-flat-button class="save-btn btn" (click)="onSubmit()">Save</button>
+        <button mat-flat-button class="cancel-button btn" [routerLink]="['/dashboard/store']">Cancel</button>
       </div>
     </form>
   </mat-card-content>

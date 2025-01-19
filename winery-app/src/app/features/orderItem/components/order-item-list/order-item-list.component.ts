@@ -20,7 +20,7 @@ export class OrderItemListComponent implements OnInit{
 
   orderItemIdToDelete: number | undefined;
   orderItems: OrderItem[] = [];
-  displayedColumns: string[] = ['id', 'order_id', 'order_price', 'actions'];
+  displayedColumns: string[] = ['id', 'order_id', 'bottle_id', 'quantity', 'order_price', 'actions'];
   showDeleteDialog = false;
 
   totalOrderItems: number = 0;
@@ -42,16 +42,15 @@ export class OrderItemListComponent implements OnInit{
     })
   }
 
-  viewDetails(id: number) {
-    this.router.navigate([`/orderItem`], {queryParams: {orderItemId: id}});
-  }
-
   openDeleteDialog(id: number) {
     this.orderItemIdToDelete = id;
     this.showDeleteDialog = true;
   }
 
   deleteOrderItemById(id: number) {
+    const orderItem = this.orderItems.find(item => item.orderItemId === id);
+    const orderId = orderItem?.orderDTO?.orderId;
+
     this.orderItemService.deleteOrderItemBbyId(id).subscribe(() => {
       this.loadAllOrderItems();
       this.showDeleteDialog = false;

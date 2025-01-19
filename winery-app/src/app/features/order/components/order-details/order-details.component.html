@@ -1,15 +1,14 @@
-<div>
-  <button mat-stroked-button [routerLink]="['/dashboard/order']"><mat-icon>arrow_back</mat-icon></button>
-</div>
-
-<mat-toolbar>
-  <span>Order Details</span>
+<mat-toolbar class="custom-toolbar">
+  <div class="toolbar-title">
+    <button mat-icon-button [routerLink]="['/dashboard/order']"><mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <span>Order Details</span>
+  </div>
 </mat-toolbar>
 
-
-<div class="table-container">
+<div>
   <mat-card-content *ngIf="orders">
-    <table mat-table [dataSource]="[orders]" class="mat-elevation-z8">
+    <table mat-table [dataSource]="[orders]" class="mat-elevation-z8 custom-table">
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -28,7 +27,7 @@
     
       <ng-container matColumnDef="order_price">
         <th mat-header-cell *matHeaderCellDef> Order Price </th>
-        <td mat-cell *matCellDef="let order">{{ order.orderPrice ? '$ ' + order.orderPrice : '-' }} </td>
+        <td mat-cell *matCellDef="let order">{{ order.orderPrice ? (order.orderPrice | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
       </ng-container>
 
       <ng-container matColumnDef="supplier_id">
@@ -53,7 +52,7 @@
     
       <ng-container matColumnDef="time_delivered">
         <th mat-header-cell *matHeaderCellDef> Time Delivered </th>
-        <td mat-cell *matCellDef="let order"> {{ order.timeDelivered ? (order.timeDelivered | date: 'dd/MM/yyyy') : '-' | date: 'short'}} </td>
+        <td mat-cell *matCellDef="let order"> {{ order.timeDelivered ? (order.timeDelivered | date: 'dd/MM/yyyy') : '-'}} </td>
       </ng-container>
     
       <ng-container matColumnDef="time_canceled">
@@ -64,7 +63,7 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let order">
-          <button mat-stroked-button [routerLink]="['/updateOrder', order.orderId]">Update</button>
+          <button mat-flat-button class="action-button accent-btn" [routerLink]="['/updateOrder', order.orderId]">Edit</button>
         </td>
       </ng-container>
     

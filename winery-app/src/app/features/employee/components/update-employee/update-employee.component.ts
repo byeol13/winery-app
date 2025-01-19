@@ -33,7 +33,7 @@ export class UpdateEmployeeComponent implements OnInit{
       username: ['', Validators.required],
       password: ['', Validators.required],
       phone: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       isActive: ['', Validators.required]
     });
   }
@@ -52,7 +52,7 @@ export class UpdateEmployeeComponent implements OnInit{
             password: res.password,
             phone: res.phone,
             email: res.email,
-            isActive: res.isActive
+            isActive: +res.isActive
           });
         }
       });

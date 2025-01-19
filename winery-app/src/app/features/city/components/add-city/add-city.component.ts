@@ -26,8 +26,11 @@ export class AddCityComponent {
 
   cityForm: FormGroup;
   countries: Country[] = [];
+  isDialog: boolean;
 
   constructor(private fb: FormBuilder, private countryService: CountryService, private dialog: MatDialog, private cityService: CityService, private router: Router, @Optional() private dialogRef: MatDialogRef<AddCityComponent>) {
+    this.isDialog = !!dialogRef;
+
     this.cityForm = this.fb.group({
       cityName: ['', Validators.required],
       postalCode: ['', Validators.required],
@@ -59,7 +62,7 @@ export class AddCityComponent {
   openConfirmationDialog() {
     if (this.cityForm.valid) {
       const addDialog = this.dialog.open(AddCityDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

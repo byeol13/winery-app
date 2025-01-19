@@ -1,23 +1,29 @@
-<mat-toolbar>
-  <span>Update Country</span>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">Edit Country</span>
 </mat-toolbar>
 
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" class="displayed-form-card">
 
   <mat-card-content>
-    <form [formGroup]="countryForm">
-      <mat-form-field>
-        <mat-label>Country Id</mat-label>
-        <input matInput formControlName="id">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="countryName">
-      </mat-form-field>
+    <form [formGroup]="countryForm" class="displayed-form">
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Country Id</mat-label>
+          <input matInput formControlName="id">
+        </mat-form-field>
+      </div>
+      
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="countryName">
+        </mat-form-field>
+      </div>
 
       <div class="buttons">
-        <button mat-raised-button (click)="onSubmit()">Save</button>
-        <button mat-raised-button [routerLink]="['/dashboard/country']">Cancel</button>
+        <button mat-flat-button class="save-btn btn" (click)="onSubmit()">Save</button>
+        <button mat-flat-button class="cancel-button btn" [routerLink]="['/dashboard/country']">Cancel</button>
       </div>
     </form>
   </mat-card-content>

@@ -1,39 +1,55 @@
-<mat-toolbar>
-  <span>Customer Order Items</span>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">
+    <span class="material-symbols-outlined">
+      list_alt
+    </span>
+    Customer Order Items
+  </span>
 </mat-toolbar>
 
+<div>
+  <table mat-table [dataSource]="displayedCustomerOrderItems" class="mat-elevation-z8 custom-table">
 
-<table mat-table [dataSource]="displayedCustomerOrderItems" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.customerOrderItemId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="customer_order_id">
+      <th mat-header-cell *matHeaderCellDef> Customer Order Number </th>
+      <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.customerOrderDTO.orderNumber}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.customerOrderItemId}} </td>
-  </ng-container>
+    <ng-container matColumnDef="bottle_id">
+      <th mat-header-cell *matHeaderCellDef> Bottle Name </th>
+      <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.bottleDTO.fullName}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="customer_order_id">
-    <th mat-header-cell *matHeaderCellDef> Customer Order Number </th>
-    <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.customerOrderDTO.orderNumber}} </td>
-  </ng-container>
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Quantity </th>
+      <td mat-cell *matCellDef="let customerOrderItem"> {{customerOrderItem.quantity}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="order_price">
+      <th mat-header-cell *matHeaderCellDef> Order Price </th>
+      <td mat-cell *matCellDef="let customerOrderItem">  {{customerOrderItem.orderPrice ? (customerOrderItem.orderPrice | currency:'USD':'symbol':'1.2-2') : '-'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let customerOrderItem">
+        <button mat-flat-button class="action-button delete-button" (click)="openDeleteDialog(customerOrderItem.customerOrderItemId)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="order_price">
-    <th mat-header-cell *matHeaderCellDef> Order Price </th>
-    <td mat-cell *matCellDef="let customerOrderItem">$  {{customerOrderItem.orderPrice}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let customerOrderItem">
-      <button mat-stroked-button (click)="viewDetails(customerOrderItem.customerOrderItemId)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(customerOrderItem.customerOrderItemId)">Delete</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalCustomerOrderItems"
-              [pageSize]="5"
+<mat-paginator class="custom-paginator" 
+              [length]="totalCustomerOrderItems"
+              [pageSize]="4"
               [pageSizeOptions]="[5, 10, 15]"
               aria-label="Select page"
               (page)="paginatedCustomerOrderItems()">

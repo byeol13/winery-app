@@ -1,42 +1,48 @@
-<mat-toolbar>
-  <span>New Customer</span>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">New Customer</span>
 </mat-toolbar>
 
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" class="displayed-form-card">
 
   <mat-card-content>
-    <form [formGroup]="customerForm">
-      <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input matInput formControlName="username"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password"/>
-        <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
-          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-        </button>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Customer Name</mat-label>
-        <input matInput formControlName="customerName"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="address"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Phone</mat-label>
-        <input matInput formControlName="phone"/>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input type="email" matInput formControlName="email"/>
-      </mat-form-field>
+    <form [formGroup]="customerForm" class="displayed-form">
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username"/>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Password</mat-label>
+          <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password"/>
+          <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Customer Name</mat-label>
+          <input matInput formControlName="customerName"/>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address"/>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone"/>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email"/>
+        </mat-form-field>
+      </div>
     
       <div class="buttons">
-        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
-        <button mat-raised-button (click)="goBack()">Cancel</button>
+        <button mat-flat-button class="save-btn btn" (click)="openConfirmationDialog()">Save</button>
+        <button mat-flat-button class="cancel-button btn" (click)="goBack()">Cancel</button>
       </div>
     </form>
   </mat-card-content>

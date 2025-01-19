@@ -1,77 +1,90 @@
-<mat-toolbar>
-  <span>New Order</span>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">New Order</span>
 </mat-toolbar>
 
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" class="displayed-form-card">
 
   <mat-card-content>
-    <form [formGroup]="orderForm">
-      <mat-form-field>
-        <mat-label>Order Number</mat-label>
-        <input matInput formControlName="orderNumber"/>
-      </mat-form-field>
+    <form [formGroup]="orderForm" class="displayed-form">
 
-      <mat-form-field>
-        <mat-label>Supplier</mat-label>
-        <mat-select formControlName="supplierId">
-          <mat-option *ngFor="let supplier of suppliers" [value]="supplier.supplierId">
-            {{ supplier.supplierName }}
-          </mat-option>
-          <mat-option (click)="openAddSupplierDialog()" class="add-new-country">
-            <span>Add New Supplier</span>
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Order Number</mat-label>
+          <input matInput formControlName="orderNumber"/>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Supplier</mat-label>
+          <mat-select formControlName="supplierId">
+            <mat-option *ngFor="let supplier of suppliers" [value]="supplier.supplierId">
+              {{ supplier.supplierName }}
+            </mat-option>
+            <mat-option (click)="openAddSupplierDialog()" class="add-new-country">
+              <span class="add-option">+ Add Supplier</span>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Store</mat-label>
+          <mat-select formControlName="storeId">
+            <mat-option *ngFor="let store of stores" [value]="store.storeId">
+              {{ store.storeName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field>
-        <mat-label>Store</mat-label>
-        <mat-select formControlName="storeId">
-          <mat-option *ngFor="let store of stores" [value]="store.storeId">
-            {{ store.storeName }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Employee</mat-label>
+          <mat-select formControlName="employeeId">
+            <mat-option *ngFor="let employee of employees" [value]="employee.employeeId">
+              {{ employee.username }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Expected Delivery Date</mat-label>
+          <input matInput [matDatepicker]="expectedDeliveryDatePicker" formControlName="expectedDeliveryDate"/>
+          <mat-datepicker-toggle matSuffix [for]="expectedDeliveryDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #expectedDeliveryDatePicker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Time Placed</mat-label>
+          <input matInput [matDatepicker]="timePlacedPicker" formControlName="timePlaced"/>
+          <mat-datepicker-toggle matSuffix [for]="timePlacedPicker"></mat-datepicker-toggle>
+          <mat-datepicker #timePlacedPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field>
-        <mat-label>Employee</mat-label>
-        <mat-select formControlName="employeeId">
-          <mat-option *ngFor="let employee of employees" [value]="employee.employeeId">
-            {{ employee.username }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Expected Delivery Date</mat-label>
-        <input matInput [matDatepicker]="expectedDeliveryDatePicker" formControlName="expectedDeliveryDate"/>
-        <mat-datepicker-toggle matSuffix [for]="expectedDeliveryDatePicker"></mat-datepicker-toggle>
-        <mat-datepicker #expectedDeliveryDatePicker></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Time Placed</mat-label>
-        <input matInput [matDatepicker]="timePlacedPicker" formControlName="timePlaced"/>
-        <mat-datepicker-toggle matSuffix [for]="timePlacedPicker"></mat-datepicker-toggle>
-        <mat-datepicker #timePlacedPicker></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Time Canceled</mat-label>
-        <input matInput [matDatepicker]="timeCanceledPicker" formControlName="timeCanceled"/>
-        <mat-datepicker-toggle matSuffix [for]="timeCanceledPicker"></mat-datepicker-toggle>
-        <mat-datepicker #timeCanceledPicker></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Time Delivered</mat-label>
-        <input matInput [matDatepicker]="timeDeliveredPicker" formControlName="timeDelivered"/>
-        <mat-datepicker-toggle matSuffix [for]="timeDeliveredPicker"></mat-datepicker-toggle>
-        <mat-datepicker #timeDeliveredPicker></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Order Price</mat-label>
-        <input matInput formControlName="orderPrice"/>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Time Canceled</mat-label>
+          <input matInput [matDatepicker]="timeCanceledPicker" formControlName="timeCanceled"/>
+          <mat-datepicker-toggle matSuffix [for]="timeCanceledPicker"></mat-datepicker-toggle>
+          <mat-datepicker #timeCanceledPicker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Time Delivered</mat-label>
+          <input matInput [matDatepicker]="timeDeliveredPicker" formControlName="timeDelivered"/>
+          <mat-datepicker-toggle matSuffix [for]="timeDeliveredPicker"></mat-datepicker-toggle>
+          <mat-datepicker #timeDeliveredPicker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Order Price</mat-label>
+          <input matInput formControlName="orderPrice"/>
+          <mat-hint class="input-hint">* Price can be updated after adding at least one order item</mat-hint>
+        </mat-form-field>
+      </div>
   
       <div class="buttons">
-        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
-        <button mat-raised-button (click)="goBack()">Cancel</button>
+        <button mat-flat-button class="save-btn btn" (click)="openConfirmationDialog()">Save</button>
+        <button mat-flat-button class="cancel-button btn" (click)="goBack()">Cancel</button>
       </div>
     </form>
   </mat-card-content>

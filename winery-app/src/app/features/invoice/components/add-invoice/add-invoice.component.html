@@ -1,59 +1,66 @@
-<mat-toolbar>
-  <span>New Invoice</span>
+<mat-toolbar class="custom-toolbar">
+  <span class="toolbar-title">New Invoice</span>
 </mat-toolbar>
 
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" class="displayed-form-card">
 
   <mat-card-content>
-    <form [formGroup]="invoiceForm">
-      <mat-form-field>
-        <mat-label>Invoice Number</mat-label>
-        <input matInput formControlName="invoiceNumber"/>
-      </mat-form-field>
+    <form [formGroup]="invoiceForm" class="displayed-form">
 
-      <mat-form-field>
-        <mat-label>Customer Order Number</mat-label>
-        <mat-select formControlName="customerOrderId">
-          <mat-option *ngFor="let customerOrder of customersOrder" [value]="customerOrder.customerOrderId">
-            {{ customerOrder.orderNumber }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      
-      <mat-form-field>
-        <mat-label>Customer</mat-label>
-        <mat-select formControlName="customerId">
-          <mat-option *ngFor="let customer of customers" [value]="customer.customerId">
-            {{ customer.username }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Store</mat-label>
-        <mat-select formControlName="storeId">
-          <mat-option *ngFor="let store of stores" [value]="store.storeId">
-            {{ store.storeName }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Invoice Number</mat-label>
+          <input matInput formControlName="invoiceNumber"/>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Customer Order Number</mat-label>
+          <mat-select formControlName="customerOrderId">
+            <mat-option *ngFor="let customerOrder of customersOrder" [value]="customerOrder.customerOrderId">
+              {{ customerOrder.orderNumber }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field">
+          <mat-label>Customer</mat-label>
+          <mat-select formControlName="customerId">
+            <mat-option *ngFor="let customer of customers" [value]="customer.customerId">
+              {{ customer.username }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field>
-        <mat-label>Employee</mat-label>
-        <mat-select formControlName="employeeId">
-          <mat-option *ngFor="let employee of employees" [value]="employee.employeeId">
-            {{ employee.username }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Invoice Price</mat-label>
-        <input matInput formControlName="invoiceTotal"/>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Store</mat-label>
+          <mat-select formControlName="storeId">
+            <mat-option *ngFor="let store of stores" [value]="store.storeId">
+              {{ store.storeName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Employee</mat-label>
+          <mat-select formControlName="employeeId">
+            <mat-option *ngFor="let employee of employees" [value]="employee.employeeId">
+              {{ employee.username }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Invoice Price</mat-label>
+          <input matInput formControlName="invoiceTotal"/>
+          <mat-hint class="input-hint">* Price can be updated after adding at least one invoice item</mat-hint>
+        </mat-form-field>
+      </div>
   
       <div class="buttons">
-        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
-        <button mat-raised-button (click)="goBack()">Cancel</button>
+        <button mat-flat-button class="save-btn btn" (click)="openConfirmationDialog()">Save</button>
+        <button mat-flat-button class="cancel-button btn" (click)="goBack()">Cancel</button>
       </div>
     </form>
   </mat-card-content>

@@ -1,15 +1,14 @@
-<div>
-  <button mat-stroked-button [routerLink]="['/dashboard/bottle']"><mat-icon>arrow_back</mat-icon></button>
-</div>
-
-<mat-toolbar>
-  <span>Bottle Details</span>
+<mat-toolbar class="custom-toolbar">
+  <div class="toolbar-title">
+    <button mat-icon-button [routerLink]="['/dashboard/bottle']"><mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <span>Bottle Details</span>
+  </div>
 </mat-toolbar>
 
-
-<div class="table-container">
+<div>
   <mat-card-content *ngIf="bottles">
-    <table mat-table [dataSource]="[bottles]" class="mat-elevation-z8">
+    <table mat-table [dataSource]="[bottles]" class="mat-elevation-z8 custom-table">
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -60,13 +59,13 @@
     
       <ng-container matColumnDef="current_price">
         <th mat-header-cell *matHeaderCellDef> Price </th>
-        <td mat-cell *matCellDef="let bottle">$ {{bottle.currentPrice}} </td>
+        <td mat-cell *matCellDef="let bottle">{{bottle.currentPrice ? (bottle.currentPrice | currency:'USD':'symbol':'1.2-2') : '-'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let bottle">
-          <button mat-stroked-button [routerLink]="['/updateBottle', bottle.bottleId]">Update</button>
+          <button mat-flat-button class="accent-btn" [routerLink]="['/updateBottle', bottle.bottleId]">Edit</button>
         </td>
       </ng-container>
     
